@@ -1,4 +1,63 @@
-.App {
-  background-color: red;
-  font-size: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root {
+  --clr-prm: #7bafaa;
+  --clr-prm-lt-1: #ecf2e7;
+  --clr-prm-lt-2: #e4efe1;
+  --clr-prm-dr-1: #65a3a2;
+
+  --clr-prm-lk: #c4a173;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: linear-gradient(
+    to left,
+    var(--clr-prm-lt-1),
+    var(--clr-prm-lt-2)
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+@mixin respond($breakpoint) {
+  * {
+    transition: all 0.7s;
+  }
+  @if $breakpoint == sm {
+    @media only screen and (min-width: 476px) {
+      @content;
+    }
+  }
+  @if $breakpoint ==smx {
+    @media screen and (max-width: 476px) {
+    }
+  }
+  @if $breakpoint == md {
+    @media only screen and (min-width: 900px) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media only screen and (min-width: 1100px) {
+      @content;
+    }
+  }
 }
