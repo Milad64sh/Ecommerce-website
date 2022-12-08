@@ -6,11 +6,10 @@
   width: 100%;
   height: 60vh;
   color: #fff;
-  background-color: var(--clr-prm-dr-1);
   background-repeat: no-repeat;
   background-size: cover;
   @include respond(sm) {
-    background-image: linear-gradient(rgba(#65a3a2, 0.9), rgba(#65a3a2, 0.9));
+    background-image: linear-gradient(rgba(#cae1d7, 0.9), rgba(#cae1d7, 0.9));
   }
   @include respond(md) {
     background-image: linear-gradient(rgba(#65a3a2, 0.5), rgba(#65a3a2, 0.5)),
@@ -23,12 +22,80 @@
     font-weight: 200;
     @include respond(sm) {
       font-size: 4rem;
+      color: var(--clr-prm-dr-1);
+      animation: moveInRight20 2s ease-in-out;
     }
     @include respond(md) {
       font-size: 7rem;
+      color: #fff;
+      animation: moveInRight20 2s ease-in-out;
     }
     @include respond(lg) {
       font-size: 9rem;
+      animation: moveInRight50 2s ease-in-out;
+    }
+  }
+  &--btn {
+    padding: 1rem 2rem;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    cursor: pointer;
+    &:hover {
+      background-color: lighten(#65a3a2, 20%);
+    }
+    animation: moveBtn 0.5s ease 2s;
+    animation-fill-mode: backwards;
+  }
+}
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 2rem;
+  width: 100%;
+  animation: moveBtn 0.5s ease-out 3s;
+  animation-fill-mode: backwards;
+  &__frm {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    position: relative;
+    &--ipt {
+      width: 95%;
+      font-family: inherit;
+      font-size: 1.5rem;
+      padding: 1.5rem 2rem;
+      border: none;
+      margin-right: -3rem;
+      margin-left: -3rem;
+
+      &:focus {
+        width: 100%;
+        outline: none;
+        padding-top: 1.25rem;
+      }
+    }
+    &--icn {
+      font-size: 2.5rem;
+      position: absolute;
+      color: var(--clr-prm-dr-1);
+      top: 1rem;
+      right: 3.5rem;
+      @include respond(sm) {
+        right: 2rem;
+      }
+      @include respond(md) {
+        right: 2.5rem;
+      }
+      @include respond(lg) {
+        right: 3.5rem;
+      }
     }
   }
 }
