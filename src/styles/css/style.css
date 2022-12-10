@@ -29,7 +29,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-image: linear-gradient(to left, var(--clr-prm-lt-1), var(--clr-prm-lt-2));
+  background-image: linear-gradient(to left, var(--clr-prm-lgt-1), var(--clr-prm-lgt-2));
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -252,6 +252,11 @@ body {
   justify-content: center;
   font-size: 1.5rem;
   transition: all 0.3s ease;
+  cursor: pointer;
+}
+.nav__mnu .lst--itm a {
+  color: #000;
+  text-decoration: none;
 }
 .nav__mnu .lst--itm:hover {
   background-color: var(--clr-prm-lgt-2);
@@ -275,6 +280,30 @@ body {
   background-color: var(--clr-prm-lgt-1);
 }
 
+.lstdd {
+  width: 24rem;
+  position: absolute;
+  top: 10rem;
+  list-style-type: none;
+  text-align: start;
+  background-color: #fff;
+}
+.lstdd--itm {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}
+.lstdd--itm:hover {
+  background-color: var(--clr-prm-lgt-1);
+}
+.lstdd--itm a {
+  color: #000;
+  text-decoration: none;
+}
+
+.close {
+  display: none;
+}
+
 .home {
   display: flex;
   align-items: center;
@@ -282,8 +311,7 @@ body {
   width: 100%;
 }
 
-.header {
-  height: 10rem;
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
