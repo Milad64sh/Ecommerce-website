@@ -1,6 +1,17 @@
+// HERO
 .home {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+// NAVBAR
+.header {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #fff;
 }

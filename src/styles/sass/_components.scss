@@ -99,3 +99,72 @@
     }
   }
 }
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__lgo {
+    display: flex;
+    flex: 0 0 10%;
+    font-size: 2.5rem;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-logo);
+    flex-grow: 1;
+    height: 10rem;
+    .lgo-lt-1 {
+      position: absolute;
+      top: 2.3rem;
+      left: 5.3rem;
+    }
+    .lgo-lt-2 {
+      position: absolute;
+      top: 3rem;
+      left: 6rem;
+    }
+    .lgo-lt-3 {
+      position: absolute;
+      top: 3.5rem;
+      left: 7rem;
+    }
+  }
+  &__mnu {
+    flex: 0 0 70%;
+    .lst {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      &--itm {
+        height: 10rem;
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: var(--clr-prm-lgt-2);
+        }
+      }
+    }
+  }
+  &__usr {
+    flex: 0 0 10%;
+    display: flex;
+    justify-content: space-around;
+    &--icn {
+      height: 10rem;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+      font-size: 2.5rem;
+      transition: all 0.3s ease;
+      color: var(--clr-logo);
+      &:hover {
+        background-color: var(--clr-prm-lgt-1);
+      }
+    }
+  }
+}

@@ -1,15 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 :root {
   --clr-prm: #7bafaa;
-  --clr-prm-lt-1: #ecf2e7;
-  --clr-prm-lt-2: #e4efe1;
+  --clr-prm-lgt-1: #ecf2e7;
+  --clr-prm-lgt-2: #e4efe1;
   --clr-prm-dr-1: #65a3a2;
-  --clr-prm-lk: #c4a173;
+  --clr-logo: #c4a173;
 }
 
 * {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 *,
@@ -204,11 +205,90 @@ body {
   }
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav__lgo {
+  display: flex;
+  flex: 0 0 10%;
+  font-size: 2.5rem;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-logo);
+  flex-grow: 1;
+  height: 10rem;
+}
+.nav__lgo .lgo-lt-1 {
+  position: absolute;
+  top: 2.3rem;
+  left: 5.3rem;
+}
+.nav__lgo .lgo-lt-2 {
+  position: absolute;
+  top: 3rem;
+  left: 6rem;
+}
+.nav__lgo .lgo-lt-3 {
+  position: absolute;
+  top: 3.5rem;
+  left: 7rem;
+}
+.nav__mnu {
+  flex: 0 0 70%;
+}
+.nav__mnu .lst {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav__mnu .lst--itm {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+.nav__mnu .lst--itm:hover {
+  background-color: var(--clr-prm-lgt-2);
+}
+.nav__usr {
+  flex: 0 0 10%;
+  display: flex;
+  justify-content: space-around;
+}
+.nav__usr--icn {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+  color: var(--clr-logo);
+}
+.nav__usr--icn:hover {
+  background-color: var(--clr-prm-lgt-1);
+}
+
 .home {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.header {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,15 +2,16 @@
 
 :root {
   --clr-prm: #7bafaa;
-  --clr-prm-lt-1: #ecf2e7;
-  --clr-prm-lt-2: #e4efe1;
+  --clr-prm-lgt-1: #ecf2e7;
+  --clr-prm-lgt-2: #e4efe1;
   --clr-prm-dr-1: #65a3a2;
 
-  --clr-prm-lk: #c4a173;
+  --clr-logo: #c4a173;
 }
 * {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 *,
 ::after,
