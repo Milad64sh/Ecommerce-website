@@ -48,8 +48,9 @@ body {
       @content;
     }
   }
-  @if $breakpoint ==smx {
-    @media screen and (max-width: 476px) {
+  @if $breakpoint == smx {
+    @media screen and (max-width: 760px) {
+      @content;
     }
   }
   @if $breakpoint == md {

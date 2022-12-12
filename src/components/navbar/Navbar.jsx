@@ -6,8 +6,8 @@ import WomenDropdown from './WomenDropdown';
 import MenDropdown from './MenDropdown';
 import { useState } from 'react';
 import {
-  MdOutlineKeyboardArrowUp,
-  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowRight,
+  MdOutlineKeyboardArrowLeft,
 } from 'react-icons/md';
 function Navbar() {
   const [showWomenDropdown, setShowWomenDropdown] = useState(false);
@@ -16,6 +16,9 @@ function Navbar() {
   return (
     <>
       <nav className='nav'>
+        <div className='navIcn'>
+          <span className='navIcn--btn'>&nbsp;</span>
+        </div>
         <Link to={'/'} className='nav__lgo'>
           <div className='lgo-lt-1'>E</div>
           <div className='lgo-lt-2'>D</div>
@@ -34,6 +37,11 @@ function Navbar() {
                   >
                     <Link to={item.path}>{item.title}</Link>
                     {showWomenDropdown && <WomenDropdown />}
+                    {showWomenDropdown ? (
+                      <MdOutlineKeyboardArrowLeft className='lst--itm--arr' />
+                    ) : (
+                      <MdOutlineKeyboardArrowRight className='lst--itm--arr' />
+                    )}
                   </li>
                 );
               }
@@ -47,6 +55,11 @@ function Navbar() {
                   >
                     <Link to={item.path}>{item.title}</Link>
                     {showMenDropdown && <MenDropdown />}
+                    {showMenDropdown ? (
+                      <MdOutlineKeyboardArrowLeft className='lst--itm--arr' />
+                    ) : (
+                      <MdOutlineKeyboardArrowRight className='lst--itm--arr' />
+                    )}
                   </li>
                 );
               }
