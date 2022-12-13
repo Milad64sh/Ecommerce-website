@@ -12,19 +12,24 @@ import {
 function Navbar() {
   const [showWomenDropdown, setShowWomenDropdown] = useState(false);
   const [showMenDropdown, setShowMenDropdown] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const toggleMenu = () => setOpenMenu(!openMenu);
 
   return (
     <>
       <nav className='nav'>
-        <div className='navIcn'>
+        <div className={`navIcn ${openMenu && 'clicked'}`} onClick={toggleMenu}>
           <span className='navIcn--btn'>&nbsp;</span>
         </div>
         <Link to={'/'} className='nav__lgo'>
-          <div className='lgo-lt-1'>E</div>
-          <div className='lgo-lt-2'>D</div>
-          <div className='lgo-lt-3'>O</div>
+          <div className='nav__lgo__lts'>
+            <div className='lgo-lt-1'>E</div>
+            <div className='lgo-lt-2'>D</div>
+            <div className='lgo-lt-3'>O</div>
+          </div>
         </Link>
-        <div className='nav__mnu'>
+        <div className={`nav__mnu ${openMenu && 'open'}`}>
           <ul className='lst'>
             {navItems.map((item) => {
               if (item.title === 'women') {

@@ -205,21 +205,18 @@ body {
   }
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .nav__lgo {
   display: flex;
   flex: 0 0 10%;
   font-size: 2.5rem;
   position: relative;
   align-items: center;
-  justify-content: center;
   color: var(--clr-logo);
-  flex-grow: 1;
+  flex: 1;
   height: 10rem;
+}
+.nav__lgo__lts {
+  justify-content: flex-start;
 }
 .nav__lgo * {
   transition: all 0.7s;
@@ -247,7 +244,7 @@ body {
   left: 7.2rem;
 }
 .nav__mnu {
-  flex: 0 0 70%;
+  flex: 0 0 60%;
 }
 .nav__mnu .lst {
   display: flex;
@@ -278,14 +275,16 @@ body {
 }
 @media screen and (max-width: 760px) {
   .nav__mnu {
-    width: 100%;
     position: absolute;
     z-index: 1000;
+    right: 0;
+    left: -100%;
+    width: 100%;
     top: 10rem;
-    background-color: #fff;
   }
   .nav__mnu .lst {
-    width: 100%;
+    background-color: #fff;
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -307,9 +306,24 @@ body {
   }
 }
 .nav__usr {
-  flex: 0 0 10%;
   display: flex;
   justify-content: space-around;
+}
+.nav__usr * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 476px) {
+  .nav__usr {
+    flex: 0 0 20%;
+  }
+}
+.nav__usr * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 1100px) {
+  .nav__usr {
+    flex: 0 0 10%;
+  }
 }
 .nav__usr--icn {
   height: 10rem;
@@ -326,9 +340,10 @@ body {
 }
 
 .lstdd {
-  width: 24rem;
   position: absolute;
   top: 10rem;
+  width: 100vw;
+  right: 0;
   list-style-type: none;
   text-align: start;
   background-color: #fff;
@@ -336,6 +351,8 @@ body {
 .lstdd--itm {
   font-size: 1.5rem;
   height: 4rem;
+  padding: 1rem 2rem 1rem 1rem;
+  width: 100%;
 }
 .lstdd--itm:hover {
   background-color: var(--clr-prm-lgt-1);
@@ -357,6 +374,10 @@ body {
   }
   .lstdd--itm {
     padding: 1rem 2rem 1rem 1rem;
+    transition: all 0.1s ease;
+  }
+  .lstdd--itm:hover {
+    border-left: 5px solid var(--clr-prm-dr-1);
   }
 }
 * {
@@ -369,16 +390,11 @@ body {
     align-items: center;
     justify-content: flex-start;
     flex: 0 0 5%;
+    flex: 1;
     padding-left: 2rem;
     height: 10rem;
     cursor: pointer;
     transition: all 0.3s ease;
-  }
-  .navIcn:hover .navIcn--btn::before {
-    top: -1rem;
-  }
-  .navIcn:hover .navIcn--btn::after {
-    top: 1rem;
   }
   .navIcn--btn {
     position: relative;
@@ -414,8 +430,9 @@ body {
     transform: rotate(-45deg);
   }
 }
-.close {
-  display: none;
+.open {
+  top: 10rem;
+  left: 0;
 }
 
 .home {
@@ -426,6 +443,7 @@ body {
 }
 
 .nav {
+  height: 10rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
