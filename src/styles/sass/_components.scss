@@ -1,3 +1,4 @@
+// HEADER //
 .hro {
   display: flex;
   align-items: center;
@@ -99,6 +100,8 @@
     }
   }
 }
+
+//  NAVBAR //
 .nav {
   &__lgo {
     display: flex;
@@ -311,4 +314,41 @@
 .open {
   top: 10rem;
   left: 0;
+}
+
+// TITLES //
+.hdng-2 {
+  font-size: 3rem;
+  text-transform: capitalize;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+.hdng-3 {
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 1.5rem;
+  @include respond(sm) {
+    font-size: 1.5rem;
+  }
+}
+
+// CARD //
+
+.sm-crd {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 60%;
+  margin: 0 0.15rem;
+  &--img {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 80%;
+    }
+  }
 }

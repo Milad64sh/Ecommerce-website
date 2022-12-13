@@ -1,5 +1,6 @@
 import Navbar from '../components/navbar/Navbar';
 import { CiSearch } from 'react-icons/ci';
+import SmallCard from '../components/card/SmallCard';
 
 function Home() {
   return (
@@ -22,6 +23,18 @@ function Home() {
             </form>
           </div>
         </div>
+        <main>
+          <section className='sctn-prds'>
+            <h2 className='hdng-2'>summer gifts</h2>
+            <h3 className='hdng-3'>
+              Give the gift of smoothing, protecting and hydrating faves
+            </h3>
+            <div className='sld'>
+              <SmallCard />
+              <SmallCard />
+            </div>
+          </section>
+        </main>
       </div>
     </>
   );

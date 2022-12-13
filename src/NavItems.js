@@ -7,7 +7,7 @@ export const navItems = [
   {
     id: 2,
     title: 'women',
-    path: './',
+    path: '/women',
   },
   {
     id: 3,
