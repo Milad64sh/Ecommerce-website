@@ -2,6 +2,13 @@ import Navbar from '../components/navbar/Navbar';
 import { CiSearch } from 'react-icons/ci';
 import SmallCard from '../components/card/SmallCard';
 
+import { EffectFade } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import SwiperCore, { Navigation } from 'swiper';
+
+SwiperCore.use([Navigation, EffectFade]);
 function Home() {
   return (
     <>
@@ -23,15 +30,27 @@ function Home() {
             </form>
           </div>
         </div>
+        <div className='hdng'>
+          <h2 className='hdng-2'>summer gifts</h2>
+          <h3 className='hdng-3'>
+            Give the gift of smoothing, protecting and hydrating faves
+          </h3>
+        </div>
         <main>
           <section className='sctn-prds'>
-            <h2 className='hdng-2'>summer gifts</h2>
-            <h3 className='hdng-3'>
-              Give the gift of smoothing, protecting and hydrating faves
-            </h3>
             <div className='sld'>
-              <SmallCard />
-              <SmallCard />
+              <Swiper
+                modules={[Navigation, EffectFade]}
+                navigation={true}
+                effect
+                speed={800}
+                slidesPerView={1}
+                loop
+              >
+                <SwiperSlide>
+                  <SmallCard />
+                </SwiperSlide>
+              </Swiper>
             </div>
           </section>
         </main>

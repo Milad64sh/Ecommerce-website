@@ -319,8 +319,11 @@
 // TITLES //
 .hdng-2 {
   font-size: 3rem;
-  text-transform: capitalize;
+  text-transform: uppercase;
   padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  letter-spacing: 5px;
+  color: var(--clr-prm-dr-1);
   text-align: center;
 }
 .hdng-3 {
@@ -335,6 +338,7 @@
 // CARD //
 
 .sm-crd {
+  position: relative;
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -343,12 +347,98 @@
   width: 100%;
   height: 60%;
   margin: 0 0.15rem;
-  &--img {
+  transition: all 0.3s ease;
+  &--btn {
+    display: flex;
     width: 100%;
     height: 100%;
+    align-items: center;
+    justify-content: center;
+    &--d {
+      cursor: pointer;
+      position: absolute;
+      z-index: 1000;
+      top: 40%;
+      border: none;
+      padding: 1rem 2rem;
+      background-color: rgba(#65a3a2, 0.8);
+      font-family: inherit;
+      font-size: 1.5rem;
+      color: #fff;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      transition: all 0.1s;
+      &:hover {
+        z-index: 1500;
+        background-color: var(--clr-prm-dr-1);
+        transform: scale(1.1);
+      }
+    }
+  }
+  &--img {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    position: relative;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: rgba(#fff, 0.5);
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+      opacity: 0;
+    }
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &:hover {
+      z-index: 500;
+    }
     img {
       width: 100%;
-      height: 80%;
+      height: 100%;
+      display: block;
+    }
+  }
+  &--dtls {
+    flex-grow: 1;
+    padding-top: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fff;
+    &--h4 {
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      padding-bottom: 0.5rem;
+    }
+    &--p {
+      font-size: 1.5rem;
+      padding-bottom: 0.5rem;
+    }
+    &--btn {
+      padding: 1rem 2rem;
+      font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 0;
+      border: 1px solid var(--clr-prm-dr-1);
+      color: var(--clr-prm-dr-1);
+      margin-bottom: 1rem;
+      width: 90%;
+      background-color: transparent;
+      cursor: pointer;
+      &:hover {
+        background-color: lighten(#65a3a2, 20%);
+        color: #fff;
+        border: lighten(#65a3a2, 20%);
+      }
     }
   }
 }
