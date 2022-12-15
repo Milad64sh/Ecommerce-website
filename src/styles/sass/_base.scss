@@ -2,6 +2,7 @@
 
 :root {
   --clr-prm: #7bafaa;
+  --clr-prm-thm: #ed8dcd;
   --clr-prm-lgt-1: #ecf2e7;
   --clr-prm-lgt-2: #e4efe1;
   --clr-prm-dr-1: #65a3a2;
@@ -36,6 +37,33 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
+}
+
+// BUTTONS
+.btn {
+  padding: 1rem 2rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 0;
+  border: 1px solid var(--clr-prm-dr-1);
+  color: var(--clr-prm-dr-1);
+  margin-bottom: 1rem;
+  width: 90%;
+  background-color: transparent;
+  cursor: pointer;
+  &:hover {
+    background-color: lighten(#65a3a2, 20%);
+    color: #fff;
+    border: 1px solid var(--clr-prm-thm);
+  }
+}
+.sllr-btn {
+  border: 2px solid var(--clr-prm-thm);
+  &:hover {
+    background-color: var(--clr-prm-thm);
+    border: 1px solid var(--clr-prm-thm);
+  }
 }
 
 // RESPONSIVENESS

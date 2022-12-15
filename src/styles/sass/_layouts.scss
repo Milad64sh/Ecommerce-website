@@ -22,17 +22,24 @@
   width: 100%;
   border-bottom: 1px solid var(--clr-prm);
 }
-.sctn-prds {
+.sctn {
+  position: relative;
   display: flex;
-  width: 100vw;
+  width: 100%;
+  height: 90%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+.sctn-sld {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(#7bafaa, 0.9), rgba(#ed8dcd, 0.9));
+}
 .sld {
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 100vh;
-  margin: 1rem auto;
+  width: 70%;
+  height: 100%;
+  margin: 7rem auto;
 }

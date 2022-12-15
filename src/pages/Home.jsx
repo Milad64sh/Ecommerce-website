@@ -1,14 +1,9 @@
 import Navbar from '../components/navbar/Navbar';
 import { CiSearch } from 'react-icons/ci';
-import SmallCard from '../components/card/SmallCard';
+import SmallCart from '../components/cart/SmallCart';
+import { Link } from 'react-router-dom';
+import BestSeller from '../components/BestSeller';
 
-import { EffectFade } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import SwiperCore, { Navigation } from 'swiper';
-
-SwiperCore.use([Navigation, EffectFade]);
 function Home() {
   return (
     <>
@@ -31,27 +26,25 @@ function Home() {
           </div>
         </div>
         <div className='hdng'>
-          <h2 className='hdng-2'>summer gifts</h2>
+          <h2 className='hdng-2'>our products</h2>
           <h3 className='hdng-3'>
-            Give the gift of smoothing, protecting and hydrating faves
+            we select from best brands in the world their best products
           </h3>
         </div>
         <main>
-          <section className='sctn-prds'>
-            <div className='sld'>
-              <Swiper
-                modules={[Navigation, EffectFade]}
-                navigation={true}
-                effect
-                speed={800}
-                slidesPerView={1}
-                loop
-              >
-                <SwiperSlide>
-                  <SmallCard />
-                </SwiperSlide>
-              </Swiper>
+          <section className='sctn'>
+            <div className='sctn-sld'>
+              <div className='sld'>
+                <SmallCart />
+                <SmallCart />
+                <SmallCart />
+                <SmallCart />
+                <SmallCart />
+              </div>
             </div>
+          </section>
+          <section className='sctn'>
+            <BestSeller />
           </section>
         </main>
       </div>
