@@ -30,16 +30,16 @@ function Home() {
       <main>
         <section className='sctn'>
           <div className='hdng'>
-            <h2 className='hdng-2'>our products</h2>
-            <h3 className='hdng-3'>
+            <h2 className='allp-h2 hdng-2'>our products</h2>
+            <h3 className='allp-h3 hdng-3'>
               we select from best brands in the world their best products
             </h3>
           </div>
           <div className='sld'>
             <SmallCart />
+            {/* <SmallCart />
             <SmallCart />
-            <SmallCart />
-            <SmallCart />
+            <SmallCart /> */}
           </div>
         </section>
         <section className='sctn'>

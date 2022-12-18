@@ -58,7 +58,7 @@ body {
   background-color: transparent;
   cursor: pointer;
   &:hover {
-    background-color: lighten(#65a3a2, 20%);
+    background-color: var(--clr-prm-dr-1);
     color: #fff;
     border: 1px solid var(--clr-prm-dr-1);
   }
@@ -69,16 +69,26 @@ body {
   font-weight: bold;
 
   &:hover {
-    background-color: var(--clr-prm-thm);
-    border: 2px solid var(--clr-prm-thm);
+    border: 2px solid var(--clr-prm-thm-1);
+    box-shadow: 0 0 15px var(--clr-prm-thm-1);
+    color: lighten(#f5ea77, 20%);
+    background-color: transparent;
   }
 }
 .sale-btn {
   width: 80%;
   position: relative;
-  background-color: var(--clr-prm-dr-1);
+  font-weight: 700;
+  background-color: transparent;
+  border: 1px solid darken(#ffe7cd, 20%);
   z-index: 1500;
-  color: #fff;
+  color: darken(#ffe7cd, 30%);
+  &:hover {
+    border: 1px solid lighten(#ffe7cd, 20%);
+    box-shadow: 0 0 15px lighten(#ffe7cd, 20%);
+    background-color: darken(#ffe7cd, 20%);
+    color: lighten(#ffe7cd, 30%);
+  }
 }
 
 // RESPONSIVENESS

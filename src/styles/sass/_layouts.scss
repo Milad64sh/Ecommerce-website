@@ -19,12 +19,12 @@
 // HEADINGS
 .hdng {
   display: block;
-  width: 100%;
+  // width: 100%;
 }
 .hdng-2 {
   font-size: 3rem;
   text-transform: uppercase;
-  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
   padding-top: 1.5rem;
   letter-spacing: 5px;
   font-weight: 400;
@@ -40,8 +40,12 @@
     font-size: 1.5rem;
   }
 }
+.allp-h2 {
+  border-bottom: 3px solid var(--clr-prm-thm-1);
+}
 .sle {
   background-color: var(--clr-prm-thm-2);
+  width: 100%;
 }
 // SECTION
 .sctn {
