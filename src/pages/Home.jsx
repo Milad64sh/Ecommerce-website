@@ -1,8 +1,9 @@
 import Navbar from '../components/navbar/Navbar';
 import { CiSearch } from 'react-icons/ci';
 import SmallCart from '../components/cart/SmallCart';
-import { Link } from 'react-router-dom';
 import BestSeller from '../components/BestSeller';
+import Sale from '../components/Sale';
+import Footer from '../components/Footer';
 
 function Home() {
   return (
@@ -25,29 +26,42 @@ function Home() {
             </form>
           </div>
         </div>
-        <div className='hdng'>
-          <h2 className='hdng-2'>our products</h2>
-          <h3 className='hdng-3'>
-            we select from best brands in the world their best products
-          </h3>
-        </div>
-        <main>
-          <section className='sctn'>
-            <div className='sctn-sld'>
-              <div className='sld'>
-                <SmallCart />
-                <SmallCart />
-                <SmallCart />
-                <SmallCart />
-                <SmallCart />
-              </div>
-            </div>
-          </section>
-          <section className='sctn'>
-            <BestSeller />
-          </section>
-        </main>
       </div>
+      <main>
+        <section className='sctn'>
+          <div className='hdng'>
+            <h2 className='hdng-2'>our products</h2>
+            <h3 className='hdng-3'>
+              we select from best brands in the world their best products
+            </h3>
+          </div>
+          <div className='sld'>
+            <SmallCart />
+            <SmallCart />
+            <SmallCart />
+            <SmallCart />
+          </div>
+        </section>
+        <section className='sctn'>
+          <div className='sctn-bst-sllr'>
+            <BestSeller />
+          </div>
+        </section>
+        <section className='sctn'>
+          <div className='sle hdng'>
+            <h2 className=' hdng-2'>sale</h2>
+            <h3 className='hdng-3'>check our exclusive offers</h3>
+          </div>
+          <div className='sctn-sale'>
+            <Sale />
+          </div>
+        </section>
+        <section className='sctn'>
+          <div className='sctn-footer'>
+            <Footer />
+          </div>
+        </section>
+      </main>
     </>
   );
 }

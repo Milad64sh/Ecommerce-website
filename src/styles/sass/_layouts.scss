@@ -16,12 +16,34 @@
   flex-direction: row;
   background-color: #fff;
 }
+// HEADINGS
 .hdng {
   display: block;
-  background-color: #fff;
   width: 100%;
-  border-bottom: 1px solid var(--clr-prm);
 }
+.hdng-2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  letter-spacing: 5px;
+  font-weight: 400;
+  color: var(--clr-prm-dr-1);
+  text-align: center;
+}
+.hdng-3 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  padding-bottom: 1.5rem;
+  @include respond(sm) {
+    font-size: 1.5rem;
+  }
+}
+.sle {
+  background-color: var(--clr-prm-thm-2);
+}
+// SECTION
 .sctn {
   position: relative;
   display: flex;
@@ -31,15 +53,28 @@
   justify-content: center;
   flex-direction: column;
 }
-.sctn-sld {
+
+.sctn-bst-sllr {
   width: 100%;
   height: 100%;
   background-image: linear-gradient(rgba(#7bafaa, 0.9), rgba(#ed8dcd, 0.9));
 }
+.sctn-sale {
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-prm-thm-2);
+}
+.sctn-footer {
+  width: 100%;
+  height: 100%;
+  background-color: darken(#65a3a2, 25%);
+}
+// SLIDE
 .sld {
   display: flex;
   justify-content: center;
-  width: 70%;
+  align-items: center;
+  width: 80%;
   height: 100%;
   margin: 7rem auto;
 }

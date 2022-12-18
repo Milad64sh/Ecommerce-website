@@ -3,6 +3,9 @@
 :root {
   --clr-prm: #7bafaa;
   --clr-prm-thm: #ed8dcd;
+  --clr-prm-thm-1: #f5ea77;
+  --clr-prm-thm-2: #ffe7cd;
+
   --clr-prm-lgt-1: #ecf2e7;
   --clr-prm-lgt-2: #e4efe1;
   --clr-prm-dr-1: #65a3a2;
@@ -41,6 +44,8 @@ body {
 
 // BUTTONS
 .btn {
+  position: relative;
+  z-index: 1000;
   padding: 1rem 2rem;
   font-family: inherit;
   text-transform: uppercase;
@@ -55,15 +60,25 @@ body {
   &:hover {
     background-color: lighten(#65a3a2, 20%);
     color: #fff;
-    border: 1px solid var(--clr-prm-thm);
+    border: 1px solid var(--clr-prm-dr-1);
   }
 }
 .sllr-btn {
-  border: 2px solid var(--clr-prm-thm);
+  border: 2px solid var(--clr-prm-thm-1);
+  color: var(--clr-prm-thm-1);
+  font-weight: bold;
+
   &:hover {
     background-color: var(--clr-prm-thm);
-    border: 1px solid var(--clr-prm-thm);
+    border: 2px solid var(--clr-prm-thm);
   }
+}
+.sale-btn {
+  width: 80%;
+  position: relative;
+  background-color: var(--clr-prm-dr-1);
+  z-index: 1500;
+  color: #fff;
 }
 
 // RESPONSIVENESS

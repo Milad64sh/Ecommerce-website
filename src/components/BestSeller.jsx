@@ -6,9 +6,12 @@ function BestSeller() {
     <div className='bst-sllr'>
       <div className='bst-sllr--cnt'>
         <div className='bst-sllr--cnt--hdngs'>
-          <h2 className=' hdng-2'>best seller</h2>
+          <h2 className='bst-sllr-h2 hdng-2'>best seller</h2>
           <h3 className='hdng-3'>
-            Give the gift of choice this season! From body to skincare.
+            Give the gift of choice this season! From body to skincare. We are a
+            clean, cruelty-free, planet-friendly skincare brand that delivers
+            transformative, dermatologist-tested products for total skin
+            happiness.
           </h3>
         </div>
         <div className='bst-sllr--cnt--btns'>
