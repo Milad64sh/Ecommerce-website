@@ -25,7 +25,7 @@ function Sale() {
           </Link>
         </button>
         <span className='bf'></span>
-        <button className='sale-btn btn'>add to cart</button>
+        <button className='sale-btn btn'>add to bag</button>
       </div>
     </div>
   );

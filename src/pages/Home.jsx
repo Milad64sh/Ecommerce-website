@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import Navbar from '../components/navbar/Navbar';
 import { CiSearch } from 'react-icons/ci';
-import SmallCart from '../components/cart/SmallCart';
+import Slide from '../components/cart/Slide';
 import BestSeller from '../components/BestSeller';
 import Sale from '../components/Sale';
 import Footer from '../components/Footer';
@@ -30,17 +31,15 @@ function Home() {
       <main>
         <section className='sctn'>
           <div className='hdng'>
-            <h2 className='allp-h2 hdng-2'>our products</h2>
+            <h2 className='allp-h2 hdng-2'>our gifting favorites</h2>
             <h3 className='allp-h3 hdng-3'>
-              we select from best brands in the world their best products
+              Give the gift of smoothing, hydrating, and glow-giving faves
             </h3>
           </div>
           <div className='sld'>
-            <SmallCart />
-            {/* <SmallCart />
-            <SmallCart />
-            <SmallCart /> */}
+            <Slide />
           </div>
+          <Link to={'/products'}>all products</Link>
         </section>
         <section className='sctn'>
           <div className='sctn-bst-sllr'>

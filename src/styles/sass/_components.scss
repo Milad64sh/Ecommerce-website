@@ -317,7 +317,7 @@
   left: 0;
 }
 
-// CARD //
+// GIFT SECTION //
 
 .sm-crd {
   position: relative;
@@ -413,6 +413,9 @@
     }
   }
 }
+
+// BEST SELLER SECTION
+
 .bst-sllr {
   display: flex;
   flex-direction: row;
@@ -496,6 +499,9 @@
     }
   }
 }
+
+// SALE SECTION
+
 .sale {
   display: flex;
   flex-direction: column;
@@ -547,6 +553,9 @@
     color: inherit;
   }
 }
+
+// FOOTER SECTION
+
 .ftr {
   display: flex;
   flex-direction: row;

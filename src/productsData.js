@@ -1,7 +1,8 @@
-export const products = [
+export const productsData = [
   {
     id: 1,
     bestSeller: false,
+    gift: false,
     title: 'Effaclar',
     quickInfo:
       'About Effaclar mat is for oily skin prone to imperfections and shine.',
@@ -22,6 +23,7 @@ export const products = [
   {
     id: 2,
     bestSeller: false,
+    gift: false,
     title: 'Anthelios',
     quickInfo:
       'Invisible fragrance-free 50ml pocket-size liquid sun cream from Anthelios La Roche Posay.',
@@ -39,6 +41,7 @@ export const products = [
   {
     id: 3,
     bestSeller: false,
+    gift: false,
     title: 'C E Feluric',
     quickInfo:
       'ydrating B5 is an oil-free moisturizer combined with vitamin B5',
@@ -59,6 +62,7 @@ export const products = [
   {
     id: 4,
     bestSeller: true,
+    gift: true,
     title: 'Triple Lipid Restore',
     quickInfo: 'A.G.E. Eye Complex is an anti-wrinkle eye cream.',
     info: 'A.G.E. Eye Complex is an anti-wrinkle eye cream that contains a combination of ingredients formulated to target the visible signs of ageing skin caused by Advanced Glycation End-products (A.G.E.)',
@@ -73,6 +77,7 @@ export const products = [
   {
     id: 5,
     bestSeller: false,
+    gift: false,
     title: 'skin perfecting',
     quickInfo:
       'ILightweight lotion softens and hydrates skin while diminishing blackheads and blemishes.',
@@ -90,6 +95,7 @@ export const products = [
   {
     id: 6,
     bestSeller: true,
+    gift: true,
     title: 'Anti-Age Prop-collagen',
     quickInfo:
       'Elemis, powerful Anti-Age Pro-Collagen Cleansing Balm cleanses the skin of make-up and daily impurities.',
@@ -107,6 +113,7 @@ export const products = [
   {
     id: 7,
     bestSeller: true,
+    gift: true,
     title: 'Hydrating Facial Cleanser',
     quickInfo: 'It is the perfect cream cleanser for just about everybody.',
     info: `Developed with dermatologists, cerave hydrating facial cleanser is a unique formula that cleanses, hydrates and helps the protective skin barrier with three essential ceramides (1, 3, 6-ii). The formula also contains hyaluronic acid to help the skin's natural moisture.`,
@@ -122,7 +129,8 @@ export const products = [
   },
   {
     id: 8,
-    bestSeller: false,
+    bestSeller: true,
+    gift: true,
     title: 'The Cream',
     quickInfo:
       'This product is formulated with the brands TFC8 complex, which aims to nourish and tackle virtually every major skin concern out there.',
@@ -140,6 +148,7 @@ export const products = [
   {
     id: 9,
     bestSeller: false,
+    gift: false,
     title: 'Ice Ceramide ',
     quickInfo:
       'Indulge the complexion and combat the various signs of ageing with the Sunday Riley Ice Ceramide Moisturizing Cream.',
@@ -147,6 +156,24 @@ export const products = [
     img: [`./assets/jpg/prdt-img/ice ceramide-sunday-riley.jpg`],
     company: `Sunday Riley`,
     productType: 'moisturiser',
+    price: 60,
+    sale: true,
+    discountPrice: 55,
+    inCart: false,
+    count: 0,
+    total: 0,
+  },
+  {
+    id: 10,
+    bestSeller: true,
+    gift: true,
+    title: 'Enzyme cleanser',
+    quickInfo:
+      'The Enzyme Cleanser is a two-in-one cleansing foam and exfoliator, particularly ideal for oily and combination skin.',
+    info: `The fine-grained powder transforms into a soft foam once water is added, providing a deep, yet gentle cleanse and exfoliation. A collection of enzymes works together to loosen the conjunctions between dead skin cells, helping to peel away dry and rough skin, remove makeup, and reduce excess sebum from pores. The skin will appear revitalized and smooth instantly after cleansing.`,
+    img: [`./assets/jpg/prdt-img/enzyme-cleanser-dr.barbara-sturm.jpg`],
+    company: `Dr. Barbara Sturm`,
+    productType: 'cleanser',
     price: 60,
     sale: true,
     discountPrice: 55,
