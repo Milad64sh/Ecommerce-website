@@ -1,8 +1,8 @@
 import { createContext, useState } from 'react';
 import { productsData } from './productsData';
 const ProductContext = createContext();
-export const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState([productsData]);
+export const ProductProvider = (props) => {
+  const [products, setProducts] = useState(productsData);
 
   const handleDetail = () => {
     console.log('hello from handle detail');
@@ -18,7 +18,7 @@ export const ProductProvider = ({ children }) => {
         addToBag,
       }}
     >
-      {children}
+      {props.children}
     </ProductContext.Provider>
   );
 };

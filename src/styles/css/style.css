@@ -1055,11 +1055,100 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  background-color: #faf5be;
+  justify-content: space-around;
   min-height: 100vh;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+}
+.prs * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 1100px) {
+  .prs {
+    justify-content: center;
+  }
+}
+
+.pr {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0.25rem;
+  background-color: #fff;
+  width: 70%;
+}
+.pr * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 476px) {
+  .pr {
+    flex: 0 0 70%;
+  }
+}
+.pr * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 900px) {
+  .pr {
+    flex: 0 0 30%;
+  }
+}
+.pr * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 1100px) {
+  .pr {
+    flex: 0 0 20%;
+  }
+}
+.pr--dtls {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 2rem;
+  width: 80%;
+}
+.pr--dtls--h3 {
+  font-size: 2rem;
+}
+.pr--dtls--p {
+  width: 70%;
+  text-align: center;
+  margin: 1rem 2rem;
+  font-size: 1.5rem;
+}
+.pr--imgCn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.pr--imgCn--lk {
+  text-align: center;
+}
+.pr--imgCn--img {
+  width: 80%;
+  cursor: pointer;
+  position: relative;
+}
+.pr--imgCn--img:hover {
+  transform: scale(1.1);
+}
+.pr--btn {
+  width: 70%;
+  padding: 2rem;
+  background-color: #faf5be;
+  border: none;
+  border-radius: 5px;
+  color: var(--clr-prm);
+  font-weight: bold;
+}
+.pr--btn:hover {
+  border: none;
+  background-color: var(--clr-prm-thm-1);
+  color: var(--clr-prm);
 }
 
 /*# sourceMappingURL=style.css.map */

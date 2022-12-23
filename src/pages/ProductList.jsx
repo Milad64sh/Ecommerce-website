@@ -6,14 +6,13 @@ import ProductContext from '../context';
 
 function ProductList() {
   const { products, handleDetail } = useContext(ProductContext);
-  console.log(products);
   return (
     <>
       <Navbar />
       <div className='prs'>
-        <div className='prs__pr'>
-          <Product />
-        </div>
+        {products.map((product) => {
+          return <Product key={product.id} product={product} />;
+        })}
       </div>
       <section className='sctn'>
         <div className='sctn-footer'>

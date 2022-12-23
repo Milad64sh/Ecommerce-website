@@ -318,7 +318,13 @@
 }
 
 // GIFT SECTION //
-
+.sld-swpr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 70%;
+}
 .sm-crd {
   position: relative;
   display: flex;
