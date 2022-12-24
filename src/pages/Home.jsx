@@ -7,17 +7,13 @@ import Slide from '../components/cart/Slide';
 import BestSeller from '../components/BestSeller';
 import Sale from '../components/Sale';
 import Footer from '../components/Footer';
-// SWIPER
-import { EffectFade } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import SwiperCore, { Navigation } from 'swiper';
-
-SwiperCore.use([Navigation, EffectFade]);
+import ArrowLeft from '../assets/jpg/icons/arrow-204.png';
+import ArrowRight from '../assets/jpg/icons/arrow-203.png';
 
 function Home() {
-  const { products } = useContext(ProductContext);
+  const { currInx, giftProducts, goToNext, goToPrev } =
+    useContext(ProductContext);
+
   return (
     <>
       <Navbar />
@@ -48,22 +44,19 @@ function Home() {
             </h3>
           </div>
           <div className='sld'>
-            <Swiper
-              modules={[Navigation, EffectFade]}
-              navigation
-              effect
-              speed={800}
-              slidesPerView={2}
-              className='sld-swpr'
-            >
-              <SwiperSlide>
-                {products.map((product) => {
-                  return (
-                    product.gift && <Slide key={product.id} product={product} />
-                  );
-                })}
-              </SwiperSlide>
-            </Swiper>
+            <img
+              src={ArrowLeft}
+              alt='arrow left'
+              className='arrow'
+              onClick={goToPrev}
+            />
+            <Slide products={giftProducts} />
+            <img
+              src={ArrowRight}
+              alt='arrow right'
+              className='arrow'
+              onClick={goToNext}
+            />
           </div>
           <Link to={'/products'}>all products</Link>
         </section>
