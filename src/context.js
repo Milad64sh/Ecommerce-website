@@ -5,6 +5,7 @@ export const ProductProvider = (props) => {
   const [currInx, setCurrInx] = useState(0);
   const [products, setProducts] = useState(productsData);
   const giftProducts = products.filter((product) => product.gift);
+  const saleProducts = products.filter((product) => product.sale);
 
   const handleDetail = () => {
     console.log('hello from handle detail');
@@ -12,14 +13,15 @@ export const ProductProvider = (props) => {
   const addToBag = () => {
     console.log('hello from add to BAG');
   };
-  const goToPrev = () => {
-    const isFirstSld = currInx === 0;
-    const newInx = isFirstSld ? giftProducts.lenght - 1 : currInx - 1;
+
+  const goToNext = () => {
+    const isLastSld = currInx === giftProducts.length - 1;
+    const newInx = isLastSld ? 0 : currInx + 1;
     setCurrInx(newInx);
   };
-  const goToNext = () => {
-    const isLastSld = currInx === giftProducts.lenght - 1;
-    const newInx = isLastSld ? 0 : currInx + 1;
+  const goToPrev = () => {
+    const isFirstSld = currInx === 0;
+    const newInx = isFirstSld ? giftProducts.length - 1 : currInx - 1;
     setCurrInx(newInx);
   };
   return (
@@ -28,10 +30,12 @@ export const ProductProvider = (props) => {
         products,
         currInx,
         giftProducts,
+        saleProducts,
         goToPrev,
         goToNext,
         handleDetail,
         addToBag,
+        setCurrInx,
       }}
     >
       {props.children}

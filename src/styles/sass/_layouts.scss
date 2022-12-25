@@ -64,6 +64,10 @@
   background-image: linear-gradient(rgba(#7bafaa, 0.9), rgba(#ed8dcd, 0.9));
 }
 .sctn-sale {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
   background-color: var(--clr-prm-thm-2);
@@ -74,11 +78,11 @@
   background-color: darken(#65a3a2, 25%);
 }
 // SLIDE
-.sld {
+.gft {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80%;
   height: 100%;
-  margin: 7rem auto;
+  margin: 2rem auto;
 }

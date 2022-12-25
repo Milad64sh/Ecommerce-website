@@ -7,7 +7,7 @@ import image6 from './assets/jpg/prdt-img/anti-age-Elemis.jpg';
 import image7 from './assets/jpg/prdt-img/hydrating-facial-cleanser-cerave.jpg';
 import image8 from './assets/jpg/prdt-img/cream_AUGUSTINUS.jpg';
 import image9 from './assets/jpg/prdt-img/ice ceramide-sunday-riley.jpg';
-import image10 from './assets/jpg/prdt-img/enzyme-cleanser-dr.barbara-sturm.jpg';
+import image10 from './assets/jpg/prdt-img/enzyme-cleanser-dr.barbara-sturm1.jpg';
 export const productsData = [
   {
     id: 1,

@@ -41,6 +41,7 @@
     border: 1px solid #fff;
     color: #fff;
     background-color: transparent;
+    text-decoration: none;
     font-size: 1.5rem;
     font-family: inherit;
     text-transform: uppercase;
@@ -318,10 +319,33 @@
 }
 
 // GIFT SECTION //
-.sld {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.gft {
+  flex-direction: column;
+  &--sld {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  &--dts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 1rem 0;
+    &--dt {
+      padding: 1rem 0.25rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: darken(#65a3a2, 20%);
+      &--active {
+        padding: 1rem 0.25rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--clr-prm-dr-1);
+      }
+    }
+  }
 
   &--swpr {
     display: block;
@@ -353,7 +377,7 @@
   justify-content: space-between;
   flex-direction: column;
   width: 100%;
-  height: 60rem;
+  height: 50rem;
   margin: 0 0.15rem;
   transition: all 0.3s ease;
   @include respond(sm) {
@@ -394,6 +418,7 @@
   &--img {
     display: flex;
     position: relative;
+    height: 70%;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
     &::before {
@@ -533,8 +558,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin: 2rem 3rem;
+
   &--hdngs {
     display: flex;
     flex-direction: column;
@@ -554,9 +579,12 @@
   }
   &--img {
     margin-bottom: 5rem;
+
+    width: 30rem;
+    height: 30rem;
     img {
-      width: 40rem;
-      height: 40rem;
+      width: 100%;
+      height: 100%;
       border-radius: 100%;
     }
   }
@@ -565,14 +593,14 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 40rem;
+    width: 30rem;
   }
   &--btns {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 40rem;
+    width: 30rem;
   }
   &--lnk {
     text-decoration: none;

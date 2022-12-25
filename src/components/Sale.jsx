@@ -1,21 +1,16 @@
 import { Link } from 'react-router-dom';
 
-function Sale() {
+function Sale(props) {
+  const { img, title, quickInfo } = props.product;
   return (
     <div className='sale'>
       <div className='sale--img'>
-        <img
-          src={require('../assets/jpg/prdt-img/sunc cream-La Roche-Posay.png')}
-          alt=''
-        />
+        <img src={img} alt='product' />
       </div>
       <div className='sale--cnt'>
         <div className='sale--hdngs'>
-          <h2 className='sale--hdngs h2'>Anthelios</h2>
-          <h3 className='sale--hdngs h3'>
-            Invisible fragrance-free 50ml pocket-size liquid sun cream from
-            Anthelios La Roche Posay.
-          </h3>
+          <h2 className='sale--hdngs h2'>{title}</h2>
+          <h3 className='sale--hdngs h3'>{quickInfo}</h3>
         </div>
       </div>
       <div className='sale--btns'>

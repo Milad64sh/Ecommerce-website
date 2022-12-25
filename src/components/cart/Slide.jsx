@@ -1,17 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
-// CONTEXT
-import { useContext } from 'react';
-import ProductContext from '../../context';
-
-function Slide({ products }) {
-  const { currInx } = useContext(ProductContext);
-  const [{ img, quickInfo, title }] = products;
+function Slide(props) {
+  const { img, quickInfo, title } = props.gift;
 
   return (
     <>
-      <div className={products[currInx] && 'sm-crd'}>
+      <div className='sm-crd'>
         <Link to={'/detail'} className='sm-crd--btn'>
           <button className='sm-crd--btn--d'>details</button>
         </Link>

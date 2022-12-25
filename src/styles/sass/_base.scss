@@ -90,6 +90,10 @@ body {
     color: lighten(#ffe7cd, 30%);
   }
 }
+// ON/OFF DOTS
+.active {
+  color: var(--clr-prm-dr-1);
+}
 
 // RESPONSIVENESS
 @mixin respond($breakpoint) {
