@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 function Product(props) {
-  const { title, quickInfo, img } = props.product;
+  const { title, quickInfo, img, inCart } = props.product;
   return (
     <div className='pr'>
       <div className='pr--imgCn'>
@@ -11,7 +11,9 @@ function Product(props) {
       <div className='pr--dtls'>
         <h3 className='pr--dtls--h3'>{title}</h3>
         <p className='pr--dtls--p'>{quickInfo}</p>
-        <button className='pr--btn btn'>add to bag</button>
+        <button className='pr--btn btn' disabled={inCart ? true : false}>
+          {inCart ? 'In Bag' : 'Add To Bag'}
+        </button>
       </div>
     </div>
   );

@@ -77,3 +77,42 @@
     }
   }
 }
+.dtl {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh;
+  background-image: linear-gradient(
+    to right,
+    rgba(lighten(#7bafaa, 20%), 0.5),
+    rgba(#fff, 0.9) 50%
+  );
+  @include respond(sm) {
+    display: flex;
+    flex-direction: column;
+  }
+  @include respond(md) {
+    display: flex;
+    flex-direction: row;
+  }
+  &__img {
+    height: 100%;
+  }
+  &__cnt {
+    display: flex;
+    flex-direction: column;
+    &--prc {
+      text-decoration: none;
+    }
+    &--prc-crossed {
+      text-decoration: line-through;
+      color: #777;
+      font-size: 1.5rem;
+    }
+    &--prc-show {
+      margin-left: 2rem;
+      font-size: 1.5rem;
+    }
+  }
+}

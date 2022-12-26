@@ -186,3 +186,22 @@ export const productsData = [
     total: 0,
   },
 ];
+
+export const detailProduct = {
+  id: 1,
+  bestSeller: true,
+  gift: true,
+  title: 'Enzyme cleanser',
+  quickInfo:
+    'The Enzyme Cleanser is a two-in-one cleansing foam and exfoliator, particularly ideal for oily and combination skin.',
+  info: `The fine-grained powder transforms into a soft foam once water is added, providing a deep, yet gentle cleanse and exfoliation. A collection of enzymes works together to loosen the conjunctions between dead skin cells, helping to peel away dry and rough skin, remove makeup, and reduce excess sebum from pores. The skin will appear revitalized and smooth instantly after cleansing.`,
+  img: image10,
+  company: `Dr. Barbara Sturm`,
+  productType: 'cleanser',
+  price: 60,
+  sale: true,
+  discountPrice: 55,
+  inCart: false,
+  count: 0,
+  total: 0,
+};

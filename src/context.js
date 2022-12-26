@@ -1,9 +1,20 @@
-import { createContext, useState } from 'react';
-import { productsData } from './productsData';
+import { createContext, useState, useEffect } from 'react';
+import { productsData, detailProduct } from './productsData';
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
   const [currInx, setCurrInx] = useState(0);
-  const [products, setProducts] = useState(productsData);
+  const [products, setProducts] = useState([]);
+  const [detailPrd, setDetailPrd] = useState(detailProduct);
+
+  useEffect(() => {
+    let tempProducts = [];
+    productsData.forEach((item) => {
+      const singleItem = { ...item };
+      tempProducts = [...tempProducts, singleItem];
+    });
+
+    setProducts(tempProducts);
+  }, []);
   const giftProducts = products.filter((product) => product.gift);
   const saleProducts = products.filter((product) => product.sale);
 
@@ -28,6 +39,7 @@ export const ProductProvider = (props) => {
     <ProductContext.Provider
       value={{
         products,
+        detailPrd,
         currInx,
         giftProducts,
         saleProducts,

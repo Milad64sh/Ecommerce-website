@@ -382,13 +382,34 @@ body {
     flex: 0 0 10%;
   }
 }
+.nav__usr__icnBx {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+}
+.nav__usr--ntf {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-prm-thm-1);
+  color: #000;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100px;
+  top: 5rem;
+  right: 1rem;
+}
 .nav__usr--icn {
   height: 10rem;
   display: flex;
   align-items: center;
   flex-grow: 1;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 4rem;
+  font-weight: 100;
   transition: all 0.3s ease;
   color: var(--clr-logo);
 }
@@ -1225,6 +1246,52 @@ body {
   border: none;
   background-color: var(--clr-prm-thm-1);
   color: var(--clr-prm);
+}
+
+.dtl {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh;
+  background-image: linear-gradient(to right, rgba(187, 213, 211, 0.5), rgba(255, 255, 255, 0.9) 50%);
+}
+.dtl * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 476px) {
+  .dtl {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.dtl * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 900px) {
+  .dtl {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.dtl__img {
+  height: 100%;
+}
+.dtl__cnt {
+  display: flex;
+  flex-direction: column;
+}
+.dtl__cnt--prc {
+  text-decoration: none;
+}
+.dtl__cnt--prc-crossed {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 1.5rem;
+}
+.dtl__cnt--prc-show {
+  margin-left: 2rem;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
