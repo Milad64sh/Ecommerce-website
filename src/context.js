@@ -3,6 +3,7 @@ import { productsData, detailProduct } from './productsData';
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
   const [currInx, setCurrInx] = useState(0);
+
   const [products, setProducts] = useState([]);
   const [detailPrd, setDetailPrd] = useState(detailProduct);
 
@@ -21,8 +22,8 @@ export const ProductProvider = (props) => {
   const handleDetail = () => {
     console.log('hello from handle detail');
   };
-  const addToBag = () => {
-    console.log('hello from add to BAG');
+  const addToBag = (id) => {
+    console.log(`add item with id:${id} to bag`);
   };
 
   const goToNext = () => {

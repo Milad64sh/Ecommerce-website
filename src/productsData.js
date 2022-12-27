@@ -26,6 +26,9 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: true,
+    female: true,
+    domestic: true,
   },
   {
     id: 2,
@@ -44,6 +47,9 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: true,
+    female: true,
+    domestic: true,
   },
   {
     id: 3,
@@ -62,6 +68,9 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: false,
+    female: true,
+    domestic: false,
   },
   {
     id: 4,
@@ -75,8 +84,13 @@ export const productsData = [
     productType: 'eye Complex',
     inCart: false,
     price: 135,
+    sale: false,
+    discountPrice: false,
     count: 0,
     total: 0,
+    male: true,
+    female: true,
+    domestic: false,
   },
   {
     id: 5,
@@ -95,6 +109,9 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: true,
+    female: true,
+    domestic: true,
   },
   {
     id: 6,
@@ -113,7 +130,11 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: false,
+    female: true,
+    domestic: true,
   },
+
   {
     id: 7,
     bestSeller: true,
@@ -130,6 +151,9 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: false,
+    female: true,
+    domestic: false,
   },
   {
     id: 8,
@@ -148,6 +172,9 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: true,
+    female: true,
+    domestic: true,
   },
   {
     id: 9,
@@ -166,6 +193,9 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: true,
+    female: true,
+    domestic: false,
   },
   {
     id: 10,
@@ -184,6 +214,9 @@ export const productsData = [
     inCart: false,
     count: 0,
     total: 0,
+    male: true,
+    female: true,
+    domestic: true,
   },
 ];
 
