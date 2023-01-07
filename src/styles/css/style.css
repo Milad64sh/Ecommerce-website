@@ -425,6 +425,7 @@ body {
   list-style-type: none;
   text-align: start;
   background-color: #fff;
+  z-index: 1500;
 }
 .lstdd--itm {
   font-size: 1.5rem;
@@ -449,6 +450,7 @@ body {
     width: 50%;
     top: 0;
     left: 50%;
+    background-color: red;
   }
   .lstdd--itm {
     padding: 1rem 2rem 1rem 1rem;
@@ -1169,6 +1171,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   margin: 2rem 0.25rem;
   background-color: #fff;
   width: 70%;
@@ -1202,7 +1205,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 2rem;
+  margin: 1.5rem 2rem;
   width: 80%;
 }
 .pr--dtls--h3 {
@@ -1214,22 +1217,70 @@ body {
   margin: 1rem 2rem;
   font-size: 1.5rem;
 }
+.pr--qckBtn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2500;
+  border: none;
+  padding: 1rem 2rem;
+  background-color: rgba(119, 119, 119, 0.5);
+  top: 60%;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.1s;
+}
+.pr--qckBtn:hover {
+  opacity: 1;
+  z-index: 3000;
+  background-color: rgba(119, 119, 119, 0.8);
+}
+.pr--qckBtn:active {
+  transform: scale(0.98);
+}
 .pr--imgCn {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+  position: relative;
+  z-index: 2600;
 }
-.pr--imgCn--lk {
+.pr--imgCn:hover {
+  z-index: 0;
+}
+.pr--imgCn::before {
+  content: "";
+  position: absolute;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+}
+.pr--imgCn:hover::before {
+  z-index: 3000;
+  opacity: 1;
+}
+.pr--imgCn--lnk {
   text-align: center;
 }
 .pr--imgCn--img {
   width: 80%;
   cursor: pointer;
   position: relative;
+  z-index: 2600;
 }
 .pr--imgCn--img:hover {
-  transform: scale(1.1);
+  z-index: 0;
 }
 .pr--btn {
   width: 70%;

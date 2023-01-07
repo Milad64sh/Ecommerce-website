@@ -22,10 +22,6 @@ function Detail() {
     inCart,
     sale,
   } = detailPrd;
-  const [changeCart, setChangeCart] = useState(inCart);
-  const changeInCart = () => {
-    setChangeCart(!inCart);
-  };
   const showInfo = () => setShowMore(!showMore);
   return (
     <>
@@ -72,10 +68,9 @@ function Detail() {
               disabled={inCart ? true : false}
               onClick={() => {
                 addToBag(id);
-                changeInCart();
               }}
             >
-              {inCart ? 'add to bag' : 'adding to cart'}
+              {inCart ? 'adding to cart' : 'add to bag'}
             </button>
           </div>
         </div>

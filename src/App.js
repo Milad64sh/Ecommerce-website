@@ -9,9 +9,11 @@ import ProductList from './pages/ProductList.jsx';
 import Women from './pages/Women.jsx';
 
 import './styles/css/style.css';
+import Modal from './components/Modal.jsx';
 function App() {
   return (
     <Router>
+      <Modal />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<ProductList />} />

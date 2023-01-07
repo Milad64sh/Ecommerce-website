@@ -253,6 +253,7 @@
   list-style-type: none;
   text-align: start;
   background-color: #fff;
+  z-index: 1500;
 
   &--itm {
     font-size: 1.5rem;
@@ -273,6 +274,7 @@
     width: 50%;
     top: 0;
     left: 50%;
+    background-color: red;
     &--itm {
       padding: 1rem 2rem 1rem 1rem;
       transition: all 0.1s ease;

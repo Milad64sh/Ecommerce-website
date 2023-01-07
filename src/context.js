@@ -5,6 +5,9 @@ export const ProductProvider = (props) => {
   const [currInx, setCurrInx] = useState(0);
 
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [modal, setModal] = useState(true);
+  const [modalProduct, setModalProduct] = useState(detailProduct);
   const [detailPrd, setDetailPrd] = useState(detailProduct);
 
   useEffect(() => {
@@ -29,10 +32,25 @@ export const ProductProvider = (props) => {
     const product = getItem(id);
     setDetailPrd(product);
   };
+  // ADD TO BAG
   const addToBag = (id) => {
-    console.log(`add item with id:${id} to bag`);
+    let tempProducts = [...products];
+    const index = tempProducts.indexOf(getItem(id));
+    const product = tempProducts[index];
+    product.inCart = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
+    setProducts(tempProducts);
+    setCart([...cart, product]);
+    console.log(product);
   };
-
+  // OPEN MODAL
+  const handleModal = (id) => {
+    const product = getItem(id);
+    setModal(!modal);
+    setModalProduct(product);
+  };
   const goToNext = () => {
     const isLastSld = currInx === giftProducts.length - 1;
     const newInx = isLastSld ? 0 : currInx + 1;
@@ -56,6 +74,7 @@ export const ProductProvider = (props) => {
         handleDetail,
         addToBag,
         setCurrInx,
+        handleModal,
       }}
     >
       {props.children}
