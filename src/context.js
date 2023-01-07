@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, setState } from 'react';
 import { productsData, detailProduct } from './productsData';
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
@@ -19,8 +19,15 @@ export const ProductProvider = (props) => {
   const giftProducts = products.filter((product) => product.gift);
   const saleProducts = products.filter((product) => product.sale);
 
-  const handleDetail = () => {
-    console.log('hello from handle detail');
+  // GET ITEM ID
+  const getItem = (id) => {
+    const product = products.find((item) => item.id === id);
+
+    return product;
+  };
+  const handleDetail = (id) => {
+    const product = getItem(id);
+    setDetailPrd(product);
   };
   const addToBag = (id) => {
     console.log(`add item with id:${id} to bag`);

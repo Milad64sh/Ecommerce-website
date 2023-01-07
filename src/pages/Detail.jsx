@@ -24,7 +24,7 @@ function Detail() {
   } = detailPrd;
   const [changeCart, setChangeCart] = useState(inCart);
   const changeInCart = () => {
-    setChangeCart(!changeCart);
+    setChangeCart(!inCart);
   };
   const showInfo = () => setShowMore(!showMore);
   return (
@@ -75,7 +75,7 @@ function Detail() {
                 changeInCart();
               }}
             >
-              {inCart ? 'adding to cart' : 'add to bag'}
+              {inCart ? 'add to bag' : 'adding to cart'}
             </button>
           </div>
         </div>

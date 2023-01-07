@@ -168,7 +168,7 @@ export const productsData = [
     productType: 'moisturiser ',
     price: 200,
     sale: true,
-    discountPrice: false,
+    discountPrice: 160,
     inCart: false,
     count: 0,
     total: 0,
