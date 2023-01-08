@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, setState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { productsData, detailProduct } from './productsData';
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
@@ -6,9 +6,13 @@ export const ProductProvider = (props) => {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   const [modalProduct, setModalProduct] = useState(detailProduct);
   const [detailPrd, setDetailPrd] = useState(detailProduct);
+  const [quickView, setQuickView] = useState(true);
+  const closeQuickView = () => {
+    setQuickView(!quickView);
+  };
 
   useEffect(() => {
     let tempProducts = [];
@@ -48,8 +52,8 @@ export const ProductProvider = (props) => {
   // OPEN MODAL
   const handleModal = (id) => {
     const product = getItem(id);
-    setModal(!modal);
     setModalProduct(product);
+    setModal(!modal);
   };
   const goToNext = () => {
     const isLastSld = currInx === giftProducts.length - 1;
@@ -69,12 +73,16 @@ export const ProductProvider = (props) => {
         currInx,
         giftProducts,
         saleProducts,
+        modal,
+        modalProduct,
+        quickView,
         goToPrev,
         goToNext,
         handleDetail,
         addToBag,
         setCurrInx,
         handleModal,
+        closeQuickView,
       }}
     >
       {props.children}

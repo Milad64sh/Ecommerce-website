@@ -2,13 +2,24 @@ import { useContext } from 'react';
 import ProductContext from '../context';
 import { Link } from 'react-router-dom';
 function Product(props) {
-  const { handleDetail, addToBag, handleModal } = useContext(ProductContext);
+  const { handleDetail, addToBag, handleModal, closeQuickView, quickView } =
+    useContext(ProductContext);
   const { id, title, quickInfo, img, inCart } = props.product;
+
   return (
     <div className='pr'>
-      <button className='pr--qckBtn' onClick={handleModal}>
-        quick view
-      </button>
+      {quickView && (
+        <button
+          className='pr--qckBtn'
+          onClick={() => {
+            closeQuickView();
+            handleModal(id);
+          }}
+        >
+          quick view
+        </button>
+      )}
+
       <div className='pr--imgCn'>
         <Link to={'/detail'} className='pr--imgCn--lnk'>
           <img

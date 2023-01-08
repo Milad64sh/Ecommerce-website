@@ -782,3 +782,113 @@
     }
   }
 }
+.mdlCnt {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(#000, 0.3);
+  &--mdl {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 4px;
+    width: 50vw;
+    &--cls {
+      position: absolute;
+      top: 0;
+      right: 0.25rem;
+      cursor: pointer;
+      padding: 1rem;
+      border: none;
+      background-color: transparent;
+      font-size: 1.5rem;
+    }
+    &--h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      margin-top: 1rem;
+    }
+    &--img {
+      width: 100%;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(#777, 0.3);
+    }
+    &--prc {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      &--prc {
+        font-size: 1.5rem;
+      }
+      &--prc-crossed {
+        text-decoration: line-through;
+        color: #777;
+        font-size: 1.5rem;
+      }
+      &--dscPrc {
+        font-size: 1.5rem;
+      }
+    }
+    &--btns {
+      display: flex;
+      flex-direction: column;
+
+      &--btn {
+        padding: 1rem 2rem;
+        margin-bottom: 1rem;
+        background-color: transparent;
+        border: 1px solid var(--clr-prm);
+        color: var(--clr-prm);
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-family: inherit;
+        font-weight: bold;
+        cursor: pointer;
+        letter-spacing: 0.5rem;
+        &:hover {
+          background-color: var(--clr-prm);
+          color: #fff;
+        }
+      }
+      &--lbtn {
+        margin-bottom: 1rem;
+        background-color: transparent;
+        border: 1px solid var(--clr-prm);
+
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-family: inherit;
+        font-weight: bold;
+        cursor: pointer;
+        letter-spacing: 0.5rem;
+        &:hover {
+          background-color: var(--clr-prm);
+          color: #fff;
+        }
+        &--lnk {
+          padding: 1rem;
+          width: 100%;
+          display: block;
+          color: var(--clr-prm);
+          cursor: pointer;
+          text-decoration: none;
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
