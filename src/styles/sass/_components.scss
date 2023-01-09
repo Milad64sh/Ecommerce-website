@@ -788,11 +788,11 @@
   justify-content: center;
   align-items: center;
   z-index: 3000;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(#000, 0.3);
+  background-color: rgba(#000, 0.5);
   &--mdl {
     display: flex;
     position: relative;
@@ -801,7 +801,13 @@
     align-items: center;
     background-color: #fff;
     border-radius: 4px;
-    width: 50vw;
+    @include respond(sm) {
+      width: 50%;
+    }
+    @include respond(md) {
+      width: 30%;
+      height: 90vh;
+    }
     &--cls {
       position: absolute;
       top: 0;
@@ -819,6 +825,7 @@
     }
     &--img {
       width: 100%;
+      height: 100%;
       padding-bottom: 1rem;
       border-bottom: 1px solid rgba(#777, 0.3);
     }

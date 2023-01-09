@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Product from './components/Product.jsx';
-import Cart from './pages/Cart.jsx';
+import Bag from './pages/Bag.jsx';
 import Detail from './pages/Detail.jsx';
 import Default from './pages/Default.jsx';
 
@@ -18,7 +18,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<ProductList />} />
         <Route path='/product' element={<Product />} />
-        <Route path='/Cart' element={<Cart />} />
+        <Route path='/bag' element={<Bag />} />
         <Route path='/women' element={<Women />} />
         <Route path='/detail' element={<Detail />} />
         <Route path='/default' element={<Default />} />

@@ -84,7 +84,7 @@ function Navbar() {
             </Link>
           </div>
           <div className='nav__usr__icnBx'>
-            <Link to={'/'} className='nav__usr--icn'>
+            <Link to={'/bag'} className='nav__usr--icn'>
               <HiOutlineShoppingBag />
             </Link>
             <span className='nav__usr--ntf'>0</span>

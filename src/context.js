@@ -10,6 +10,9 @@ export const ProductProvider = (props) => {
   const [modalProduct, setModalProduct] = useState(detailProduct);
   const [detailPrd, setDetailPrd] = useState(detailProduct);
   const [quickView, setQuickView] = useState(true);
+  const [bagSubTotal, setBagSubTotal] = useState(0);
+  const [bagTax, setBagTax] = useState(0);
+  const [bagTotal, setBagTotal] = useState(0);
   const closeQuickView = () => {
     setQuickView(!quickView);
   };
@@ -55,6 +58,24 @@ export const ProductProvider = (props) => {
     setModalProduct(product);
     setModal(!modal);
   };
+
+  // INCREMENTATION
+  const increment = (id) => {
+    console.log('this is increment method');
+  };
+  // DECREMENTATION
+  const decrement = (id) => {
+    console.log('this is decrement method');
+  };
+  // REMOVE FROM BAG
+  const removeItem = (id) => {
+    console.log('this is remove method');
+  };
+  // CLEAR BAG
+  const clearBag = () => {
+    console.log('this is clearBag method');
+  };
+
   const goToNext = () => {
     const isLastSld = currInx === giftProducts.length - 1;
     const newInx = isLastSld ? 0 : currInx + 1;
@@ -83,6 +104,10 @@ export const ProductProvider = (props) => {
         setCurrInx,
         handleModal,
         closeQuickView,
+        increment,
+        decrement,
+        removeItem,
+        clearBag,
       }}
     >
       {props.children}
