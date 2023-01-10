@@ -29,7 +29,7 @@ function Home() {
         <div className='hro'>
           <h1 className='hro--hdng'>feel the summer?</h1>
           <Link to={'/products'} className='hro--btn'>
-            shop now
+            all products
           </Link>
           <div className='search'>
             <form className='search__frm'>

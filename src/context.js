@@ -1,11 +1,11 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, createRef } from 'react';
 import { productsData, detailProduct } from './productsData';
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
   const [currInx, setCurrInx] = useState(0);
 
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [bag, setBag] = useState([]);
   const [modal, setModal] = useState(false);
   const [modalProduct, setModalProduct] = useState(detailProduct);
   const [detailPrd, setDetailPrd] = useState(detailProduct);
@@ -49,8 +49,8 @@ export const ProductProvider = (props) => {
     const price = product.price;
     product.total = price;
     setProducts(tempProducts);
-    setCart([...cart, product]);
-    console.log(product);
+    setBag([...bag, product]);
+    addTotals();
   };
   // OPEN MODAL
   const handleModal = (id) => {
@@ -76,6 +76,18 @@ export const ProductProvider = (props) => {
     console.log('this is clearBag method');
   };
 
+  // ADD TOTAL
+  const addTotals = () => {
+    let subTotal = 0;
+    bag.map((item) => (subTotal += item.total));
+    const tempTax = subTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const total = subTotal + tax;
+    setBagSubTotal(subTotal);
+    setBagTax(tax);
+    setBagTotal(total);
+  };
+
   const goToNext = () => {
     const isLastSld = currInx === giftProducts.length - 1;
     const newInx = isLastSld ? 0 : currInx + 1;
@@ -89,6 +101,7 @@ export const ProductProvider = (props) => {
   return (
     <ProductContext.Provider
       value={{
+        bag,
         products,
         detailPrd,
         currInx,
@@ -97,6 +110,9 @@ export const ProductProvider = (props) => {
         modal,
         modalProduct,
         quickView,
+        bagSubTotal,
+        bagTax,
+        bagTotal,
         goToPrev,
         goToNext,
         handleDetail,

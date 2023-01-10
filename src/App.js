@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Product from './components/Product.jsx';
-import Bag from './pages/Bag.jsx';
+import Bag from './pages/bag/Bag.jsx';
 import Detail from './pages/Detail.jsx';
 import Default from './pages/Default.jsx';
 
