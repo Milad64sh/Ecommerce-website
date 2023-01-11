@@ -38,7 +38,9 @@ function Product(props) {
         <button
           className='pr--btn btn'
           disabled={inCart ? true : false}
-          onClick={() => addToBag(id)}
+          onClick={() => {
+            addToBag(id);
+          }}
         >
           {inCart ? 'In Bag' : 'Add To Bag'}
         </button>

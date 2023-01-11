@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, createRef } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { productsData, detailProduct } from './productsData';
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
@@ -39,19 +39,7 @@ export const ProductProvider = (props) => {
     const product = getItem(id);
     setDetailPrd(product);
   };
-  // ADD TO BAG
-  const addToBag = (id) => {
-    let tempProducts = [...products];
-    const index = tempProducts.indexOf(getItem(id));
-    const product = tempProducts[index];
-    product.inCart = true;
-    product.count = 1;
-    const price = product.price;
-    product.total = price;
-    setProducts(tempProducts);
-    setBag([...bag, product]);
-    addTotals();
-  };
+
   // OPEN MODAL
   const handleModal = (id) => {
     const product = getItem(id);
@@ -73,16 +61,25 @@ export const ProductProvider = (props) => {
   };
   // CLEAR BAG
   const clearBag = () => {
-    console.log('this is clearBag method');
+    setBag([]);
   };
+  // ADD TO BAG
 
-  // ADD TOTAL
-  const addTotals = () => {
-    let subTotal = 0;
+  const addToBag = (id) => {
+    let tempProducts = [...products];
+    const index = tempProducts.indexOf(getItem(id));
+    const product = tempProducts[index];
+    product.inCart = true;
+    product.count = 1;
+    const price = product.price;
+    product.total = price;
+    let subTotal = price;
     bag.map((item) => (subTotal += item.total));
     const tempTax = subTotal * 0.1;
     const tax = parseFloat(tempTax.toFixed(2));
     const total = subTotal + tax;
+    setProducts(tempProducts);
+    setBag([...bag, product]);
     setBagSubTotal(subTotal);
     setBagTax(tax);
     setBagTotal(total);
@@ -117,6 +114,7 @@ export const ProductProvider = (props) => {
         goToNext,
         handleDetail,
         addToBag,
+        // addTotals,
         setCurrInx,
         handleModal,
         closeQuickView,
