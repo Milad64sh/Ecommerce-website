@@ -1711,13 +1711,30 @@ body {
 .bg--subInfo--prcs--t {
   font-size: 2rem;
 }
-.bg--chLnk {
+.bg--btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: auto;
+  width: 40%;
+}
+.bg--btns * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 476px) {
+  .bg--btns {
+    flex-direction: column;
+  }
+}
+.bg--btns--chLnk {
   text-decoration: none;
 }
-.bg--chBtn {
+.bg--btns--chBtn {
   display: flex;
+  justify-content: center;
+  text-align: center;
   margin-top: 3rem;
-  margin-left: auto;
+  width: 100%;
   padding: 1rem 2.5rem;
   font-size: 1.5rem;
   font-family: inherit;
@@ -1728,11 +1745,18 @@ body {
   letter-spacing: 0.5rem;
   cursor: pointer;
 }
-.bg--chBtn:hover {
+.bg--btns--chBtn:hover {
   background-color: #000;
 }
-.bg--chBtn:active {
+.bg--btns--chBtn:active {
   transform: scale(0.9);
+}
+
+.empBg {
+  font-size: 2.5rem;
+  color: #777;
+  text-transform: capitalize;
+  margin: 3rem 0;
 }
 
 /*# sourceMappingURL=style.css.map */

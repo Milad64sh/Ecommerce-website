@@ -2,8 +2,14 @@ import { useContext } from 'react';
 import ProductContext from '../context';
 import { Link } from 'react-router-dom';
 function Product(props) {
-  const { handleDetail, addToBag, handleModal, closeQuickView, quickView } =
-    useContext(ProductContext);
+  const {
+    bag,
+    handleDetail,
+    addToBag,
+    handleModal,
+    closeQuickView,
+    quickView,
+  } = useContext(ProductContext);
   const { id, title, quickInfo, img, inCart } = props.product;
 
   return (
@@ -37,12 +43,12 @@ function Product(props) {
         <p className='pr--dtls--p'>{quickInfo}</p>
         <button
           className='pr--btn btn'
-          disabled={inCart ? true : false}
+          disabled={inCart && bag.length > 0 ? true : false}
           onClick={() => {
             addToBag(id);
           }}
         >
-          {inCart ? 'In Bag' : 'Add To Bag'}
+          {inCart && bag.length > 0 ? 'In Bag' : 'Add To Bag'}
         </button>
       </div>
     </div>

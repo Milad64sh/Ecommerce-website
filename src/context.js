@@ -13,6 +13,8 @@ export const ProductProvider = (props) => {
   const [bagSubTotal, setBagSubTotal] = useState(0);
   const [bagTax, setBagTax] = useState(0);
   const [bagTotal, setBagTotal] = useState(0);
+  const [bagSaved, setBagSaved] = useState(0);
+
   const closeQuickView = () => {
     setQuickView(!quickView);
   };
@@ -23,7 +25,6 @@ export const ProductProvider = (props) => {
       const singleItem = { ...item };
       tempProducts = [...tempProducts, singleItem];
     });
-
     setProducts(tempProducts);
   }, []);
   const giftProducts = products.filter((product) => product.gift);
@@ -62,6 +63,9 @@ export const ProductProvider = (props) => {
   // CLEAR BAG
   const clearBag = () => {
     setBag([]);
+    setBagSubTotal(0);
+    setBagTax(0);
+    setBagTotal(0);
   };
   // ADD TO BAG
 
@@ -71,18 +75,40 @@ export const ProductProvider = (props) => {
     const product = tempProducts[index];
     product.inCart = true;
     product.count = 1;
-    const price = product.price;
-    product.total = price;
-    let subTotal = price;
-    bag.map((item) => (subTotal += item.total));
-    const tempTax = subTotal * 0.1;
-    const tax = parseFloat(tempTax.toFixed(2));
-    const total = subTotal + tax;
-    setProducts(tempProducts);
-    setBag([...bag, product]);
-    setBagSubTotal(subTotal);
-    setBagTax(tax);
-    setBagTotal(total);
+    if (product.sale) {
+      const price = product.discountPrice;
+      product.total = price;
+      let discount = product.price - product.discountPrice;
+      product.discount = discount;
+      let subTotal = price;
+      bag.map((item) => {
+        subTotal += item.total;
+        discount += item.discount;
+      });
+      const tempTax = subTotal * 0.1;
+      const tax = parseFloat(tempTax.toFixed(2));
+      const saved = parseFloat(discount.toFixed(2));
+      const total = subTotal + tax;
+      setProducts(tempProducts);
+      setBag([...bag, product]);
+      setBagSubTotal(subTotal);
+      setBagTax(tax);
+      setBagTotal(total);
+      setBagSaved(saved);
+    } else {
+      const price = product.price;
+      product.total = price;
+      let subTotal = price;
+      bag.map((item) => (subTotal += item.total));
+      const tempTax = subTotal * 0.1;
+      const tax = parseFloat(tempTax.toFixed(2));
+      const total = subTotal + tax;
+      setProducts(tempProducts);
+      setBag([...bag, product]);
+      setBagSubTotal(subTotal);
+      setBagTax(tax);
+      setBagTotal(total);
+    }
   };
 
   const goToNext = () => {
@@ -110,11 +136,11 @@ export const ProductProvider = (props) => {
         bagSubTotal,
         bagTax,
         bagTotal,
+        bagSaved,
         goToPrev,
         goToNext,
         handleDetail,
         addToBag,
-        // addTotals,
         setCurrInx,
         handleModal,
         closeQuickView,
