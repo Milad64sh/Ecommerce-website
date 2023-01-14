@@ -10,7 +10,7 @@ export const ProductProvider = (props) => {
   const [modalProduct, setModalProduct] = useState(detailProduct);
   const [detailPrd, setDetailPrd] = useState(detailProduct);
   const [quickView, setQuickView] = useState(true);
-  const [bagSubTotal, setBagSubTotal] = useState(0);
+  const [bagSubTotal, setBagSubTotal] = useState([]);
   const [bagTax, setBagTax] = useState(0);
   const [bagTotal, setBagTotal] = useState(0);
   const [bagSaved, setBagSaved] = useState(0);
@@ -47,26 +47,6 @@ export const ProductProvider = (props) => {
     setModalProduct(product);
     setModal(!modal);
   };
-
-  // INCREMENTATION
-  const increment = (id) => {
-    console.log('this is increment method');
-  };
-  // DECREMENTATION
-  const decrement = (id) => {
-    console.log('this is decrement method');
-  };
-  // REMOVE FROM BAG
-  const removeItem = (id) => {
-    console.log('this is remove method');
-  };
-  // CLEAR BAG
-  const clearBag = () => {
-    setBag([]);
-    setBagSubTotal(0);
-    setBagTax(0);
-    setBagTotal(0);
-  };
   // ADD TO BAG
 
   const addToBag = (id) => {
@@ -74,7 +54,17 @@ export const ProductProvider = (props) => {
     const index = tempProducts.indexOf(getItem(id));
     const product = tempProducts[index];
     product.inCart = true;
-    product.count = 1;
+    // product.count = 1;
+    if (product.count > 1) {
+      let tempBag = [...bag];
+      const selectedProduct = tempBag.find((item) => item.id === id);
+      const index = tempBag.indexOf(selectedProduct);
+      const product = tempBag[index];
+      product.count = product.count + 1;
+      product.total = product.count * product.price;
+      // setBag([...bag]);
+    } else {
+    }
     if (product.sale) {
       const price = product.discountPrice;
       product.total = price;
@@ -95,7 +85,8 @@ export const ProductProvider = (props) => {
       setBagTax(tax);
       setBagTotal(total);
       setBagSaved(saved);
-    } else {
+    }
+    if (product.count === 1) {
       const price = product.price;
       product.total = price;
       let subTotal = price;
@@ -109,6 +100,41 @@ export const ProductProvider = (props) => {
       setBagTax(tax);
       setBagTotal(total);
     }
+  };
+
+  // INCREMENTATION
+  // const increment = (id) => {
+  //   let tempBag = [...bag];
+  //   const selectedProduct = tempBag.find((item) => item.id === id);
+  //   const index = tempBag.indexOf(selectedProduct);
+  //   const product = tempBag[index];
+  //   product.count = product.count + 1;
+  //   product.total = product.count * product.price;
+  //   setBag([...bag]);
+  // };
+  // DECREMENTATION
+  const decrement = (id) => {
+    console.log('this is decrement method');
+  };
+  // REMOVE FROM BAG
+  const removeItem = (id) => {
+    let tempProducts = [...products];
+    let tempBag = [...bag];
+    tempBag = bag.filter((item) => item.id !== id);
+    const index = tempProducts.indexOf(getItem(id));
+    let removeProduct = tempProducts[index];
+    removeProduct.inCart = false;
+    removeProduct.count = 0;
+    removeProduct.total = 0;
+    setBag([...tempBag]);
+    setProducts([...tempProducts]);
+  };
+  // CLEAR BAG
+  const clearBag = () => {
+    setBag([]);
+    setBagSubTotal(0);
+    setBagTax(0);
+    setBagTotal(0);
   };
 
   const goToNext = () => {
@@ -144,7 +170,7 @@ export const ProductProvider = (props) => {
         setCurrInx,
         handleModal,
         closeQuickView,
-        increment,
+        // increment,
         decrement,
         removeItem,
         clearBag,
