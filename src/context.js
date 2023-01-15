@@ -67,14 +67,26 @@ export const ProductProvider = (props) => {
       });
       const tempTax = subTotal * 0.1;
       const tax = parseFloat(tempTax.toFixed(2));
-      const saved = parseFloat(discount.toFixed(2));
+
+      // let saved = [discount];
+      const addSaved = bag.map((item) => {
+        let saved = [];
+        if (item.sale) {
+          const save = item.price - item.dicount;
+          saved.push(save);
+        } else {
+          saved.push(0);
+        }
+        console.log(saved);
+      });
+
       const total = subTotal + tax;
       setProducts(tempProducts);
       setBag([...bag, product]);
       setBagSubTotal(subTotal);
       setBagTax(tax);
       setBagTotal(total);
-      setBagSaved(saved);
+      // setBagSaved(bagAddSaved);
     } else {
       const price = product.price;
       product.total = price;
@@ -98,11 +110,25 @@ export const ProductProvider = (props) => {
     const index = tempBag.indexOf(selectedProduct);
     const product = tempBag[index];
     product.count = product.count + 1;
-    product.total = product.count * product.price;
+    if (product.sale) {
+      product.total = product.count * product.discountPrice;
+    } else {
+      product.total = product.count * product.price;
+    }
+    const productSaved = bag.map(
+      (item) => item.count * item.price - item.count * item.discountPrice
+    );
+    const allBagSaved = productSaved.reduce((sum, num) => sum + num);
+    setBagSaved(allBagSaved);
     const allTotal = bag.map((item) => item.total);
-    const finalTotal = allTotal.reduce((sum, num) => sum + num);
-    console.log(finalTotal);
+    const subFinalTotal = allTotal.reduce((sum, num) => sum + num);
     console.log(allTotal);
+    const tempTax = subFinalTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const finalTotal = subFinalTotal + tax;
+    setBagTotal(finalTotal);
+    setBagSubTotal(subFinalTotal);
+    setBagTax(tax);
     setBag([...tempBag]);
   };
   // DECREMENTATION
@@ -128,6 +154,7 @@ export const ProductProvider = (props) => {
     setBagSubTotal(0);
     setBagTax(0);
     setBagTotal(0);
+    setBagSaved(0);
   };
 
   const goToNext = () => {
