@@ -54,17 +54,7 @@ export const ProductProvider = (props) => {
     const index = tempProducts.indexOf(getItem(id));
     const product = tempProducts[index];
     product.inCart = true;
-    // product.count = 1;
-    if (product.count > 1) {
-      let tempBag = [...bag];
-      const selectedProduct = tempBag.find((item) => item.id === id);
-      const index = tempBag.indexOf(selectedProduct);
-      const product = tempBag[index];
-      product.count = product.count + 1;
-      product.total = product.count * product.price;
-      // setBag([...bag]);
-    } else {
-    }
+    product.count = 1;
     if (product.sale) {
       const price = product.discountPrice;
       product.total = price;
@@ -85,8 +75,7 @@ export const ProductProvider = (props) => {
       setBagTax(tax);
       setBagTotal(total);
       setBagSaved(saved);
-    }
-    if (product.count === 1) {
+    } else {
       const price = product.price;
       product.total = price;
       let subTotal = price;
@@ -103,15 +92,19 @@ export const ProductProvider = (props) => {
   };
 
   // INCREMENTATION
-  // const increment = (id) => {
-  //   let tempBag = [...bag];
-  //   const selectedProduct = tempBag.find((item) => item.id === id);
-  //   const index = tempBag.indexOf(selectedProduct);
-  //   const product = tempBag[index];
-  //   product.count = product.count + 1;
-  //   product.total = product.count * product.price;
-  //   setBag([...bag]);
-  // };
+  const increment = (id) => {
+    let tempBag = [...bag];
+    const selectedProduct = tempBag.find((item) => item.id === id);
+    const index = tempBag.indexOf(selectedProduct);
+    const product = tempBag[index];
+    product.count = product.count + 1;
+    product.total = product.count * product.price;
+    const allTotal = bag.map((item) => item.total);
+    const finalTotal = allTotal.reduce((sum, num) => sum + num);
+    console.log(finalTotal);
+    console.log(allTotal);
+    setBag([...tempBag]);
+  };
   // DECREMENTATION
   const decrement = (id) => {
     console.log('this is decrement method');
@@ -170,7 +163,7 @@ export const ProductProvider = (props) => {
         setCurrInx,
         handleModal,
         closeQuickView,
-        // increment,
+        increment,
         decrement,
         removeItem,
         clearBag,
