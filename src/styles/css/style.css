@@ -1643,9 +1643,10 @@ body {
   flex: 1;
   justify-content: center;
   align-items: center;
+  border: none;
   display: flex;
   padding: 0.5rem 1rem;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 .bg--itm--qnt--btn:hover {
   background-color: #dddddd;

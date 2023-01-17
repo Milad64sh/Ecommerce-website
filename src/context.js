@@ -58,27 +58,20 @@ export const ProductProvider = (props) => {
     if (product.sale) {
       const price = product.discountPrice;
       product.total = price;
+      let subTotal = price;
       let discount = product.price - product.discountPrice;
       product.discount = discount;
-      let subTotal = price;
       bag.map((item) => {
         subTotal += item.total;
         discount += item.discount;
       });
+      let save = [product.save];
+      const saves = bag.map((item) => item.save);
+      const allSaves = save.concat(saves);
+      const allSaved = allSaves.reduce((sum, num) => sum + num);
+      console.log(allSaved);
       const tempTax = subTotal * 0.1;
       const tax = parseFloat(tempTax.toFixed(2));
-
-      // let saved = [discount];
-      const addSaved = bag.map((item) => {
-        let saved = [];
-        if (item.sale) {
-          const save = item.price - item.dicount;
-          saved.push(save);
-        } else {
-          saved.push(0);
-        }
-        console.log(saved);
-      });
 
       const total = subTotal + tax;
       setProducts(tempProducts);
@@ -86,7 +79,7 @@ export const ProductProvider = (props) => {
       setBagSubTotal(subTotal);
       setBagTax(tax);
       setBagTotal(total);
-      // setBagSaved(bagAddSaved);
+      setBagSaved(allSaved);
     } else {
       const price = product.price;
       product.total = price;
@@ -115,10 +108,9 @@ export const ProductProvider = (props) => {
     } else {
       product.total = product.count * product.price;
     }
-    const productSaved = bag.map(
-      (item) => item.count * item.price - item.count * item.discountPrice
-    );
+    const productSaved = bag.map((item) => item.count * item.save);
     const allBagSaved = productSaved.reduce((sum, num) => sum + num);
+    console.log(allBagSaved);
     setBagSaved(allBagSaved);
     const allTotal = bag.map((item) => item.total);
     const subFinalTotal = allTotal.reduce((sum, num) => sum + num);
@@ -133,7 +125,30 @@ export const ProductProvider = (props) => {
   };
   // DECREMENTATION
   const decrement = (id) => {
-    console.log('this is decrement method');
+    let tempBag = [...bag];
+    const selectedProduct = tempBag.find((item) => item.id === id);
+    const index = tempBag.indexOf(selectedProduct);
+    const product = tempBag[index];
+    product.count = product.count - 1;
+    if (product.sale) {
+      product.total = product.count * product.discountPrice;
+    } else {
+      product.total = product.count * product.price;
+    }
+    const productSaved = bag.map((item) => item.count * item.save);
+    const allBagSaved = productSaved.reduce((sum, num) => sum + num);
+    console.log(allBagSaved);
+    setBagSaved(allBagSaved);
+    const allTotal = bag.map((item) => item.total);
+    const subFinalTotal = allTotal.reduce((sum, num) => sum + num);
+    console.log(allTotal);
+    const tempTax = subFinalTotal * 0.1;
+    const tax = parseFloat(tempTax.toFixed(2));
+    const finalTotal = subFinalTotal + tax;
+    setBagTotal(finalTotal);
+    setBagSubTotal(subFinalTotal);
+    setBagTax(tax);
+    setBag([...tempBag]);
   };
   // REMOVE FROM BAG
   const removeItem = (id) => {
@@ -142,10 +157,24 @@ export const ProductProvider = (props) => {
     tempBag = bag.filter((item) => item.id !== id);
     const index = tempProducts.indexOf(getItem(id));
     let removeProduct = tempProducts[index];
+    let prevRemoveProductSubTotal = removeProduct.total;
+    const tempTax = prevRemoveProductSubTotal * 0.1;
+    const prevRemoveProductTax = parseFloat(tempTax.toFixed(2));
+    const prevRemoveProductTotal =
+      prevRemoveProductSubTotal + prevRemoveProductTax;
+    if (removeProduct.save) {
+      setBagSaved((prevState) => prevState - removeProduct.save);
+    } else {
+      setBagSaved(bagSaved);
+    }
+    console.log(prevRemoveProductTotal);
     removeProduct.inCart = false;
     removeProduct.count = 0;
     removeProduct.total = 0;
     setBag([...tempBag]);
+    setBagSubTotal((prevState) => prevState - prevRemoveProductSubTotal);
+    setBagTotal((prevState) => prevState - prevRemoveProductTotal);
+    setBagTax((prevState) => prevState - prevRemoveProductTax);
     setProducts([...tempProducts]);
   };
   // CLEAR BAG
