@@ -1,15 +1,18 @@
+import { useState, useContext } from 'react';
+import ProductContext from '../../context';
+import { Link } from 'react-router-dom';
+
 import { RxPerson } from 'react-icons/rx';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
 import { navItems } from '../../NavItems';
 import WomenDropdown from './WomenDropdown';
 import MenDropdown from './MenDropdown';
-import { useState } from 'react';
 import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
 } from 'react-icons/md';
 function Navbar() {
+  const { bag } = useContext(ProductContext);
   const [showWomenDropdown, setShowWomenDropdown] = useState(false);
   const [showMenDropdown, setShowMenDropdown] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -87,7 +90,7 @@ function Navbar() {
             <Link to={'/bag'} className='nav__usr--icn'>
               <HiOutlineShoppingBag />
             </Link>
-            <span className='nav__usr--ntf'>0</span>
+            <span className='nav__usr--ntf'>{bag.length}</span>
           </div>
         </div>
       </nav>

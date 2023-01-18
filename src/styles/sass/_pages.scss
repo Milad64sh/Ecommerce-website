@@ -266,18 +266,38 @@
   &--ttl {
     display: flex;
     flex-direction: column;
+    @include respond(sm) {
+      justify-content: center;
+      align-items: center;
+    }
+    @include respond(md) {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
     &--pg {
       font-size: 4rem;
       padding-bottom: 2rem;
       text-transform: capitalize;
       color: #777;
       letter-spacing: 0.5rem;
+      @include respond(sm) {
+        text-transform: uppercase;
+      }
+      @include respond(md) {
+        text-transform: capitalize;
+      }
     }
     &--ttls {
       border-bottom: 1px solid lighten(#777, 20%);
-      display: flex;
       flex-direction: row;
       justify-content: space-between;
+      @include respond(sm) {
+        display: none;
+      }
+      @include respond(md) {
+        display: flex;
+        width: 100%;
+      }
       &--h3 {
         text-transform: capitalize;
         padding: 1rem 0;
@@ -296,26 +316,90 @@
   }
   &--itm {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     padding: 2rem 0;
     border-bottom: 1px solid lighten(#777, 20%);
+    @include respond(sm) {
+      flex-direction: column;
+      align-items: center;
+    }
+    @include respond(md) {
+      flex-direction: row;
+    }
+    &--btnUp {
+      align-items: center;
+      justify-content: center;
+      &--clsBtnUp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        border-radius: 100%;
+        border: none;
+        background-color: lighten(#999, 20%);
+        color: #444;
+        cursor: pointer;
+      }
+      @include respond(sm) {
+        display: flex;
+        margin-left: auto;
+        margin-bottom: 1rem;
+      }
+      @include respond(md) {
+        display: none;
+      }
+    }
     &--imgT {
       display: flex;
       flex-direction: row;
-      flex: 0 0 50%;
+      @include respond(sm) {
+        flex-direction: column;
+        align-items: center;
+        flex: 0 0 70%;
+      }
+      @include respond(md) {
+        flex-direction: row;
+        flex: 0 0 50%;
+      }
       &--img {
         width: 10rem;
         height: 10rem;
+        @include respond(sm) {
+          width: 30rem;
+          height: 30rem;
+        }
+        @include respond(md) {
+          width: 10rem;
+          height: 10rem;
+        }
         img {
           width: 10rem;
           height: 10rem;
+          @include respond(sm) {
+            width: 30rem;
+            height: 30rem;
+          }
+          @include respond(md) {
+            width: 10rem;
+            height: 10rem;
+          }
         }
       }
       &--info {
         display: flex;
-        padding-left: 2rem;
         flex-direction: column;
+        @include respond(sm) {
+          margin-right: auto;
+          padding-left: 0;
+          margin-top: 1rem;
+        }
+        @include respond(md) {
+          padding-left: 2rem;
+          margin-top: 0rem;
+        }
         &--t {
           text-transform: uppercase;
           font-size: 2rem;
@@ -335,8 +419,17 @@
     &--prc {
       flex: 0 0 16.5%;
       display: flex;
-      justify-content: center;
       font-size: 1.5rem;
+      justify-content: center;
+      @include respond(sm) {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-right: auto;
+      }
+      @include respond(md) {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
     &--qnt {
       display: flex;
@@ -347,14 +440,16 @@
       border: 1px solid lighten(#777, 30%);
       margin-bottom: 2rem;
       height: 5rem;
+      width: 100%;
       &--btn {
         cursor: pointer;
         flex: 1;
         justify-content: center;
         align-items: center;
         border: none;
+        background-color: transparent;
         display: flex;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 1.5rem;
         font-size: 2rem;
         &:hover {
           background-color: lighten(#777, 40%);
@@ -366,7 +461,7 @@
         justify-content: center;
         align-items: center;
         display: flex;
-        padding: 0.5rem 2rem;
+        padding: 0.5rem 1.5rem;
       }
     }
     &--tot {
@@ -375,9 +470,16 @@
       justify-content: center;
       font-size: 1.5rem;
       font-weight: bold;
+      @include respond(sm) {
+        margin-right: auto;
+        font-size: 2.5rem;
+      }
+      @include respond(md) {
+        font-size: 1.5rem;
+      }
     }
+
     &--btn {
-      display: flex;
       align-items: center;
       justify-content: center;
       &--clsBtn {
@@ -393,6 +495,12 @@
         background-color: lighten(#999, 20%);
         color: #444;
         cursor: pointer;
+        @include respond(sm) {
+          display: none;
+        }
+        @include respond(md) {
+          display: flex;
+        }
       }
     }
   }
@@ -409,6 +517,12 @@
       padding: 2rem 0;
       border-bottom: 1px solid lighten(#777, 20%);
       font-size: 1.2rem;
+      @include respond(sm) {
+        width: 100%;
+      }
+      @include respond(md) {
+        width: 40%;
+      }
     }
     &--ttls {
       text-transform: uppercase;
@@ -416,8 +530,13 @@
       letter-spacing: 0.25rem;
     }
     &--prcs {
-      color: #000;
       font-size: 1.5rem;
+      @include respond(sm) {
+        color: #444;
+      }
+      @include respond(md) {
+        color: #000;
+      }
       &--t {
         font-size: 2rem;
       }
@@ -428,9 +547,14 @@
     flex-direction: row;
     justify-content: space-around;
     margin-left: auto;
-    width: 40%;
+
     @include respond(sm) {
       flex-direction: column;
+      width: 100%;
+    }
+    @include respond(md) {
+      flex-direction: column;
+      width: 40%;
     }
     &--chLnk {
       text-decoration: none;
