@@ -3,8 +3,8 @@ import { productsData, detailProduct } from './productsData';
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
   const [currInx, setCurrInx] = useState(0);
-
   const [products, setProducts] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [bag, setBag] = useState([]);
   const [modal, setModal] = useState(false);
   const [modalProduct, setModalProduct] = useState(detailProduct);
@@ -18,6 +18,12 @@ export const ProductProvider = (props) => {
   const closeQuickView = () => {
     setQuickView(!quickView);
   };
+
+  // SEARCH FUNCTION
+  useEffect(() => {
+    setProducts();
+    setSearchResults();
+  }, []);
 
   useEffect(() => {
     let tempProducts = [];
@@ -201,6 +207,7 @@ export const ProductProvider = (props) => {
       value={{
         bag,
         products,
+        searchResults,
         detailPrd,
         currInx,
         giftProducts,
@@ -217,6 +224,7 @@ export const ProductProvider = (props) => {
         handleDetail,
         addToBag,
         setCurrInx,
+        setSearchResults,
         handleModal,
         closeQuickView,
         increment,

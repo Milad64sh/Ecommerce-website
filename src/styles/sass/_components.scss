@@ -107,30 +107,33 @@
 .nav {
   &__lgo {
     display: flex;
-    // flex: 0 0 50%;
+    flex: 0 0 50%;
     font-size: 2.5rem;
     position: relative;
-    align-items: center;
     color: var(--clr-logo);
-    flex: 1;
     height: 10rem;
-    &__lts {
-      justify-content: flex-start;
-    }
     @include respond(sm) {
-      display: flex;
       justify-content: flex-start;
       align-items: flex-start;
-      margin-left: auto;
       flex: 0 0 50%;
     }
     @include respond(md) {
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex: 0 0 10%;
+    }
+    &__lts {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      // margin-left: auto;
-      flex: 0 0 5%;
-      background-color: red;
+      justify-content: flex-start;
+      @include respond(sm) {
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: auto;
+      }
+      @include respond(md) {
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     .lgo-lt-1 {

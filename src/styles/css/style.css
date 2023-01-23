@@ -265,25 +265,19 @@ body {
 
 .nav__lgo {
   display: flex;
+  flex: 0 0 50%;
   font-size: 2.5rem;
   position: relative;
-  align-items: center;
   color: var(--clr-logo);
-  flex: 1;
   height: 10rem;
-}
-.nav__lgo__lts {
-  justify-content: flex-start;
 }
 .nav__lgo * {
   transition: all 0.7s;
 }
 @media only screen and (min-width: 375px) {
   .nav__lgo {
-    display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-left: auto;
     flex: 0 0 50%;
   }
 }
@@ -292,11 +286,32 @@ body {
 }
 @media only screen and (min-width: 900px) {
   .nav__lgo {
-    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 0 0 10%;
+  }
+}
+.nav__lgo__lts {
+  display: flex;
+  justify-content: flex-start;
+}
+.nav__lgo__lts * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 375px) {
+  .nav__lgo__lts {
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: auto;
+  }
+}
+.nav__lgo__lts * {
+  transition: all 0.7s;
+}
+@media only screen and (min-width: 900px) {
+  .nav__lgo__lts {
     justify-content: center;
     align-items: center;
-    flex: 0 0 5%;
-    background-color: red;
   }
 }
 .nav__lgo .lgo-lt-1 {
