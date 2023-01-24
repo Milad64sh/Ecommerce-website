@@ -1224,6 +1224,20 @@ body {
   max-width: 100%;
 }
 
+.schPrd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  flex-direction: column;
+}
+.schPrd__img {
+  width: 60%;
+}
+.schPrd__img .img {
+  width: 100%;
+}
+
 .home {
   display: flex;
   align-items: center;
@@ -2073,6 +2087,15 @@ body {
   color: #777;
   text-transform: capitalize;
   margin: 3rem 0;
+}
+
+.sch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
 }
 
 /*# sourceMappingURL=style.css.map */

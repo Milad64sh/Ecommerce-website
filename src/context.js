@@ -22,7 +22,7 @@ export const ProductProvider = (props) => {
   // SEARCH FUNCTION
   useEffect(() => {
     setProducts();
-    setSearchResults();
+    setSearchResults(products);
   }, []);
 
   useEffect(() => {

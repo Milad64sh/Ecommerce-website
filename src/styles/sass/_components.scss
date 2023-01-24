@@ -919,3 +919,17 @@
 .sm-crd--img img {
   max-width: 100%;
 }
+
+.schPrd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  flex-direction: column;
+  &__img {
+    width: 60%;
+    .img {
+      width: 100%;
+    }
+  }
+}

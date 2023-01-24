@@ -590,3 +590,12 @@
   text-transform: capitalize;
   margin: 3rem 0;
 }
+
+.sch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+}
