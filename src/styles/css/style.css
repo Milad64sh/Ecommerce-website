@@ -1228,14 +1228,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 100%;
   flex-direction: column;
 }
 .schPrd__img {
-  width: 60%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.schPrd__img .img {
-  width: 100%;
+.schPrd__info {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  font-size: 1.5rem;
+}
+.schPrd__info--prc {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+
+.schPrd__img img {
+  width: 300px;
 }
 
 .home {
@@ -2095,7 +2112,11 @@ body {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
+  margin-top: 2rem;
+  width: 100%;
+}
+.sch * {
+  transition: all 0.7s;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -924,12 +924,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 100%;
   flex-direction: column;
   &__img {
-    width: 60%;
-    .img {
-      width: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__info {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    font-size: 1.5rem;
+    &--prc {
+      display: flex;
+      width: 70%;
+      justify-content: space-between;
     }
   }
+}
+
+.schPrd__img img {
+  width: 300px;
 }

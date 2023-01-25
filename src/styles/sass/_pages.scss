@@ -597,5 +597,8 @@
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100vw;
+  margin-top: 2rem;
+  width: 100%;
+  @include respond(sm) {
+  }
 }
