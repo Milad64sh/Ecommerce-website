@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import ProductContext from '../context';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
+import Rating from '../components/Rating';
 
 function Detail() {
   const [showMore, setShowMore] = useState(false);
@@ -56,6 +57,7 @@ function Detail() {
           <span className='dtl__cnt--rm' onClick={showInfo}>
             {showMore ? 'read less' : 'read more'}
           </span>
+          <Rating />
           <div className='dtl__cnt--btns'>
             <h3 className='dtl__cnt--h3'>qty:</h3>
             <div className='dtl__cnt--btns--qts'>
