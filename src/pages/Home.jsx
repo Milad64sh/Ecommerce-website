@@ -71,7 +71,7 @@ function Home() {
           <SearchPage />
         ) : (
           <>
-            {/* SALE SECTION */}
+            {/* GIFT SECTION */}
             <section className='sctn'>
               <div className='hdng'>
                 <h2 className='allp-h2 hdng-2'>our gifting favorites</h2>
@@ -79,8 +79,8 @@ function Home() {
                   Give the gift of smoothing, hydrating, and glow-giving faves
                 </h3>
               </div>
-              <div className='gft'>
-                <div className='gft--sld'>
+              <div className='gift'>
+                <div className='gift--slide'>
                   <img
                     src={ArrowLeft}
                     alt='arrow left'
@@ -98,14 +98,14 @@ function Home() {
                     onClick={goToNext}
                   />
                 </div>
-                <div className='gft--dts'>
+                <div className='gift--dots'>
                   {giftProducts.map((p, pInx) => {
                     return (
                       <div
                         className={
                           pInx === currInx
-                            ? 'gft--dts--dt'
-                            : 'gft--dts--dt--active'
+                            ? 'gift--dots--dot'
+                            : 'gift--dots--dot--active'
                         }
                         key={pInx}
                         onClick={() => showSlide(pInx)}

@@ -13,6 +13,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   list-style-type: none;
 }
 
@@ -49,6 +50,7 @@ body {
   border: 1px solid var(--clr-prm-dr-1);
   color: var(--clr-prm-dr-1);
   margin-bottom: 1rem;
+  border-radius: 4px;
   width: 90%;
   background-color: transparent;
   cursor: pointer;
@@ -133,7 +135,7 @@ body {
   background-size: cover;
 }
 .hro * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .hro {
@@ -141,7 +143,7 @@ body {
   }
 }
 .hro * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .hro {
@@ -154,7 +156,7 @@ body {
   font-weight: 200;
 }
 .hro--hdng * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .hro--hdng {
@@ -165,7 +167,7 @@ body {
   }
 }
 .hro--hdng * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .hro--hdng {
@@ -175,7 +177,7 @@ body {
   }
 }
 .hro--hdng * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1100px) {
   .hro--hdng {
@@ -239,7 +241,7 @@ body {
   right: 3.5rem;
 }
 .search__frm--icn * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .search__frm--icn {
@@ -247,7 +249,7 @@ body {
   }
 }
 .search__frm--icn * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .search__frm--icn {
@@ -255,7 +257,7 @@ body {
   }
 }
 .search__frm--icn * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1100px) {
   .search__frm--icn {
@@ -272,7 +274,7 @@ body {
   height: 10rem;
 }
 .nav__lgo * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .nav__lgo {
@@ -282,7 +284,7 @@ body {
   }
 }
 .nav__lgo * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .nav__lgo {
@@ -296,7 +298,7 @@ body {
   justify-content: flex-start;
 }
 .nav__lgo__lts * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .nav__lgo__lts {
@@ -306,7 +308,7 @@ body {
   }
 }
 .nav__lgo__lts * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .nav__lgo__lts {
@@ -357,7 +359,7 @@ body {
   visibility: hidden;
 }
 .nav__mnu * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media screen and (max-width: 760px) {
   .nav__mnu {
@@ -396,7 +398,7 @@ body {
   justify-content: space-around;
 }
 .nav__usr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .nav__usr {
@@ -404,7 +406,7 @@ body {
   }
 }
 .nav__usr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1100px) {
   .nav__usr {
@@ -470,7 +472,7 @@ body {
 }
 
 * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 
 @media screen and (max-width: 760px) {
@@ -489,7 +491,7 @@ body {
   }
 }
 * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 
 @media screen and (max-width: 760px) {
@@ -510,7 +512,7 @@ body {
   }
   .navIcn--btn, .navIcn--btn::before, .navIcn--btn::after {
     width: 2rem;
-    height: 2px;
+    height: 2.5px;
     background-color: var(--clr-logo);
     display: inline-block;
     transition: all 0.3s ease;
@@ -543,63 +545,85 @@ body {
   left: 0;
 }
 
-.gft {
+.gift {
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.gft--sld {
+.gift * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .gift {
+    width: 90%;
+  }
+}
+.gift--slide {
+  transition: all 0.4s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
-.gft--dts {
+.gift--slide * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .gift--slide {
+    background-color: --clr-prm-dr-1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+.gift--dots {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   margin: 1rem 0;
 }
-.gft--dts--dt {
+.gift--dots--dot {
   padding: 1rem 0.25rem;
   font-size: 2rem;
   cursor: pointer;
   color: #3d6565;
 }
-.gft--dts--dt--active {
+.gift--dots--dot--active {
   padding: 1rem 0.25rem;
   font-size: 2rem;
   cursor: pointer;
   color: var(--clr-prm-dr-1);
 }
-.gft--swpr {
+.gift--swpr {
   display: block;
   width: 100%;
 }
-.gft--swpr--sld {
+.gift--swpr--sld {
   display: flex;
   flex-direction: row;
 }
-.gft--swpr--sld * {
-  transition: all 0.7s;
+.gift--swpr--sld * {
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
-  .gft--swpr--sld {
+  .gift--swpr--sld {
     width: 70%;
   }
 }
-.gft--swpr--sld * {
-  transition: all 0.7s;
+.gift--swpr--sld * {
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
-  .gft--swpr--sld {
+  .gift--swpr--sld {
     width: 70%;
   }
 }
-.gft--swpr--sld * {
-  transition: all 0.7s;
+.gift--swpr--sld * {
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1100px) {
-  .gft--swpr--sld {
+  .gift--swpr--sld {
     width: 100%;
   }
 }
@@ -613,23 +637,24 @@ body {
   display: flex;
   align-items: center;
   background-color: #fff;
+  background-color: transparent;
   justify-content: space-between;
   flex-direction: column;
-  width: 100%;
-  height: 50rem;
-  margin: 0 0.15rem;
+  border: 1px solid var(--clr-prm-dr-1);
+  border-radius: 4px;
+  height: 45rem;
   transition: all 0.3s ease;
 }
 .sm-crd * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .sm-crd {
-    width: 70%;
+    width: 80%;
   }
 }
 .sm-crd * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .sm-crd {
@@ -637,7 +662,7 @@ body {
   }
 }
 .sm-crd * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1100px) {
   .sm-crd {
@@ -645,9 +670,12 @@ body {
   }
 }
 .sm-crd--btn {
+  position: absolute;
+  margin-top: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10000;
 }
 .sm-crd--btn--d {
   cursor: pointer;
@@ -673,11 +701,20 @@ body {
 .sm-crd--img {
   display: flex;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  margin-top: 5px;
   height: 70%;
   width: 100%;
   z-index: 1000;
   transition: all 0.3s ease-in-out;
+}
+.sm-crd--img * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .sm-crd--img {
+    height: 40%;
+  }
 }
 .sm-crd--img::before {
   content: "";
@@ -696,12 +733,16 @@ body {
   z-index: 500;
 }
 .sm-crd--dtls {
-  padding-top: 2rem;
+  position: absolute;
+  display: flex;
+  bottom: 5px;
   width: 100%;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   background-color: #fff;
+  background-color: transparent;
 }
 .sm-crd--dtls--h4 {
   font-size: 1.5rem;
@@ -714,6 +755,15 @@ body {
   font-size: 1.5rem;
   padding-bottom: 0.5rem;
   width: 40rem;
+  text-align: center;
+}
+.sm-crd--dtls--p * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .sm-crd--dtls--p {
+    width: 20rem;
+  }
 }
 
 .bst-sllr {
@@ -726,7 +776,7 @@ body {
   width: 100%;
 }
 .bst-sllr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bst-sllr {
@@ -740,7 +790,7 @@ body {
   }
 }
 .bst-sllr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bst-sllr {
@@ -749,7 +799,7 @@ body {
   }
 }
 .bst-sllr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1100px) {
   .bst-sllr {
@@ -776,7 +826,7 @@ body {
   color: var(--clr-prm-thm-1);
 }
 .bst-sllr--cnt--hdngs * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bst-sllr--cnt--hdngs {
@@ -784,7 +834,7 @@ body {
   }
 }
 .bst-sllr--cnt--hdngs * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bst-sllr--cnt--hdngs {
@@ -800,7 +850,7 @@ body {
   height: 35rem;
 }
 .bst-sllr--clrcb * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bst-sllr--clrcb {
@@ -808,7 +858,7 @@ body {
   }
 }
 .bst-sllr--clrcb * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bst-sllr--clrcb {
@@ -823,7 +873,7 @@ body {
   margin-bottom: 1rem;
 }
 .bst-sllr--img img * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bst-sllr--img img {
@@ -846,7 +896,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem 3rem;
+  border: 1px solid #ffb667;
+  border-radius: 4px;
+  margin: 2rem 0;
 }
 .sale--hdngs {
   display: flex;
@@ -880,7 +932,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 30rem;
+  width: 25rem;
 }
 .sale--btns {
   display: flex;
@@ -902,7 +954,7 @@ body {
   margin: 7rem 5rem;
 }
 .ftr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .ftr {
@@ -913,7 +965,7 @@ body {
   }
 }
 .ftr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .ftr {
@@ -931,7 +983,7 @@ body {
   font-size: 2.5rem;
 }
 .ftr--lgo * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .ftr--lgo {
@@ -970,7 +1022,7 @@ body {
   justify-content: space-around;
 }
 .ftr--cnt * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .ftr--cnt {
@@ -981,7 +1033,7 @@ body {
   }
 }
 .ftr--cnt * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .ftr--cnt {
@@ -1001,7 +1053,7 @@ body {
   flex-direction: column;
 }
 .ftr--cnt .cl .ftr-lnks * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .ftr--cnt .cl .ftr-lnks {
@@ -1009,7 +1061,7 @@ body {
   }
 }
 .ftr--cnt .cl .ftr-lnks * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .ftr--cnt .cl .ftr-lnks {
@@ -1042,7 +1094,7 @@ body {
   border-bottom: 1px solid var(--clr-prm-lgt-2);
 }
 .ftr--cnt .ftr-hdng2 * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .ftr--cnt .ftr-hdng2 {
@@ -1050,7 +1102,7 @@ body {
   }
 }
 .ftr--cnt .ftr-hdng2 * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .ftr--cnt .ftr-hdng2 {
@@ -1061,7 +1113,7 @@ body {
   display: block;
 }
 .ftr--cnt .ftr-hdng2--arr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .ftr--cnt .ftr-hdng2--arr {
@@ -1069,7 +1121,7 @@ body {
   }
 }
 .ftr--cnt .ftr-hdng2--arr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .ftr--cnt .ftr-hdng2--arr {
@@ -1117,7 +1169,7 @@ body {
   border-radius: 4px;
 }
 .mdlCnt--mdl * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .mdlCnt--mdl {
@@ -1125,7 +1177,7 @@ body {
   }
 }
 .mdlCnt--mdl * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .mdlCnt--mdl {
@@ -1255,6 +1307,21 @@ body {
   width: 300px;
 }
 
+.rateContent {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  width: 100px;
+}
+.rateContent__radio {
+  display: none;
+}
+.rateContent__rate {
+  margin-bottom: 2rem;
+  font-size: large;
+}
+
 .home {
   display: flex;
   align-items: center;
@@ -1294,7 +1361,7 @@ body {
   padding-bottom: 1.5rem;
 }
 .hdng-3 * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .hdng-3 {
@@ -1304,6 +1371,15 @@ body {
 
 .allp-h2 {
   border-bottom: 3px solid var(--clr-prm-thm-1);
+}
+
+.allp-h3 * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .allp-h3 {
+    width: 90%;
+  }
 }
 
 .sle {
@@ -1320,6 +1396,14 @@ body {
   justify-content: center;
   flex-direction: column;
 }
+.sctn * {
+  transition: all 0.7s ease-in-out;
+}
+@media screen and (max-width: 760px) {
+  .sctn {
+    margin: 0 auto;
+  }
+}
 
 .sctn-bst-sllr {
   width: 100%;
@@ -1332,6 +1416,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   width: 100%;
   height: 100%;
   background-color: var(--clr-prm-thm-2);
@@ -1361,7 +1446,7 @@ body {
   min-height: 100vh;
 }
 .prs * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1100px) {
   .prs {
@@ -1381,7 +1466,7 @@ body {
   width: 70%;
 }
 .pr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .pr {
@@ -1389,7 +1474,7 @@ body {
   }
 }
 .pr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .pr {
@@ -1397,7 +1482,7 @@ body {
   }
 }
 .pr * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 1100px) {
   .pr {
@@ -1511,18 +1596,21 @@ body {
   background-image: linear-gradient(to right, rgba(187, 213, 211, 0.5), rgba(255, 255, 255, 0.9) 50%);
 }
 .dtl * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .dtl {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     background-image: linear-gradient(to bottom, rgba(187, 213, 211, 0.5), rgba(255, 255, 255, 0.9) 50%);
     height: 100%;
   }
 }
 .dtl * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .dtl {
@@ -1532,11 +1620,14 @@ body {
   }
 }
 .dtl__img {
-  display: block;
+  display: flex;
   position: relative;
   justify-content: center;
   flex: 0 0 50%;
   height: 100%;
+}
+.dtl__img img {
+  width: 90%;
 }
 .dtl__cnt {
   display: flex;
@@ -1545,6 +1636,17 @@ body {
   margin-bottom: auto;
   margin-top: 2rem;
   flex: 0 0 50%;
+}
+.dtl__cnt * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .dtl__cnt {
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    margin-left: 2rem;
+  }
 }
 .dtl__cnt--h2 {
   font-size: 3rem;
@@ -1580,8 +1682,16 @@ body {
   visibility: hidden;
 }
 .dtl__cnt--qInfo, .dtl__cnt--info {
-  width: 50rem;
+  width: 40rem;
   font-size: 1.5rem;
+}
+.dtl__cnt--qInfo *, .dtl__cnt--info * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .dtl__cnt--qInfo, .dtl__cnt--info {
+    width: 90%;
+  }
 }
 .dtl__cnt--rm {
   text-decoration: underline;
@@ -1636,7 +1746,7 @@ body {
   flex-direction: column;
 }
 .bg--ttl * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--ttl {
@@ -1645,7 +1755,7 @@ body {
   }
 }
 .bg--ttl * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--ttl {
@@ -1661,7 +1771,7 @@ body {
   letter-spacing: 0.5rem;
 }
 .bg--ttl--pg * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--ttl--pg {
@@ -1669,7 +1779,7 @@ body {
   }
 }
 .bg--ttl--pg * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--ttl--pg {
@@ -1682,7 +1792,7 @@ body {
   justify-content: space-between;
 }
 .bg--ttl--ttls * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--ttl--ttls {
@@ -1690,7 +1800,7 @@ body {
   }
 }
 .bg--ttl--ttls * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--ttl--ttls {
@@ -1719,7 +1829,7 @@ body {
   border-bottom: 1px solid #aaaaaa;
 }
 .bg--itm * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm {
@@ -1728,7 +1838,7 @@ body {
   }
 }
 .bg--itm * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm {
@@ -1754,7 +1864,7 @@ body {
   cursor: pointer;
 }
 .bg--itm--btnUp * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm--btnUp {
@@ -1764,7 +1874,7 @@ body {
   }
 }
 .bg--itm--btnUp * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm--btnUp {
@@ -1776,7 +1886,7 @@ body {
   flex-direction: row;
 }
 .bg--itm--imgT * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm--imgT {
@@ -1786,7 +1896,7 @@ body {
   }
 }
 .bg--itm--imgT * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm--imgT {
@@ -1799,7 +1909,7 @@ body {
   height: 10rem;
 }
 .bg--itm--imgT--img * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm--imgT--img {
@@ -1808,7 +1918,7 @@ body {
   }
 }
 .bg--itm--imgT--img * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm--imgT--img {
@@ -1821,7 +1931,7 @@ body {
   height: 10rem;
 }
 .bg--itm--imgT--img img * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm--imgT--img img {
@@ -1830,7 +1940,7 @@ body {
   }
 }
 .bg--itm--imgT--img img * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm--imgT--img img {
@@ -1843,7 +1953,7 @@ body {
   flex-direction: column;
 }
 .bg--itm--imgT--info * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm--imgT--info {
@@ -1853,7 +1963,7 @@ body {
   }
 }
 .bg--itm--imgT--info * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm--imgT--info {
@@ -1882,7 +1992,7 @@ body {
   justify-content: center;
 }
 .bg--itm--prc * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm--prc {
@@ -1892,7 +2002,7 @@ body {
   }
 }
 .bg--itm--prc * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm--prc {
@@ -1941,7 +2051,7 @@ body {
   font-weight: bold;
 }
 .bg--itm--tot * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm--tot {
@@ -1950,7 +2060,7 @@ body {
   }
 }
 .bg--itm--tot * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm--tot {
@@ -1976,7 +2086,7 @@ body {
   cursor: pointer;
 }
 .bg--itm--btn--clsBtn * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--itm--btn--clsBtn {
@@ -1984,7 +2094,7 @@ body {
   }
 }
 .bg--itm--btn--clsBtn * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--itm--btn--clsBtn {
@@ -2007,7 +2117,7 @@ body {
   font-size: 1.2rem;
 }
 .bg--subInfo--sbs * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--subInfo--sbs {
@@ -2015,7 +2125,7 @@ body {
   }
 }
 .bg--subInfo--sbs * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--subInfo--sbs {
@@ -2031,7 +2141,7 @@ body {
   font-size: 1.5rem;
 }
 .bg--subInfo--prcs * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--subInfo--prcs {
@@ -2039,7 +2149,7 @@ body {
   }
 }
 .bg--subInfo--prcs * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--subInfo--prcs {
@@ -2056,7 +2166,7 @@ body {
   margin-left: auto;
 }
 .bg--btns * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .bg--btns {
@@ -2065,7 +2175,7 @@ body {
   }
 }
 .bg--btns * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 900px) {
   .bg--btns {
@@ -2116,7 +2226,7 @@ body {
   width: 100%;
 }
 .sch * {
-  transition: all 0.7s;
+  transition: all 0.7s ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */

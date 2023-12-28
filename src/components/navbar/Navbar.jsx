@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react';
 import ProductContext from '../../context';
 import { Link } from 'react-router-dom';
-
 import { RxPerson } from 'react-icons/rx';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { navItems } from '../../NavItems';

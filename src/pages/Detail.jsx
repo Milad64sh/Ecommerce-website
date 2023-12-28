@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import ProductContext from '../context';
 import Navbar from '../components/navbar/Navbar';
@@ -7,6 +7,7 @@ import Rating from '../components/Rating';
 
 function Detail() {
   const [showMore, setShowMore] = useState(false);
+  const { productId } = useParams();
 
   const { detailPrd, addToBag } = useContext(ProductContext);
 
@@ -59,12 +60,12 @@ function Detail() {
           </span>
           <Rating />
           <div className='dtl__cnt--btns'>
-            <h3 className='dtl__cnt--h3'>qty:</h3>
+            {/* <h3 className='dtl__cnt--h3'>qty:</h3>
             <div className='dtl__cnt--btns--qts'>
               <div className='dtl__cnt--btns--qts--btn'>-</div>
               <span className='dtl__cnt--btns--qts--n'>0</span>
               <div className='dtl__cnt--btns--qts--btn'>+</div>
-            </div>
+            </div> */}
             <button
               className='dtl__cnt--btns--add btn'
               disabled={inCart ? true : false}

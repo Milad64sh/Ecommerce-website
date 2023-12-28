@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 function Sale(props) {
-  const { img, title, quickInfo } = props.product;
+  const { img, title, quickInfo, id } = props.product;
   return (
     <div className='sale'>
       <div className='sale--img'>
@@ -14,11 +14,9 @@ function Sale(props) {
         </div>
       </div>
       <div className='sale--btns'>
-        <button className='sale-btn btn'>
-          <Link to={'/detail'} className='sale--lnk'>
-            details
-          </Link>
-        </button>
+        <Link to={`/detail/${id}`} className='sale--lnk'>
+          <button className='sale-btn btn'>details</button>
+        </Link>
         <span className='bf'></span>
         <button className='sale-btn btn'>add to bag</button>
       </div>

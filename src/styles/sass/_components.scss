@@ -313,7 +313,7 @@
       &::before,
       &::after {
         width: 2rem;
-        height: 2px;
+        height: 2.5px;
         background-color: var(--clr-logo);
         display: inline-block;
         transition: all 0.3s ease;
@@ -352,21 +352,33 @@
 }
 
 // GIFT SECTION //
-.gft {
+.gift {
   flex-direction: column;
-  &--sld {
+  justify-content: center;
+  align-items: center;
+  @include respond(sm) {
+    width: 90%;
+  }
+  &--slide {
+    transition: all 0.4s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    @include respond(sm) {
+      background-color: --clr-prm-dr-1;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
   }
-  &--dts {
+  &--dots {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     margin: 1rem 0;
-    &--dt {
+    &--dot {
       padding: 1rem 0.25rem;
       font-size: 2rem;
       cursor: pointer;
@@ -407,14 +419,17 @@
   display: flex;
   align-items: center;
   background-color: #fff;
+  background-color: transparent;
   justify-content: space-between;
   flex-direction: column;
-  width: 100%;
-  height: 50rem;
-  margin: 0 0.15rem;
+  border: 1px solid var(--clr-prm-dr-1);
+  border-radius: 4px;
+  // width: 100%;
+  height: 45rem;
+  // margin: 0 0.15rem;
   transition: all 0.3s ease;
   @include respond(sm) {
-    width: 70%;
+    width: 80%;
   }
   @include respond(md) {
     width: 100%;
@@ -423,9 +438,12 @@
     width: 100%;
   }
   &--btn {
+    position: absolute;
+    margin-top: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10000;
     &--d {
       cursor: pointer;
       position: absolute;
@@ -451,11 +469,15 @@
   &--img {
     display: flex;
     justify-content: center;
-    position: relative;
+    position: absolute;
+    margin-top: 5px;
     height: 70%;
     width: 100%;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
+    @include respond(sm) {
+      height: 40%;
+    }
 
     &::before {
       content: '';
@@ -476,12 +498,16 @@
     }
   }
   &--dtls {
-    padding-top: 2rem;
+    position: absolute;
+    display: flex;
+    bottom: 5px;
     width: 100%;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: #fff;
+    background-color: transparent;
     &--h4 {
       font-size: 1.5rem;
       color: var(--clr-prm-thm);
@@ -493,6 +519,10 @@
       font-size: 1.5rem;
       padding-bottom: 0.5rem;
       width: 40rem;
+      text-align: center;
+      @include respond(sm) {
+        width: 20rem;
+      }
     }
   }
 }
@@ -596,8 +626,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem 3rem;
-
+  border: 1px solid darken(#ffe7cd, 20%);
+  border-radius: 4px;
+  margin: 2rem 0;
   &--hdngs {
     display: flex;
     flex-direction: column;
@@ -631,7 +662,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 30rem;
+    width: 25rem;
   }
   &--btns {
     display: flex;
@@ -949,4 +980,19 @@
 
 .schPrd__img img {
   width: 300px;
+}
+
+.rateContent {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  width: 100px;
+  &__radio {
+    display: none;
+  }
+  &__rate {
+    margin-bottom: 2rem;
+    font-size: large;
+  }
 }

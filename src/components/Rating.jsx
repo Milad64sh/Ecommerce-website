@@ -4,23 +4,20 @@ function Rating() {
   const [rate, setRate] = useState(0);
 
   return (
-    <div className='rteCont'>
+    <div className='rateContent'>
       {[...Array(5)].map((item, index) => {
         const givenRating = index + 1;
         return (
-          <label>
+          <label key={index} className='rateContent__label'>
             <input
               type='radio'
+              className='rateContent__radio'
               value={givenRating}
-              onClick={() => setRate(givenRating)}
+              onChange={() => setRate(givenRating)}
             />
-            <div className='rteCont--rte'>
+            <div className='rateContent__rate'>
               <FaStar
-                color={
-                  givenRating < rate || givenRating === rate
-                    ? '000'
-                    : 'rgb(192,192,192)'
-                }
+                color={givenRating <= rate ? '#000' : 'rgb(192,192,192)'}
               />
             </div>
           </label>
