@@ -30,6 +30,7 @@ export const productsData = [
     male: true,
     female: true,
     domestic: true,
+    rating: 5,
   },
   {
     id: 2,
@@ -52,6 +53,7 @@ export const productsData = [
     male: true,
     female: true,
     domestic: true,
+    rating: 4,
   },
   {
     id: 3,
@@ -74,6 +76,7 @@ export const productsData = [
     male: false,
     female: true,
     domestic: false,
+    rating: 3,
   },
   {
     id: 4,
@@ -95,6 +98,7 @@ export const productsData = [
     male: true,
     female: true,
     domestic: false,
+    rating: 5,
   },
   {
     id: 5,
@@ -117,6 +121,7 @@ export const productsData = [
     male: true,
     female: true,
     domestic: true,
+    rating: 4,
   },
   {
     id: 6,
@@ -139,6 +144,7 @@ export const productsData = [
     male: false,
     female: true,
     domestic: true,
+    rating: 5,
   },
 
   {
@@ -161,6 +167,7 @@ export const productsData = [
     male: false,
     female: true,
     domestic: false,
+    rating: 5,
   },
   {
     id: 8,
@@ -183,6 +190,7 @@ export const productsData = [
     male: true,
     female: true,
     domestic: true,
+    rating: 4,
   },
   {
     id: 9,
@@ -205,6 +213,7 @@ export const productsData = [
     male: true,
     female: true,
     domestic: false,
+    rating: 3,
   },
   {
     id: 10,
@@ -227,25 +236,6 @@ export const productsData = [
     male: true,
     female: true,
     domestic: true,
+    rating: 5,
   },
 ];
-
-export const detailProduct = {
-  id: 1,
-  bestSeller: true,
-  gift: true,
-  title: 'Enzyme cleanser',
-  quickInfo:
-    'The Enzyme Cleanser is a two-in-one cleansing foam and exfoliator, particularly ideal for oily and combination skin.',
-  info: `The fine-grained powder transforms into a soft foam once water is added, providing a deep, yet gentle cleanse and exfoliation. A collection of enzymes works together to loosen the conjunctions between dead skin cells, helping to peel away dry and rough skin, remove makeup, and reduce excess sebum from pores. The skin will appear revitalized and smooth instantly after cleansing.`,
-  img: image10,
-  company: `Dr. Barbara Sturm`,
-  productType: 'cleanser',
-  sale: true,
-  price: 66,
-  discountPrice: 56.5,
-  save: 9.5,
-  inCart: false,
-  count: 0,
-  total: 0,
-};

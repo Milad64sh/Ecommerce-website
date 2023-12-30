@@ -129,8 +129,8 @@ function Home() {
                 <h3 className='hdng-3'>check our exclusive offers</h3>
               </div>
               <div className='sctn-sale'>
-                {saleProducts.map((product) => {
-                  return <Sale product={product} />;
+                {saleProducts.map((product, index) => {
+                  return <Sale key={index} product={product} />;
                 })}
               </div>
             </section>

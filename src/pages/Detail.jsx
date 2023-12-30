@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import ProductContext from '../context';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer';
@@ -9,7 +9,12 @@ function Detail() {
   const [showMore, setShowMore] = useState(false);
   const { productId } = useParams();
 
-  const { detailPrd, addToBag } = useContext(ProductContext);
+  const { detailPrd, addToBag, fetchProductDetails } =
+    useContext(ProductContext);
+
+  useEffect(() => {
+    fetchProductDetails(productId);
+  }, [fetchProductDetails, productId]);
 
   const {
     id,
@@ -23,6 +28,7 @@ function Detail() {
     discountPrice,
     inCart,
     sale,
+    rating,
   } = detailPrd;
   const showInfo = () => setShowMore(!showMore);
   return (
@@ -58,14 +64,8 @@ function Detail() {
           <span className='dtl__cnt--rm' onClick={showInfo}>
             {showMore ? 'read less' : 'read more'}
           </span>
-          <Rating />
+          <Rating productRating={rating} />
           <div className='dtl__cnt--btns'>
-            {/* <h3 className='dtl__cnt--h3'>qty:</h3>
-            <div className='dtl__cnt--btns--qts'>
-              <div className='dtl__cnt--btns--qts--btn'>-</div>
-              <span className='dtl__cnt--btns--qts--n'>0</span>
-              <div className='dtl__cnt--btns--qts--btn'>+</div>
-            </div> */}
             <button
               className='dtl__cnt--btns--add btn'
               disabled={inCart ? true : false}

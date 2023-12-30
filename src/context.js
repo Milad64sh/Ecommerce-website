@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { productsData, detailProduct } from './productsData';
+import { productsData } from './productsData';
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
   const [currInx, setCurrInx] = useState(0);
@@ -7,8 +7,8 @@ export const ProductProvider = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [bag, setBag] = useState([]);
   const [modal, setModal] = useState(false);
-  const [modalProduct, setModalProduct] = useState(detailProduct);
-  const [detailPrd, setDetailPrd] = useState(detailProduct);
+  const [modalProduct, setModalProduct] = useState({});
+  const [detailPrd, setDetailPrd] = useState({});
   const [quickView, setQuickView] = useState(true);
   const [bagSubTotal, setBagSubTotal] = useState([]);
   const [bagTax, setBagTax] = useState(0);
@@ -33,13 +33,19 @@ export const ProductProvider = (props) => {
     });
     setProducts(tempProducts);
   }, []);
+
+  const fetchProductDetails = (productId) => {
+    const productDetails = products.find(
+      (product) => product.id === parseInt(productId, 10)
+    );
+    setDetailPrd(productDetails || {});
+  };
   const giftProducts = products.filter((product) => product.gift);
   const saleProducts = products.filter((product) => product.sale);
 
   // GET ITEM ID
   const getItem = (id) => {
     const product = products.find((item) => item.id === id);
-
     return product;
   };
   const handleDetail = (id) => {
@@ -207,8 +213,8 @@ export const ProductProvider = (props) => {
       value={{
         bag,
         products,
-        searchResults,
         detailPrd,
+        searchResults,
         currInx,
         giftProducts,
         saleProducts,
@@ -222,6 +228,7 @@ export const ProductProvider = (props) => {
         goToPrev,
         goToNext,
         handleDetail,
+        fetchProductDetails,
         addToBag,
         setCurrInx,
         setSearchResults,

@@ -944,6 +944,7 @@ body {
 .sale--lnk {
   text-decoration: none;
   color: inherit;
+  width: 100%;
 }
 
 .ftr {
