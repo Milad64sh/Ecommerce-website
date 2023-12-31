@@ -154,13 +154,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.8rem;
   font-weight: 200;
+  width: 100%;
 }
 .hro--hdng * {
   transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .hro--hdng {
-    font-size: 4rem;
+    font-size: 2.5rem;
+    width: 100%;
     color: var(--clr-prm-dr-1);
     animation: moveInRight20 2s ease-in-out;
     text-align: center;
@@ -202,6 +204,14 @@ body {
 .hro--btn:hover {
   background-color: #a5c9c9;
 }
+.hro--btn * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .hro--btn {
+    border-radius: 4px;
+  }
+}
 
 .search {
   display: flex;
@@ -216,7 +226,7 @@ body {
 .search__frm {
   display: flex;
   justify-content: center;
-  width: 70%;
+  width: 85%;
   position: relative;
 }
 .search__frm--ipt {
@@ -227,6 +237,14 @@ body {
   border: none;
   margin-right: -3rem;
   margin-left: -3rem;
+}
+.search__frm--ipt * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .search__frm--ipt {
+    border-radius: 20px;
+  }
 }
 .search__frm--ipt:focus {
   width: 100%;
@@ -271,16 +289,16 @@ body {
   font-size: 2.5rem;
   position: relative;
   color: var(--clr-logo);
-  height: 10rem;
+  height: 8rem;
+  top: -5px;
 }
 .nav__lgo * {
   transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .nav__lgo {
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex: 0 0 50%;
+    margin-left: -50px;
+    flex: 0 0 33%;
   }
 }
 .nav__lgo * {
@@ -368,7 +386,7 @@ body {
     right: 0;
     left: -100%;
     width: 100%;
-    top: 10rem;
+    top: 8rem;
   }
   .nav__mnu .lst {
     background-color: #fff;
@@ -396,13 +414,14 @@ body {
 .nav__usr {
   display: flex;
   justify-content: space-around;
+  height: 8rem;
 }
 .nav__usr * {
   transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
   .nav__usr {
-    flex: 0 0 20%;
+    flex: 0 0 33%;
   }
 }
 .nav__usr * {
@@ -433,13 +452,23 @@ body {
   top: 5rem;
   right: 1rem;
 }
+.nav__usr--ntf * {
+  transition: all 0.7s ease-in-out;
+}
+@media only screen and (min-width: 375px) {
+  .nav__usr--ntf {
+    top: 4rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
 .nav__usr--icn {
-  height: 10rem;
+  height: 8rem;
   display: flex;
   align-items: center;
   flex-grow: 1;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 100;
   transition: all 0.3s ease;
   color: var(--clr-logo);
@@ -502,10 +531,20 @@ body {
     flex: 0 0 5%;
     flex: 1;
     padding-left: 2rem;
-    height: 10rem;
+    height: 8rem;
     cursor: pointer;
     transition: all 0.3s ease;
   }
+  .navIcn * {
+    transition: all 0.7s ease-in-out;
+  }
+}
+@media only screen and (max-width: 760px) and (min-width: 375px) {
+  .navIcn {
+    flex: 0 0 33%;
+  }
+}
+@media screen and (max-width: 760px) {
   .navIcn--btn {
     position: relative;
     display: flex;
@@ -528,6 +567,8 @@ body {
   .navIcn--btn::after {
     top: 0.8rem;
   }
+}
+@media screen and (max-width: 760px) {
   .clicked span {
     background-color: transparent;
   }
@@ -541,7 +582,7 @@ body {
   }
 }
 .open {
-  top: 10rem;
+  top: 8rem;
   left: 0;
 }
 
@@ -942,6 +983,7 @@ body {
   width: 30rem;
 }
 .sale--lnk {
+  margin-left: 20%;
   text-decoration: none;
   color: inherit;
   width: 100%;
@@ -1332,7 +1374,7 @@ body {
 }
 
 .nav {
-  height: 10rem;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1396,6 +1438,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: white;
 }
 .sctn * {
   transition: all 0.7s ease-in-out;
