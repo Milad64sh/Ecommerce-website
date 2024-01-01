@@ -10,6 +10,7 @@ import Women from './pages/Women.jsx';
 
 import './styles/css/style.css';
 import Modal from './components/Modal.jsx';
+import Auth from './pages/Auth.jsx';
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
         <Route path='/product' element={<Product />} />
         <Route path='/bag' element={<Bag />} />
         <Route path='/women' element={<Women />} />
+        <Route path='/auth' element={<Auth />} />
         <Route path='/detail/:productId' element={<Detail />} />
         <Route path='/default' element={<Default />} />
       </Routes>

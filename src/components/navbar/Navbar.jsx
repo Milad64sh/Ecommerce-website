@@ -81,7 +81,7 @@ function Navbar() {
 
         <div className='nav__usr'>
           <div className='nav__usr__icnBx'>
-            <Link to={'/'} className='nav__usr--icn'>
+            <Link to={'/auth'} className='nav__usr--icn'>
               <RxPerson />
             </Link>
           </div>
