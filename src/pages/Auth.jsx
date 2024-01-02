@@ -1,7 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Auth() {
+  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+
+  const handleContinue = () => {
+    const isEmailRegistered = checkIfEmailExists(email);
+    if (isEmailRegistered) {
+      navigate(`/home?email=${encodeURIComponent(email)}`);
+    } else {
+      navigate('/signup');
+    }
+  };
+
+  const checkIfEmailExists = (email) => {
+    return true;
+  };
+
   return (
     <>
       <div className='auth'>
@@ -23,13 +39,17 @@ function Auth() {
             name='email'
             id='email'
             placeholder='Email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className='auth__form__input'
           />
           <p className='auth__form__p'>
             By continuing, you agree to EDO's terms of Use and you confirm you
             have read EDO Privacy Policy
           </p>
-          <button className='auth__form__btn'>continue</button>
+          <button onClick={handleContinue} className='auth__form__btn'>
+            continue
+          </button>
         </form>
       </div>
     </>
