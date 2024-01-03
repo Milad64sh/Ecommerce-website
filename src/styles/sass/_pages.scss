@@ -722,6 +722,21 @@
         font-size: 1.5rem;
         letter-spacing: 1px;
       }
+      &.empty {
+        border: 1px solid darken(red, 10%);
+        &::placeholder {
+          color: darken(red, 10%);
+        }
+      }
+    }
+    &__error {
+      color: darken(red, 10%);
+      width: 90%;
+      margin-right: auto;
+      margin-left: 10px;
+      padding-bottom: 10px;
+      font-size: 1.25rem;
+      opacity: 1;
     }
     &__names {
       display: flex;

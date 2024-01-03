@@ -1,7 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function SignUp() {
+  const [inputType, setInputType] = useState('text');
+  const [emailValue, setEmailValue] = useState('');
+  const [isInputEmpty, setIsInputEmpty] = useState(false);
+
+  // HANDLE CHECKING INPUT VALUE
+
+  const handleChange = (e) => {
+    setIsInputEmpty(e.target.value.trim() === '');
+    setEmailValue(e.target.value);
+  };
+  const handleClick = () => {
+    if (emailValue.trim() === '') {
+      setIsInputEmpty(true);
+    }
+    console.log('clicked');
+  };
+
+  useEffect(() => {
+    // Clear input values on component mount
+    setEmailValue('');
+    setIsInputEmpty(false);
+  }, []);
+  // SUBMIT FORM
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setEmailValue('');
+  };
+
+  // HANDLE DATE PLACEHOLDER
+  const handleInputFocus = () => {
+    setInputType('date');
+  };
+  const handleInputBlur = () => {
+    setInputType('text');
+    console.log(inputType);
+  };
   return (
     <>
       <div className='signup'>
@@ -15,16 +52,19 @@ function SignUp() {
           </Link>
         </nav>
         <div className='signup__title'>
-          <h3>Now let's make you a EDO member.</h3>
+          <h3>Now let's make you an EDO member.</h3>
         </div>
-        <form action='' className='signup__form'>
+        <form onSubmit={handleSubmit} className='signup__form'>
           <input
-            type='email'
+            type='text'
             name='email'
             id='email'
             placeholder='Email'
-            className='signup__form__input'
+            className={`signup__form__input ${isInputEmpty ? 'empty' : ''}`}
+            value={emailValue}
+            onChange={handleChange}
           />
+          {isInputEmpty && <p className='signup__form__error'>Required</p>}
           <div className='signup__form__names'>
             <input
               type='text'
@@ -55,13 +95,21 @@ function SignUp() {
             </p>
           </div>
           <input
-            type='date'
-            name='date'
             id='date'
             placeholder='Date of Birth'
             className='signup__form__input'
+            name='date'
+            type={inputType}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
           />
-          <button className='signup__form__btn'>continue</button>
+          <button
+            onClick={handleClick}
+            type='submit'
+            className='signup__form__btn'
+          >
+            continue
+          </button>
         </form>
       </div>
     </>
