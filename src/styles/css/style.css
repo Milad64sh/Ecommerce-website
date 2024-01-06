@@ -76,11 +76,11 @@ body {
 .sale-btn {
   width: 80%;
   position: relative;
-  font-weight: 700;
-  background-color: transparent;
-  border: 1px solid #ffb667;
+  font-weight: 400;
+  background-color: var(--clr-prm-dr-1);
+  border: 1px solid --clr-prm-dr-1;
   z-index: 1500;
-  color: #ff9e34;
+  color: white;
 }
 .sale-btn:hover {
   border: 1px solid white;
@@ -937,7 +937,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ffb667;
+  width: 43%;
   border-radius: 4px;
   margin: 2rem 0;
 }
@@ -948,39 +948,42 @@ body {
   align-items: center;
 }
 .sale--hdngs h2 {
-  font-size: 2.5rem;
-  border-bottom: 2px solid #ffb667;
-  color: #ff9e34;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--clr-prm-dr-1);
+  color: var(--clr-prm-dr-1);
   margin-bottom: 1rem;
+  font-weight: 100;
+  margin-right: auto;
 }
 .sale--hdngs h3 {
-  text-align: center;
+  text-align: start;
   font-size: 1.5rem;
+  font-weight: 100;
   margin-bottom: 1.5rem;
 }
 .sale--img {
-  margin-bottom: 5rem;
-  width: 30rem;
-  height: 30rem;
+  margin-bottom: 2rem;
+  width: 15rem;
+  height: 15rem;
+  background-color: #e5efef;
 }
 .sale--img img {
   width: 100%;
   height: 100%;
-  border-radius: 100%;
 }
 .sale--cnt {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 25rem;
+  padding: 0 5px;
 }
 .sale--btns {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 30rem;
+  width: 19rem;
 }
 .sale--lnk {
   margin-left: 20%;
@@ -1458,12 +1461,12 @@ body {
 .sctn-sale {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: row;
   width: 100%;
   height: 100%;
-  background-color: var(--clr-prm-thm-2);
+  background-color: white;
 }
 
 .sctn-footer {

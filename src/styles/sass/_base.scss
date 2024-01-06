@@ -80,11 +80,11 @@ body {
 .sale-btn {
   width: 80%;
   position: relative;
-  font-weight: 700;
-  background-color: transparent;
-  border: 1px solid darken(#ffe7cd, 20%);
+  font-weight: 400;
+  background-color: var(--clr-prm-dr-1);
+  border: 1px solid --clr-prm-dr-1;
   z-index: 1500;
-  color: darken(#ffe7cd, 30%);
+  color: white;
   &:hover {
     border: 1px solid lighten(#ffe7cd, 20%);
     box-shadow: 0 0 15px lighten(#ffe7cd, 20%);

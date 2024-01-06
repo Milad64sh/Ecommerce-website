@@ -75,12 +75,12 @@
 .sctn-sale {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: row;
   width: 100%;
   height: 100%;
-  background-color: var(--clr-prm-thm-2);
+  background-color: white;
 }
 .sctn-footer {
   width: 100%;

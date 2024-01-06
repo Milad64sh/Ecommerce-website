@@ -175,7 +175,7 @@ export const productsData = [
     gift: true,
     title: 'The Cream',
     quickInfo:
-      'This product is formulated with the brands TFC8 complex, which aims to nourish and tackle virtually every major skin concern out there.',
+      'This product is formulated with the brands TFC8 complex, which aims to nourish every major skin.',
     info: ` It is an intense moisturiser that aims to streamline your routine so that you can forgo other serums and lotions. It soothes, plumps, hydrates and gives skin a healthy-looking radiance that is genuinely hard to come by.`,
     img: image8,
     company: `Augustinus Bader`,
@@ -198,7 +198,7 @@ export const productsData = [
     gift: false,
     title: 'Ice Ceramide ',
     quickInfo:
-      'Indulge the complexion and combat the various signs of ageing with the Sunday Riley Ice Ceramide Moisturizing Cream.',
+      'Indulge the complexion and combat the various signs of ageing with the Sunday Riley Ice Ceramide.',
     info: ` Along with moisturising coconut extract and smoothing beetroot extract, this cream is powered by ceramides. These lipids, which the skin produces to boost its natural barrier, can help to keep the complexion looking smooth and feeling hydrated and comfortable. Red algae extract works to lock in moisture, and pomegranate sterols deliver antioxidant protection.`,
     img: image9,
     company: `Sunday Riley`,
