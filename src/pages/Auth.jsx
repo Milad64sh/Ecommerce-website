@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
 
 function Auth() {
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleContinue = () => {
+  const handleContinue = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log(user);
+        navigate('/');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
     const isEmailRegistered = checkIfEmailExists(email);
     if (isEmailRegistered) {
       navigate(`/home?email=${encodeURIComponent(email)}`);
@@ -41,6 +56,15 @@ function Auth() {
             placeholder='Email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className='auth__form__input'
+          />
+          <input
+            type='password'
+            name='password'
+            id='password'
+            placeholder='Password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className='auth__form__input'
           />
           <p className='auth__form__p'>

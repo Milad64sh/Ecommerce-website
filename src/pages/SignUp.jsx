@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 
 function SignUp() {
+  const navigate = useNavigate();
   const [inputType, setInputType] = useState('text');
   const [emailValue, setEmailValue] = useState('');
   const [firstNameValue, setFirstNameValue] = useState('');
@@ -14,12 +19,7 @@ function SignUp() {
     useState(true);
   const [emptyInputs, setEmptyInputs] = useState([]);
 
-  // HANDLE CHECKING INPUT VALUE
-
-  // const handleChange = (e) => {
-  //   setIsInputEmpty(e.target.value.trim() === '');
-  //   setEmailValue(e.target.value);
-  // };
+  // ADD TO FIRESTORE
 
   // Minimum password length
   const MIN_PASSWORD_LENGTH = 8;
@@ -30,23 +30,23 @@ function SignUp() {
     // based on the input name.
     switch (name) {
       case 'email':
-        setEmailValue(value);
+        setEmailValue(e.target.value);
         break;
       case 'firstName':
-        setFirstNameValue(value);
+        setFirstNameValue(e.target.value);
         break;
       case 'lastName':
-        setLastNameValue(value);
+        setLastNameValue(e.target.value);
         break;
       case 'password':
-        setPasswordValue(value);
+        setPasswordValue(e.target.value);
         setIsPasswordLengthIsValid(value.length >= MIN_PASSWORD_LENGTH);
         setIsPasswordCharacterIsValid(
           /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)
         );
         break;
       case 'date':
-        setDateValue(value);
+        setDateValue(e.target.value);
         break;
       // Add more cases if you have additional inputs
 
@@ -54,7 +54,10 @@ function SignUp() {
         break;
     }
   };
-  const handleClick = () => {
+
+  // HANDLE CLICK
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const inputsToCheck = [
       { name: 'email', value: emailValue },
       { name: 'firstName', value: firstNameValue },
@@ -67,8 +70,35 @@ function SignUp() {
       .filter((input) => input.value.trim() === '')
       .map((input) => input.name);
     setEmptyInputs(emptyInputsList);
-    if (
-      (emptyInputsList.length === 0 && emailValue.trim() === '') ||
+    if (emptyInputsList.length === 0) {
+      setIsInputEmpty(false);
+      await createUserWithEmailAndPassword(auth, emailValue, passwordValue)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          navigate('/auth');
+        })
+        .catch((error) => {
+          // Handle errors during user creation
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error(`Error creating user: ${errorCode} - ${errorMessage}`);
+          // Additional error handling or state updates
+        });
+      try {
+        const docRef = await addDoc(collection(db, 'users'), {
+          emailValue: emailValue,
+          firstNameValue: firstNameValue,
+          lastNameValue: lastNameValue,
+          passwordValue: passwordValue,
+          dateValue: dateValue,
+        });
+        console.log('Document written with ID: ', docRef.id);
+      } catch (e) {
+        console.error('Error adding document: ', e);
+      }
+    } else if (
+      emailValue.trim() === '' ||
       firstNameValue.trim() === '' ||
       lastNameValue.trim() === '' ||
       passwordValue.trim() === '' ||
@@ -76,6 +106,11 @@ function SignUp() {
     ) {
       setIsInputEmpty(true);
     }
+    setEmailValue('');
+    setFirstNameValue('');
+    setLastNameValue('');
+    setPasswordValue('');
+    setDateValue('');
   };
 
   useEffect(() => {
@@ -84,11 +119,6 @@ function SignUp() {
     setIsInputEmpty(false);
   }, []);
   // SUBMIT FORM
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setEmailValue('');
-  };
 
   // HANDLE DATE PLACEHOLDER
   const handleInputFocus = () => {
@@ -119,11 +149,15 @@ function SignUp() {
             name='email'
             id='email'
             placeholder='Email'
-            className={`signup__form__input ${isInputEmpty ? 'empty' : ''}`}
+            className={`signup__form__input ${
+              emptyInputs.includes('email') ? 'empty' : ''
+            }`}
             value={emailValue}
             onChange={handleChange}
           />
-          {isInputEmpty && <p className='signup__form__error'>Required</p>}
+          {emptyInputs.includes('email') && (
+            <p className='signup__form__error'>Required</p>
+          )}
           <div className='signup__form__namesSection'>
             <div className='signup__form__namesSection__names'>
               <input
@@ -132,7 +166,7 @@ function SignUp() {
                 id='firstName'
                 placeholder='First Name'
                 className={`signup__form__namesSection__names__input ${
-                  isInputEmpty ? 'empty' : ''
+                  emptyInputs.includes('firstName') ? 'empty' : ''
                 } `}
                 value={firstNameValue}
                 onChange={handleChange}
@@ -144,19 +178,19 @@ function SignUp() {
                 id='lastName'
                 placeholder='Last Name'
                 className={`signup__form__namesSection__names__input ${
-                  isInputEmpty ? 'empty' : ''
+                  emptyInputs.includes('lastName') ? 'empty' : ''
                 } `}
                 value={lastNameValue}
                 onChange={handleChange}
               />
             </div>
             <div className='signup__form__namesSection__errors'>
-              {isInputEmpty && (
+              {emptyInputs.includes('firstName') && (
                 <p className='signup__form__namesSection__errors__error'>
                   Required
                 </p>
               )}
-              {isInputEmpty && (
+              {emptyInputs.includes('lastName') && (
                 <p className='signup__form__namesSection__errors__error'>
                   Required
                 </p>
@@ -168,12 +202,14 @@ function SignUp() {
             name='password'
             id='password'
             placeholder='Password'
-            className={`signup__form__input ${isInputEmpty ? 'empty' : ''} `}
+            className={`signup__form__input ${
+              emptyInputs.includes('password') ? 'empty' : ''
+            } `}
             value={passwordValue}
             onChange={handleChange}
           />
           <div className='signup__form__ps'>
-            {isInputEmpty && (
+            {emptyInputs.includes('password') && (
               <p className='signup__form__ps__error'>Required</p>
             )}
             <p
@@ -194,7 +230,9 @@ function SignUp() {
           <input
             id='date'
             placeholder='Date of Birth'
-            className={`signup__form__input ${isInputEmpty ? 'empty' : ''} `}
+            className={`signup__form__input ${
+              emptyInputs.includes('date') ? 'empty' : ''
+            } `}
             name='date'
             type={inputType}
             onFocus={handleInputFocus}
@@ -202,9 +240,11 @@ function SignUp() {
             value={dateValue}
             onChange={handleChange}
           />
-          {isInputEmpty && <p className='signup__form__error'>Required</p>}
+          {emptyInputs.includes('date') && (
+            <p className='signup__form__error'>Required</p>
+          )}
           <button
-            onClick={handleClick}
+            onClick={handleSubmit}
             type='submit'
             className='signup__form__btn'
           >
