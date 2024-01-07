@@ -18,6 +18,7 @@ function SignUp() {
   const [isPasswordCharacterIsValid, setIsPasswordCharacterIsValid] =
     useState(true);
   const [emptyInputs, setEmptyInputs] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // ADD TO FIRESTORE
 
@@ -79,7 +80,6 @@ function SignUp() {
           navigate('/auth');
         })
         .catch((error) => {
-          // Handle errors during user creation
           const errorCode = error.code;
           const errorMessage = error.message;
           console.error(`Error creating user: ${errorCode} - ${errorMessage}`);

@@ -63,8 +63,9 @@ body {
 
 .sllr-btn {
   border: 2px solid var(--clr-prm-thm-1);
-  color: var(--clr-prm-thm-1);
-  font-weight: bold;
+  background-color: var(--clr-prm-thm-1);
+  font-weight: 100;
+  width: 100%;
 }
 .sllr-btn:hover {
   border: 2px solid var(--clr-prm-thm-1);
@@ -602,7 +603,7 @@ body {
 @media only screen and (min-width: 375px) {
   .gift {
     flex-direction: row;
-    width: 90%;
+    width: 90vw;
   }
 }
 .gift--slide {
@@ -617,6 +618,7 @@ body {
 }
 @media only screen and (min-width: 375px) {
   .gift--slide {
+    flex-direction: row;
     background-color: --clr-prm-dr-1;
     justify-content: center;
     align-items: center;
@@ -726,7 +728,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
 }
 .sm-crd__btn--img {
   display: flex;
@@ -799,6 +800,10 @@ body {
   .sm-crd--dtls--p {
     width: 20rem;
   }
+}
+.sm-crd--dtls--btn {
+  background-color: var(--clr-prm-dr-1);
+  color: #fff;
 }
 
 .bst-sllr {
@@ -912,7 +917,7 @@ body {
 }
 @media only screen and (min-width: 375px) {
   .bst-sllr--img img {
-    width: 100%;
+    display: none;
   }
 }
 .bst-sllr--img::before {

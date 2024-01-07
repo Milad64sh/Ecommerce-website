@@ -67,8 +67,9 @@ body {
 }
 .sllr-btn {
   border: 2px solid var(--clr-prm-thm-1);
-  color: var(--clr-prm-thm-1);
-  font-weight: bold;
+  background-color: var(--clr-prm-thm-1);
+  font-weight: 100;
+  width: 100%;
 
   &:hover {
     border: 2px solid var(--clr-prm-thm-1);

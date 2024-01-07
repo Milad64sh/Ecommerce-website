@@ -89,6 +89,7 @@ function Home() {
                     onClick={goToPrev}
                     className='gift--arrow'
                   />
+
                   {giftProducts.map(
                     (gift, index) =>
                       index === currInx && <Slide key={index} gift={gift} />

@@ -16,9 +16,8 @@ function BestSeller() {
         </div>
         <div className='bst-sllr--cnt--btns'>
           <Link to={'/detail'}>
-            <button className='sllr-btn btn'>details</button>
+            <button className='sllr-btn btn'>best sellers</button>
           </Link>
-          <button className='sllr-btn btn'>add to bag</button>
         </div>
       </div>
       <div className='bst-sllr--clrcb'></div>
