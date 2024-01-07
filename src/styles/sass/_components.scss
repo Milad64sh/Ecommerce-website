@@ -22,12 +22,17 @@
     letter-spacing: 0.8rem;
     font-weight: 200;
     width: 100%;
+    &--span {
+      display: block;
+      font-size: 4rem;
+      font-weight: bold;
+    }
     @include respond(sm) {
       font-size: 2.25rem;
-      width: 100%;
+      width: 60%;
       color: var(--clr-prm-dr-1);
       animation: moveInRight20 2s ease-in-out;
-      text-align: center;
+      text-align: start;
     }
     @include respond(md) {
       font-size: 7rem;
@@ -374,6 +379,7 @@
   justify-content: center;
   align-items: center;
   @include respond(sm) {
+    flex-direction: row;
     width: 90%;
   }
   &--slide {
@@ -409,6 +415,12 @@
     }
   }
 
+  &--arrow {
+    font-size: 3rem;
+    color: lighten(#65a3a2, 20%);
+    cursor: pointer;
+  }
+
   &--swpr {
     display: block;
     width: 100%;
@@ -439,11 +451,9 @@
   background-color: transparent;
   justify-content: space-between;
   flex-direction: column;
-  border: 1px solid var(--clr-prm-dr-1);
+  border: 1px solid lighten(#65a3a2, 30%);
   border-radius: 4px;
-  // width: 100%;
-  height: 45rem;
-  // margin: 0 0.15rem;
+  height: 35rem;
   transition: all 0.3s ease;
   @include respond(sm) {
     width: 80%;
@@ -454,13 +464,44 @@
   @include respond(lg) {
     width: 100%;
   }
-  &--btn {
-    position: absolute;
-    margin-top: 50%;
+  &__btn {
+    // position: absolute;
+    margin-top: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10000;
+    background-color: red;
+    &--img {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      margin-top: 5px;
+      height: 70%;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease-in-out;
+      @include respond(sm) {
+        height: 40%;
+      }
+
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   background-color: rgba(#fff, 0.5);
+      //   width: 100%;
+      //   height: 100%;
+      //   -webkit-transition: all 0.3s;
+      //   transition: all 0.3s;
+      //   opacity: 0;
+      // }
+      // &:hover::before {
+      //   opacity: 1;
+      // }
+
+      // &:hover {
+      //   z-index: 500;
+      // }
+    }
     &--d {
       cursor: pointer;
       position: absolute;
@@ -483,37 +524,7 @@
       }
     }
   }
-  &--img {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    margin-top: 5px;
-    height: 70%;
-    width: 100%;
-    z-index: 1000;
-    transition: all 0.3s ease-in-out;
-    @include respond(sm) {
-      height: 40%;
-    }
 
-    &::before {
-      content: '';
-      position: absolute;
-      background-color: rgba(#fff, 0.5);
-      width: 100%;
-      height: 100%;
-      -webkit-transition: all 0.3s;
-      transition: all 0.3s;
-      opacity: 0;
-    }
-    &:hover::before {
-      opacity: 1;
-    }
-
-    &:hover {
-      z-index: 500;
-    }
-  }
   &--dtls {
     position: absolute;
     display: flex;
@@ -666,35 +677,64 @@
       margin-bottom: 1.5rem;
     }
   }
+  &--lnk {
+    text-decoration: none;
+    color: inherit;
+    width: auto;
+    transition: all 0.3s ease-in-out;
+    margin-right: auto;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
   &--img {
     margin-bottom: 2rem;
     width: 15rem;
     height: 15rem;
-    background-color: lighten(#65a3a2, 40%);
+
     img {
       width: 100%;
       height: 100%;
     }
   }
-  &--cnt {
+  &__cnt {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding: 0 5px;
-  }
-  &--btns {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 19rem;
-  }
-  &--lnk {
-    margin-left: 20%;
-    text-decoration: none;
-    color: inherit;
-    width: 100%;
+    &--h3 {
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      padding-bottom: 1.5rem;
+      margin-right: auto;
+      &--sp {
+        font-size: 2rem;
+      }
+    }
+    &--prc {
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin-left: 5px;
+    }
+    &--prc-crossed {
+      margin-right: auto;
+      text-decoration: line-through;
+      color: #777;
+      font-size: 1.5rem;
+    }
+    &--prc-show {
+      margin-left: 2rem;
+      font-size: 1.5rem;
+      visibility: visible;
+      font-weight: bold;
+    }
+    &--prc-notShow {
+      margin-left: 2rem;
+      font-size: 1.5rem;
+      visibility: hidden;
+    }
   }
 }
 

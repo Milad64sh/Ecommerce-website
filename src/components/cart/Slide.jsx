@@ -6,12 +6,12 @@ function Slide(props) {
   return (
     <>
       <div className='sm-crd'>
-        <Link to={'/detail'} className='sm-crd--btn'>
-          <button className='sm-crd--btn--d'>details</button>
+        <Link to={'/detail'} className='sm-crd__btn'>
+          {/* <button className='sm-crd--btn--d'>details</button> */}
+          <div className='sm-crd__btn--img'>
+            <img src={img} alt='product' />
+          </div>
         </Link>
-        <div className='sm-crd--img'>
-          <img src={img} alt='product' />
-        </div>
         <div className='sm-crd--dtls'>
           <h3 className='sm-crd--dtls--h4'>{title}</h3>
           <p className='sm-crd--dtls--p'>{quickInfo}</p>

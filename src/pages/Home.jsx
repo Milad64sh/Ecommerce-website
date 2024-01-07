@@ -8,7 +8,8 @@ import BestSeller from '../components/BestSeller';
 import Sale from '../components/Sale';
 import Footer from '../components/Footer';
 import { CiSearch } from 'react-icons/ci';
-import ArrowLeft from '../assets/jpg/icons/arrow-204.png';
+import { IoIosArrowDropleftCircle } from 'react-icons/io';
+import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import ArrowRight from '../assets/jpg/icons/arrow-203.png';
 function Home() {
   const {
@@ -47,7 +48,9 @@ function Home() {
 
       <div className='home'>
         <div className='hro'>
-          <h1 className='hro--hdng'>feel the summer?</h1>
+          <h1 className='hro--hdng'>
+            ready for <span className='hro--hdng--span'>50%</span>off?
+          </h1>
           <Link to={'/products'} className='hro--btn'>
             all products
           </Link>
@@ -82,21 +85,17 @@ function Home() {
               </div>
               <div className='gift'>
                 <div className='gift--slide'>
-                  <img
-                    src={ArrowLeft}
-                    alt='arrow left'
-                    className='arrow'
+                  <IoIosArrowDropleftCircle
                     onClick={goToPrev}
+                    className='gift--arrow'
                   />
                   {giftProducts.map(
                     (gift, index) =>
                       index === currInx && <Slide key={index} gift={gift} />
                   )}
-                  <img
-                    src={ArrowRight}
-                    alt='arrow right'
-                    className='arrow'
+                  <IoIosArrowDroprightCircle
                     onClick={goToNext}
+                    className='gift--arrow'
                   />
                 </div>
                 <div className='gift--dots'>
