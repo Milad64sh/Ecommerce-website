@@ -10,7 +10,6 @@ import Footer from '../components/Footer';
 import { CiSearch } from 'react-icons/ci';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
-import ArrowRight from '../assets/jpg/icons/arrow-203.png';
 function Home() {
   const {
     goToPrev,
@@ -19,13 +18,9 @@ function Home() {
     saleProducts,
     products,
     currInx,
-    setCurrInx,
     setSearchResults,
     searchResults,
   } = useContext(ProductContext);
-  const showSlide = (pInx) => {
-    setCurrInx(pInx);
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -84,37 +79,25 @@ function Home() {
                 </h3>
               </div>
               <div className='gift'>
-                <div className='gift--slide'>
+                <div className='gift__slide'>
+                  {giftProducts.map((gift, index) => (
+                    <Slide
+                      key={index}
+                      index={index}
+                      currInx={currInx}
+                      gift={gift}
+                    />
+                  ))}
+                </div>
+                <div className='gift__arrows'>
                   <IoIosArrowDropleftCircle
                     onClick={goToPrev}
-                    className='gift--arrow'
+                    className='gift__arrows--arrow'
                   />
-
-                  {giftProducts.map(
-                    (gift, index) =>
-                      index === currInx && <Slide key={index} gift={gift} />
-                  )}
                   <IoIosArrowDroprightCircle
                     onClick={goToNext}
-                    className='gift--arrow'
+                    className='gift__arrows--arrow'
                   />
-                </div>
-                <div className='gift--dots'>
-                  {giftProducts.map((p, pInx) => {
-                    return (
-                      <div
-                        className={
-                          pInx === currInx
-                            ? 'gift--dots--dot'
-                            : 'gift--dots--dot--active'
-                        }
-                        key={pInx}
-                        onClick={() => showSlide(pInx)}
-                      >
-                        &#9679;
-                      </div>
-                    );
-                  })}
                 </div>
               </div>
             </section>

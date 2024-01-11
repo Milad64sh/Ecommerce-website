@@ -26,6 +26,8 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -593,6 +595,7 @@ body {
 }
 
 .gift {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -602,52 +605,43 @@ body {
 }
 @media only screen and (min-width: 375px) {
   .gift {
-    flex-direction: row;
-    width: 90vw;
+    margin-top: 10%;
+    width: 100vw;
+    white-space: nowrap;
   }
 }
-.gift--slide {
+.gift__slide {
   transition: all 0.4s ease-in-out;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
 }
-.gift--slide * {
+.gift__slide * {
   transition: all 0.7s ease-in-out;
 }
 @media only screen and (min-width: 375px) {
-  .gift--slide {
+  .gift__slide {
     flex-direction: row;
     background-color: --clr-prm-dr-1;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    justify-content: start;
+    align-items: start;
+    margin: 0 2px;
+    width: 300vw;
   }
 }
-.gift--dots {
+.gift__arrows {
+  position: absolute;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
-  margin: 1rem 0;
+  width: 100vw;
+  justify-content: space-between;
 }
-.gift--dots--dot {
-  padding: 1rem 0.25rem;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #3d6565;
-}
-.gift--dots--dot--active {
-  padding: 1rem 0.25rem;
-  font-size: 2rem;
-  cursor: pointer;
-  color: var(--clr-prm-dr-1);
-}
-.gift--arrow {
+.gift__arrows--arrow {
   font-size: 3rem;
   color: #a5c9c9;
   cursor: pointer;
+  z-index: 10000;
 }
 .gift--swpr {
   display: block;
@@ -696,7 +690,8 @@ body {
   flex-direction: column;
   border: 1px solid #c5dcdc;
   border-radius: 4px;
-  height: 35rem;
+  margin: 5px 1px;
+  height: 20rem;
   transition: all 0.3s ease;
 }
 .sm-crd * {
@@ -722,6 +717,17 @@ body {
   .sm-crd {
     width: 100%;
   }
+}
+.sm-crd.prev, .sm-crd.next {
+  opacity: 0.7;
+  transform: translateX(0);
+  transition: all 0.4s ease-in-out;
+}
+.sm-crd.prev {
+  transform: translateX(-100%);
+}
+.sm-crd.next {
+  transform: translateX(100%);
 }
 .sm-crd__btn {
   margin-top: 30%;

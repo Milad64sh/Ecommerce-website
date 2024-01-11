@@ -375,53 +375,44 @@
 
 // GIFT SECTION //
 .gift {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @include respond(sm) {
-    flex-direction: row;
-    width: 90vw;
+    margin-top: 10%;
+    width: 100vw;
+    white-space: nowrap;
   }
-  &--slide {
+  &__slide {
     transition: all 0.4s ease-in-out;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: row;
+    // position: relative;
     @include respond(sm) {
       flex-direction: row;
       background-color: --clr-prm-dr-1;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+      justify-content: start;
+      align-items: start;
+      margin: 0 2px;
+      width: 300vw;
     }
   }
-  &--dots {
+  &__arrows {
+    position: absolute;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
-    margin: 1rem 0;
-    &--dot {
-      padding: 1rem 0.25rem;
-      font-size: 2rem;
+    width: 100vw;
+    justify-content: space-between;
+    &--arrow {
+      font-size: 3rem;
+      color: lighten(#65a3a2, 20%);
       cursor: pointer;
-      color: darken(#65a3a2, 20%);
-      &--active {
-        padding: 1rem 0.25rem;
-        font-size: 2rem;
-        cursor: pointer;
-        color: var(--clr-prm-dr-1);
-      }
+      z-index: 10000;
     }
   }
-
-  &--arrow {
-    font-size: 3rem;
-    color: lighten(#65a3a2, 20%);
-    cursor: pointer;
-  }
-
   &--swpr {
     display: block;
     width: 100%;
@@ -449,12 +440,15 @@
   display: flex;
   align-items: center;
   background-color: #fff;
+
   background-color: transparent;
   justify-content: space-between;
   flex-direction: column;
   border: 1px solid lighten(#65a3a2, 30%);
   border-radius: 4px;
-  height: 35rem;
+  margin: 5px 1px;
+  // width: 25rem;
+  height: 20rem;
   transition: all 0.3s ease;
   @include respond(sm) {
     width: 80%;
@@ -465,6 +459,19 @@
   @include respond(lg) {
     width: 100%;
   }
+  &.prev,
+  &.next {
+    opacity: 0.7;
+    transform: translateX(0);
+    transition: all 0.4s ease-in-out;
+  }
+  &.prev {
+    transform: translateX(-100%);
+  }
+  &.next {
+    transform: translateX(100%);
+  }
+
   &__btn {
     // position: absolute;
     margin-top: 30%;

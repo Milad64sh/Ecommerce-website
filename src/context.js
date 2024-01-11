@@ -198,6 +198,8 @@ export const ProductProvider = (props) => {
     setBagSaved(0);
   };
 
+  // SLIDE BUTTONS
+
   const goToNext = () => {
     const isLastSld = currInx === giftProducts.length - 1;
     const newInx = isLastSld ? 0 : currInx + 1;
