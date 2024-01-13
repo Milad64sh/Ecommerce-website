@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom';
 
-function Slide({ gift, currIdx, index }) {
+function Slide({ gift }) {
   const { img, title } = gift;
 
   return (
     <>
-      <div
-        className={`sm-crd ${currIdx === index + 1 ? 'next' : ''} ${
-          currIdx === index - 1 ? 'prev' : ''
-        }`}
-      >
+      <div className='sm-crd'>
         <Link to={'/detail'} className='sm-crd__btn'>
           <div className='sm-crd__btn--img'>
             <img src={img} alt='product' />

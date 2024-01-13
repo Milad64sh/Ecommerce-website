@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef, useState } from 'react';
 import ProductContext from '../context';
 import { Link } from 'react-router-dom';
 import SearchPage from './SearchPage';
@@ -12,8 +12,6 @@ import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 function Home() {
   const {
-    goToPrev,
-    goToNext,
     giftProducts,
     saleProducts,
     products,
@@ -21,6 +19,19 @@ function Home() {
     setSearchResults,
     searchResults,
   } = useContext(ProductContext);
+
+  // SCROLL HORIZONTAL
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const ITEM_WIDTH = 212;
+  const slideRef = useRef();
+
+  const handleScroll = (scrollAmount) => {
+    const newScrollPosition = scrollPosition + scrollAmount;
+    setScrollPosition(newScrollPosition);
+    slideRef.current.scrollLeft = scrollPosition;
+    console.log(scrollPosition);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -79,23 +90,36 @@ function Home() {
                 </h3>
               </div>
               <div className='gift'>
-                <div className='gift__slide'>
-                  {giftProducts.map((gift, index) => (
-                    <Slide
-                      key={index}
-                      index={index}
-                      currInx={currInx}
-                      gift={gift}
-                    />
-                  ))}
+                <div
+                  ref={slideRef}
+                  style={{
+                    width: '1100px',
+                    overflowX: 'scroll',
+                    scrollBehavior: 'smooth',
+                  }}
+                >
+                  <div className='gift__slide'>
+                    {giftProducts.map((gift, index) => (
+                      <Slide
+                        key={index}
+                        index={index}
+                        currInx={currInx}
+                        gift={gift}
+                      />
+                    ))}
+                  </div>
                 </div>
                 <div className='gift__arrows'>
                   <IoIosArrowDropleftCircle
-                    onClick={goToPrev}
+                    onClick={() => {
+                      handleScroll(-ITEM_WIDTH);
+                    }}
                     className='gift__arrows--arrow'
                   />
                   <IoIosArrowDroprightCircle
-                    onClick={goToNext}
+                    onClick={() => {
+                      handleScroll(ITEM_WIDTH);
+                    }}
                     className='gift__arrows--arrow'
                   />
                 </div>

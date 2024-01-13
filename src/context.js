@@ -200,16 +200,18 @@ export const ProductProvider = (props) => {
 
   // SLIDE BUTTONS
 
-  const goToNext = () => {
-    const isLastSld = currInx === giftProducts.length - 1;
-    const newInx = isLastSld ? 0 : currInx + 1;
-    setCurrInx(newInx);
-  };
-  const goToPrev = () => {
-    const isFirstSld = currInx === 0;
-    const newInx = isFirstSld ? giftProducts.length - 1 : currInx - 1;
-    setCurrInx(newInx);
-  };
+  // const goToNext = () => {
+  //   const isLastSld = currInx === giftProducts.length - 1;
+  //   const newInx = isLastSld ? 0 : currInx + 1;
+  //   setCurrInx(newInx);
+  //   console.log(currInx, newInx);
+  // };
+  // const goToPrev = () => {
+  //   const isFirstSld = currInx === 0;
+  //   const newInx = isFirstSld ? giftProducts.length - 1 : currInx - 1;
+  //   setCurrInx(newInx);
+  //   console.log(currInx, newInx);
+  // };
   return (
     <ProductContext.Provider
       value={{
@@ -227,8 +229,6 @@ export const ProductProvider = (props) => {
         bagTax,
         bagTotal,
         bagSaved,
-        goToPrev,
-        goToNext,
         handleDetail,
         fetchProductDetails,
         addToBag,
