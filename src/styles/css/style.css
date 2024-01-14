@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Work+Sans:wght@700&display=swap");
 :root {
   --clr-prm: #7bafaa;
   --clr-prm-thm: #ed8dcd;
@@ -626,7 +627,7 @@ body {
     background-color: --clr-prm-dr-1;
     justify-content: start;
     align-items: start;
-    width: 1800px;
+    width: 1660px;
     margin-left: 33%;
   }
 }
@@ -639,7 +640,7 @@ body {
 }
 .gift__arrows--arrow {
   font-size: 3rem;
-  color: #a5c9c9;
+  color: #333333;
   cursor: pointer;
   z-index: 10000;
 }
@@ -688,11 +689,10 @@ body {
   background-color: transparent;
   justify-content: space-between;
   flex-direction: column;
-  border: 1px solid #c5dcdc;
   border-radius: 4px;
-  margin: 5px 1px;
-  width: 21rem;
-  height: 20rem;
+  margin: 5px 5px;
+  width: 25rem;
+  height: 30rem;
   scroll-snap-align: center;
   transition: all 0.3s ease;
 }
@@ -717,7 +717,8 @@ body {
 }
 @media only screen and (min-width: 375px) {
   .sm-crd__btn--img {
-    height: 40%;
+    margin-top: -10%;
+    height: 55%;
   }
 }
 .sm-crd__btn--d {
@@ -745,38 +746,69 @@ body {
   position: absolute;
   display: flex;
   bottom: 5px;
-  width: 100%;
+  width: 90%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   background-color: #fff;
   background-color: transparent;
+  border-top: 1px solid #4d4d4d;
 }
 .sm-crd--dtls--h4 {
   font-size: 1.5rem;
-  color: var(--clr-prm-thm);
+  color: #000;
   text-transform: capitalize;
   padding-bottom: 0.5rem;
+  font-weight: 100;
+  width: 100%;
+  text-align: start;
+}
+.sm-crd--dtls--h3 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 100;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  padding-bottom: 1.5rem;
+  margin-right: auto;
+}
+.sm-crd--dtls--h3--sp {
+  font-size: 2rem;
+}
+.sm-crd--dtls--h3--prc {
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin-left: 5px;
   font-weight: bold;
 }
-.sm-crd--dtls--p {
+.sm-crd--dtls--h3--prc-crossed {
+  margin-right: auto;
+  text-decoration: line-through;
+  color: #777;
   font-size: 1.5rem;
-  padding-bottom: 0.5rem;
-  width: 40rem;
-  text-align: center;
 }
-.sm-crd--dtls--p * {
-  transition: all 0.7s ease-in-out;
+.sm-crd--dtls--h3--prc-show {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  visibility: visible;
+  font-weight: bold;
 }
-@media only screen and (min-width: 375px) {
-  .sm-crd--dtls--p {
-    width: 20rem;
-  }
+.sm-crd--dtls--h3--prc-notShow {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  visibility: hidden;
+  display: none;
 }
 .sm-crd--dtls--btn {
-  background-color: var(--clr-prm-dr-1);
+  background-color: #000;
   color: #fff;
+  border: none;
+  margin-bottom: 0;
+  width: 100%;
 }
 
 .bst-sllr {

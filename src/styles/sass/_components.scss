@@ -395,7 +395,7 @@
       background-color: --clr-prm-dr-1;
       justify-content: start;
       align-items: start;
-      width: 1800px;
+      width: 1660px;
       margin-left: 33%;
     }
   }
@@ -408,7 +408,7 @@
 
     &--arrow {
       font-size: 3rem;
-      color: lighten(#65a3a2, 20%);
+      color: lighten(#000, 20%);
       cursor: pointer;
       z-index: 10000;
     }
@@ -443,11 +443,10 @@
   background-color: transparent;
   justify-content: space-between;
   flex-direction: column;
-  border: 1px solid lighten(#65a3a2, 30%);
   border-radius: 4px;
-  margin: 5px 1px;
-  width: 21rem;
-  height: 20rem;
+  margin: 5px 5px;
+  width: 25rem;
+  height: 30rem;
   scroll-snap-align: center;
   transition: all 0.3s ease;
 
@@ -466,7 +465,8 @@
       z-index: 1000;
       transition: all 0.3s ease-in-out;
       @include respond(sm) {
-        height: 40%;
+        margin-top: -10%;
+        height: 55%;
       }
     }
     &--d {
@@ -496,32 +496,69 @@
     position: absolute;
     display: flex;
     bottom: 5px;
-    width: 100%;
+    width: 90%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: #fff;
     background-color: transparent;
+    border-top: 1px solid lighten(#000, 30%);
     &--h4 {
       font-size: 1.5rem;
-      color: var(--clr-prm-thm);
+      color: #000;
       text-transform: capitalize;
       padding-bottom: 0.5rem;
-      font-weight: bold;
+      font-weight: 100;
+      width: 100%;
+      text-align: start;
     }
-    &--p {
+    &--h3 {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 2rem;
+      font-weight: 100;
       font-size: 1.5rem;
-      padding-bottom: 0.5rem;
-      width: 40rem;
-      text-align: center;
-      @include respond(sm) {
-        width: 20rem;
+      text-transform: capitalize;
+      padding-bottom: 1.5rem;
+      margin-right: auto;
+      &--sp {
+        font-size: 2rem;
+      }
+
+      &--prc {
+        text-decoration: none;
+        font-size: 1.5rem;
+        margin-left: 5px;
+        font-weight: bold;
+      }
+      &--prc-crossed {
+        margin-right: auto;
+        text-decoration: line-through;
+        color: #777;
+        font-size: 1.5rem;
+      }
+      &--prc-show {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+        visibility: visible;
+        font-weight: bold;
+      }
+      &--prc-notShow {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+        visibility: hidden;
+        display: none;
       }
     }
     &--btn {
-      background-color: var(--clr-prm-dr-1);
+      background-color: #000;
       color: #fff;
+      border: none;
+      margin-bottom: 0;
+      width: 100%;
     }
   }
 }

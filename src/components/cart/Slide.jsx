@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 function Slide({ gift }) {
-  const { img, title } = gift;
+  const { img, title, discountPrice, price, sale } = gift;
 
   return (
     <>
@@ -13,8 +13,26 @@ function Slide({ gift }) {
         </Link>
         <div className='sm-crd--dtls'>
           <h3 className='sm-crd--dtls--h4'>{title}</h3>
-          {/* <p className='sm-crd--dtls--p'>{quickInfo}</p> */}
-          <button className='sm-crd--dtls--btn btn'>add to bag</button>
+          <h3 className='sm-crd--dtls--h3'>
+            price:&nbsp; &nbsp;
+            <span
+              className={
+                sale ? 'sm-crd--dtls--h3--prc-crossed' : 'sm-crd--dtls--h3--prc'
+              }
+            >
+              ${price}
+            </span>
+            <span
+              className={
+                sale
+                  ? 'sm-crd--dtls--h3--prc-show'
+                  : 'sm-crd--dtls--h3--prc-notShow'
+              }
+            >
+              ${discountPrice}
+            </span>
+          </h3>
+          <button className='sm-crd--dtls--btn btn'>quick buy</button>
         </div>
       </div>
     </>

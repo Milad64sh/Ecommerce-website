@@ -22,15 +22,27 @@ function Home() {
 
   // SCROLL HORIZONTAL
   const [scrollPosition, setScrollPosition] = useState(0);
-  const ITEM_WIDTH = 212;
+  const ITEM_WIDTH = 260;
   const slideRef = useRef();
-
   const handleScroll = (scrollAmount) => {
-    const newScrollPosition = scrollPosition + scrollAmount;
-    setScrollPosition(newScrollPosition);
-    slideRef.current.scrollLeft = scrollPosition;
-    console.log(scrollPosition);
+    const totalItemsWidth = giftProducts.length * ITEM_WIDTH;
+    const maxScrollPosition = Math.max(0, totalItemsWidth);
+    setScrollPosition((prevScrollPosition) => {
+      const newScrollPosition = Math.max(
+        0,
+        Math.min(prevScrollPosition + scrollAmount, maxScrollPosition)
+      );
+      const reachedEnd = newScrollPosition === maxScrollPosition;
+      if (!reachedEnd) {
+        slideRef.current.scrollLeft = newScrollPosition;
+        console.log(newScrollPosition);
+      }
+
+      return newScrollPosition;
+    });
   };
+
+  // HANDLE SUBMIT
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +63,6 @@ function Home() {
   return (
     <>
       <Navbar />
-
       <div className='home'>
         <div className='hro'>
           <h1 className='hro--hdng'>
