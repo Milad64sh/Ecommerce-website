@@ -15,6 +15,8 @@ export const ProductProvider = (props) => {
   const [bagTotal, setBagTotal] = useState(0);
   const [bagSaved, setBagSaved] = useState(0);
 
+  // AUTHENTICATION
+
   const closeQuickView = () => {
     setQuickView(!quickView);
   };
@@ -179,7 +181,6 @@ export const ProductProvider = (props) => {
     } else {
       setBagSaved(bagSaved);
     }
-    console.log(prevRemoveProductTotal);
     removeProduct.inCart = false;
     removeProduct.count = 0;
     removeProduct.total = 0;
@@ -198,20 +199,6 @@ export const ProductProvider = (props) => {
     setBagSaved(0);
   };
 
-  // SLIDE BUTTONS
-
-  // const goToNext = () => {
-  //   const isLastSld = currInx === giftProducts.length - 1;
-  //   const newInx = isLastSld ? 0 : currInx + 1;
-  //   setCurrInx(newInx);
-  //   console.log(currInx, newInx);
-  // };
-  // const goToPrev = () => {
-  //   const isFirstSld = currInx === 0;
-  //   const newInx = isFirstSld ? giftProducts.length - 1 : currInx - 1;
-  //   setCurrInx(newInx);
-  //   console.log(currInx, newInx);
-  // };
   return (
     <ProductContext.Provider
       value={{

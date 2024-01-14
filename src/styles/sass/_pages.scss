@@ -678,6 +678,13 @@
       margin-right: auto;
       font-size: 1.5rem;
     }
+    &__link {
+      margin-right: auto;
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: var(--clr-prm-dr-1);
+      text-transform: capitalize;
+    }
   }
 }
 .signup {

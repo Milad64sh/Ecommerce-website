@@ -11,7 +11,7 @@ import {
   MdOutlineKeyboardArrowLeft,
 } from 'react-icons/md';
 function Navbar() {
-  const { bag } = useContext(ProductContext);
+  const { bag, user } = useContext(ProductContext);
   const [showWomenDropdown, setShowWomenDropdown] = useState(false);
   const [showMenDropdown, setShowMenDropdown] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -80,11 +80,15 @@ function Navbar() {
         </div>
 
         <div className='nav__usr'>
-          <div className='nav__usr__icnBx'>
-            <Link to={'/auth'} className='nav__usr--icn'>
-              <RxPerson />
-            </Link>
-          </div>
+          {user ? (
+            <div className='nav__usr__name'>{user.name}</div>
+          ) : (
+            <div className='nav__usr__icnBx'>
+              <Link to={'/auth'} className='nav__usr--icn'>
+                <RxPerson />
+              </Link>
+            </div>
+          )}
           <div className='nav__usr__icnBx'>
             <Link to={'/bag'} className='nav__usr--icn'>
               <HiOutlineShoppingBag />

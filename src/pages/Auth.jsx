@@ -13,7 +13,7 @@ function Auth() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        console.log(user);
+        console.log(user.name);
         navigate('/');
       })
       .catch((error) => {
@@ -71,6 +71,9 @@ function Auth() {
             By continuing, you agree to EDO's terms of Use and you confirm you
             have read EDO Privacy Policy
           </p>
+          <Link to={'/signup'} className='auth__form__link'>
+            create account
+          </Link>
           <button onClick={handleContinue} className='auth__form__btn'>
             continue
           </button>
