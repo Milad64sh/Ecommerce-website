@@ -24,6 +24,7 @@ function Auth() {
     const isEmailRegistered = checkIfEmailExists(email);
     if (isEmailRegistered) {
       navigate(`/home?email=${encodeURIComponent(email)}`);
+      console.log(isEmailRegistered);
     } else {
       navigate('/signup');
     }

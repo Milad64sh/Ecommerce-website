@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { productsData } from './productsData';
+
 const ProductContext = createContext();
 export const ProductProvider = (props) => {
   const [currInx, setCurrInx] = useState(0);

@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+import UserAuthContext from '../userAuthcontext';
 
 function SignUp() {
   const navigate = useNavigate();
+  const { signup } = useContext(UserAuthContext);
   const [inputType, setInputType] = useState('text');
   const [emailValue, setEmailValue] = useState('');
   const [firstNameValue, setFirstNameValue] = useState('');
@@ -19,6 +21,7 @@ function SignUp() {
     useState(true);
   const [emptyInputs, setEmptyInputs] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [error, setError] = useState('');
 
   // ADD TO FIRESTORE
 
@@ -57,6 +60,7 @@ function SignUp() {
   };
 
   // HANDLE CLICK
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const inputsToCheck = [
@@ -67,17 +71,23 @@ function SignUp() {
       { name: 'date', value: dateValue },
       // Add more inputs to check if needed
     ];
+
+    setError('');
+    try {
+      await signup(emailValue, passwordValue);
+      navigate('/auth');
+    } catch (err) {
+      setError(err.message);
+    }
     const emptyInputsList = inputsToCheck
       .filter((input) => input.value.trim() === '')
       .map((input) => input.name);
     setEmptyInputs(emptyInputsList);
     if (emptyInputsList.length === 0) {
-      setIsInputEmpty(false);
       await createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user = userCredential.user;
           console.log(user);
-          navigate('/auth');
         })
         .catch((error) => {
           const errorCode = error.code;
