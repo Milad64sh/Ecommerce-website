@@ -1,5 +1,6 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import ProductContext from '../context';
+
 import { Link } from 'react-router-dom';
 import SearchPage from './SearchPage';
 import Navbar from '../components/navbar/Navbar';
@@ -19,6 +20,8 @@ function Home() {
     setSearchResults,
     searchResults,
   } = useContext(ProductContext);
+
+  const { bag, user } = useContext(ProductContext);
 
   // SCROLL HORIZONTAL
   const [scrollPosition, setScrollPosition] = useState(0);

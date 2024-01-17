@@ -228,6 +228,11 @@
     display: flex;
     justify-content: space-around;
     height: 8rem;
+    &__name {
+      &--p {
+        background-color: red;
+      }
+    }
     @include respond(sm) {
       flex: 0 0 33%;
     }

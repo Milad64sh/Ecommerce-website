@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
+import UserAuthContext from '../userAuthcontext';
 
 function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const { login, fetchUserFromFirestore } = useContext(UserAuthContext);
   const navigate = useNavigate();
 
-  const handleContinue = (e) => {
+  const handleContinue = async (e) => {
     e.preventDefault();
+    fetchUserFromFirestore();
+    setError('');
+    try {
+      await login(email, password);
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
+    }
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log(user.name);
+        const userDetails = userCredentials.user;
+        console.log(auth);
+        console.log('userName:', userDetails.firstNameValue);
         navigate('/');
       })
       .catch((error) => {

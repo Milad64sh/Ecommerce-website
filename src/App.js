@@ -10,12 +10,20 @@ import './styles/css/style.css';
 import Modal from './components/Modal.jsx';
 import Auth from './pages/Auth.jsx';
 import SignUp from './pages/SignUp.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 function App() {
   return (
     <Router>
       <Modal />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route
+          path='/'
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
         <Route path='/products' element={<ProductList />} />
         <Route path='/product' element={<Product />} />
         <Route path='/bag' element={<Bag />} />

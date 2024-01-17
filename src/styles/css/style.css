@@ -427,6 +427,9 @@ body {
   justify-content: space-around;
   height: 8rem;
 }
+.nav__usr__name--p {
+  background-color: red;
+}
 .nav__usr * {
   transition: all 0.7s ease-in-out;
 }

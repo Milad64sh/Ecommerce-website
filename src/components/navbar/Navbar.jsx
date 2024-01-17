@@ -10,11 +10,22 @@ import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
 } from 'react-icons/md';
+import UserAuthContext from '../../userAuthcontext';
 function Navbar() {
-  const { bag, user } = useContext(ProductContext);
+  const { bag } = useContext(ProductContext);
   const [showWomenDropdown, setShowWomenDropdown] = useState(false);
   const [showMenDropdown, setShowMenDropdown] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+
+  // FETCH AND COMPARE USERS
+  const { user, usersFromFirestore, logout } = useContext(UserAuthContext);
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   const toggleMenu = () => setOpenMenu(!openMenu);
 
@@ -80,8 +91,15 @@ function Navbar() {
         </div>
 
         <div className='nav__usr'>
-          {user ? (
-            <div className='nav__usr__name'>{user.name}</div>
+          {usersFromFirestore[0].emailValue === user.email ? (
+            <div className='nav__usr__name'>
+              <p className='nav__usr__name--p'>
+                Hi {usersFromFirestore[0].firstNameValue}
+              </p>
+              <button className='nav__usr__name--logout' onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
           ) : (
             <div className='nav__usr__icnBx'>
               <Link to={'/auth'} className='nav__usr--icn'>
