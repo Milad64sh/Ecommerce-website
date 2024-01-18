@@ -11,19 +11,21 @@ import Modal from './components/Modal.jsx';
 import Auth from './pages/Auth.jsx';
 import SignUp from './pages/SignUp.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import LoggedinHome from './pages/LoggedinHome.jsx';
 function App() {
   return (
     <Router>
       <Modal />
       <Routes>
         <Route
-          path='/'
+          path='/loggedinHome'
           element={
             <ProtectedRoute>
-              <Home />
+              <LoggedinHome />
             </ProtectedRoute>
           }
         />
+        <Route path='/' element={<Home />} />
         <Route path='/products' element={<ProductList />} />
         <Route path='/product' element={<Product />} />
         <Route path='/bag' element={<Bag />} />

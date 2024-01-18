@@ -19,14 +19,14 @@ function Auth() {
     try {
       await login(email, password);
       navigate('/');
+
+      console.log();
     } catch (err) {
-      setError(err.message);
+      setError('error read:', err);
     }
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const userDetails = userCredentials.user;
-        console.log(auth);
-        console.log('userName:', userDetails.firstNameValue);
         navigate('/');
       })
       .catch((error) => {

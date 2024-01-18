@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import ProductContext from '../../context';
 import { Link } from 'react-router-dom';
 import { RxPerson } from 'react-icons/rx';
@@ -11,7 +11,7 @@ import {
   MdOutlineKeyboardArrowLeft,
 } from 'react-icons/md';
 import UserAuthContext from '../../userAuthcontext';
-function Navbar() {
+function LoggedinNavbar() {
   const { bag } = useContext(ProductContext);
   const [showWomenDropdown, setShowWomenDropdown] = useState(false);
   const [showMenDropdown, setShowMenDropdown] = useState(false);
@@ -28,6 +28,11 @@ function Navbar() {
   };
 
   const toggleMenu = () => setOpenMenu(!openMenu);
+
+  const matchUser = usersFromFirestore.find(
+    (userData) => userData.emailValue === user.email
+  );
+  console.log(matchUser);
 
   return (
     <>
@@ -89,12 +94,22 @@ function Navbar() {
             })}
           </ul>
         </div>
+
         <div className='nav__usr'>
-          <div className='nav__usr__icnBx'>
-            <Link to={'/auth'} className='nav__usr--icn'>
-              <RxPerson />
-            </Link>
-          </div>
+          {matchUser ? (
+            <div className='nav__usr__name'>
+              <p className='nav__usr__name--p'>Hi {matchUser.firstNameValue}</p>
+              <button className='nav__usr__name--logout' onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className='nav__usr__icnBx'>
+              <Link to={'/auth'} className='nav__usr--icn'>
+                <RxPerson />
+              </Link>
+            </div>
+          )}
           <div className='nav__usr__icnBx'>
             <Link to={'/bag'} className='nav__usr--icn'>
               <HiOutlineShoppingBag />
@@ -107,4 +122,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default LoggedinNavbar;

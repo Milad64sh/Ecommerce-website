@@ -1,6 +1,5 @@
 import { useContext, useRef, useState } from 'react';
 import ProductContext from '../context';
-
 import { Link } from 'react-router-dom';
 import SearchPage from './SearchPage';
 import Navbar from '../components/navbar/Navbar';
@@ -11,8 +10,8 @@ import Footer from '../components/Footer';
 import { CiSearch } from 'react-icons/ci';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
-
-function Home() {
+import LoggedinNavbar from '../components/navbar/LoggedinNavbar';
+function LoggedinHome() {
   const {
     giftProducts,
     saleProducts,
@@ -38,7 +37,6 @@ function Home() {
       if (!reachedEnd) {
         slideRef.current.scrollLeft = newScrollPosition;
         console.log(newScrollPosition);
-        console.log(scrollPosition);
       }
 
       return newScrollPosition;
@@ -65,7 +63,7 @@ function Home() {
 
   return (
     <>
-      <Navbar />
+      <LoggedinNavbar />
       <div className='home'>
         <div className='hro'>
           <h1 className='hro--hdng'>
@@ -169,4 +167,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default LoggedinHome;

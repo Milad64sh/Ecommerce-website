@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 import { auth } from './firebase';
-import { getDocs, collection, doc } from 'firebase/firestore';
+import { getDocs, collection } from 'firebase/firestore';
 import { db } from './firebase';
 
 const UserAuthContext = createContext();
@@ -33,7 +33,12 @@ export const UserAuthProvider = ({ children }) => {
         id: doc.id,
       }));
       setUsersFromFirestore(userFromFirestore);
-      console.log(userFromFirestore);
+      const matchUser = userFromFirestore.find(
+        (userData) => userData.emailValue === user.email
+      );
+      console.log('users from firestore:', userFromFirestore);
+      console.log('matchedUser:', matchUser);
+      console.log('user email:', user);
     });
   };
 
