@@ -18,7 +18,7 @@ function Auth() {
     setError('');
     try {
       await login(email, password);
-      navigate('/');
+      navigate('/loggedinHome');
 
       console.log();
     } catch (err) {
@@ -27,7 +27,7 @@ function Auth() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         const userDetails = userCredentials.user;
-        navigate('/');
+        navigate('/loggedinHome');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -36,7 +36,7 @@ function Auth() {
       });
     const isEmailRegistered = checkIfEmailExists(email);
     if (isEmailRegistered) {
-      navigate(`/home?email=${encodeURIComponent(email)}`);
+      navigate('/loggedinHome');
       console.log(isEmailRegistered);
     } else {
       navigate('/signup');

@@ -8,7 +8,8 @@
   --clr-prm-lgt-1: #ecf2e7;
   --clr-prm-lgt-2: #e4efe1;
   --clr-prm-dr-1: #65a3a2;
-  --clr-logo: #c4a173;
+  --clr-footer-logo: #c4a173;
+  --clr-logo: #000;
 }
 
 * {
@@ -427,8 +428,12 @@ body {
   justify-content: space-around;
   height: 8rem;
 }
+.nav__usr__name {
+  margin: auto 0;
+}
 .nav__usr__name--p {
-  background-color: red;
+  font-size: 1.5rem;
+  color: var(--clr-logo);
 }
 .nav__usr * {
   transition: all 0.7s ease-in-out;
@@ -456,13 +461,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--clr-prm-thm-1);
+  background-color: #fff;
   color: #000;
-  font-weight: bold;
+  font-weight: 100;
   font-size: 1.5rem;
+  border-radius: 100%;
   width: 3rem;
   height: 3rem;
-  border-radius: 100px;
   top: 5rem;
   right: 1rem;
 }
@@ -471,9 +476,10 @@ body {
 }
 @media only screen and (min-width: 375px) {
   .nav__usr--ntf {
-    top: 4rem;
-    width: 2.5rem;
-    height: 2.5rem;
+    top: 38%;
+    right: 38%;
+    width: 2rem;
+    height: 2rem;
   }
 }
 .nav__usr--icn {
@@ -482,7 +488,7 @@ body {
   align-items: center;
   flex-grow: 1;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2.9rem;
   font-weight: 100;
   transition: all 0.3s ease;
   color: var(--clr-logo);
@@ -1060,9 +1066,9 @@ body {
 }
 .ftr--lgo {
   margin-right: auto;
-  border: 1px solid var(--clr-logo);
+  border: 1px solid #fff;
   position: relative;
-  color: var(--clr-logo);
+  color: #fff;
   font-size: 2.5rem;
 }
 .ftr--lgo * {

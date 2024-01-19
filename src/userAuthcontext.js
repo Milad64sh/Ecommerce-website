@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -14,6 +14,7 @@ const UserAuthContext = createContext();
 export const UserAuthProvider = ({ children }) => {
   const [user, setUser] = useState('');
   const [usersFromFirestore, setUsersFromFirestore] = useState([]);
+  const [matchUser, setMatchUser] = useState(null);
 
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -23,39 +24,43 @@ export const UserAuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    console.log('clicked');
     return signOut(auth);
   };
 
   const fetchUserFromFirestore = async () => {
-    await getDocs(collection(db, 'users')).then((querySnapshot) => {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'users'));
       const userFromFirestore = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
+
       setUsersFromFirestore(userFromFirestore);
-      const matchUser = userFromFirestore.find(
-        (userData) => userData.emailValue === user.email
-      );
-      console.log('users from firestore:', userFromFirestore);
-      console.log('matchedUser:', matchUser);
-      console.log('user email:', user);
-    });
+
+      const unsubscribe = onAuthStateChanged(auth, async (currUser) => {
+        setUser(currUser);
+
+        // Access user.email directly from the current user object
+        const matchUser = userFromFirestore.find(
+          (userData) => userData.emailValue === currUser?.email
+        );
+        setMatchUser(matchUser);
+      });
+
+      // unsubscribe();
+    } catch (error) {
+      console.error('Error fetching user data from Firestore:', error);
+    }
   };
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currUser) => {
-      setUser(currUser);
-    });
-    fetchUserFromFirestore();
-    return () => {
-      unsubscribe();
-    };
-  }, []);
   return (
     <UserAuthContext.Provider
       value={{
         user,
         usersFromFirestore,
+        matchUser,
+        setMatchUser,
         signup,
         login,
         logout,

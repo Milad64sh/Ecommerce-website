@@ -1,8 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import ProductContext from '../../context';
 import { Link } from 'react-router-dom';
-import { RxPerson } from 'react-icons/rx';
-import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { navItems } from '../../NavItems';
 import WomenDropdown from './WomenDropdown';
 import MenDropdown from './MenDropdown';
@@ -10,6 +8,8 @@ import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
 } from 'react-icons/md';
+import { PiShoppingBagThin } from 'react-icons/pi';
+import { FiUser } from 'react-icons/fi';
 import UserAuthContext from '../../userAuthcontext';
 function LoggedinNavbar() {
   const { bag } = useContext(ProductContext);
@@ -18,7 +18,7 @@ function LoggedinNavbar() {
   const [openMenu, setOpenMenu] = useState(false);
 
   // FETCH AND COMPARE USERS
-  const { user, usersFromFirestore, logout } = useContext(UserAuthContext);
+  const { matchUser, logout } = useContext(UserAuthContext);
   const handleLogout = async () => {
     try {
       await logout();
@@ -27,12 +27,10 @@ function LoggedinNavbar() {
     }
   };
 
-  const toggleMenu = () => setOpenMenu(!openMenu);
-
-  const matchUser = usersFromFirestore.find(
-    (userData) => userData.emailValue === user.email
-  );
-  console.log(matchUser);
+  const toggleMenu = () => {
+    setOpenMenu(!openMenu);
+  };
+  console.log('matched user in navbar:', matchUser);
 
   return (
     <>
@@ -86,6 +84,7 @@ function LoggedinNavbar() {
                   </li>
                 );
               }
+
               return (
                 <li key={item.id} className='lst--itm'>
                   <Link to={item.path}>{item.title}</Link>
@@ -99,22 +98,23 @@ function LoggedinNavbar() {
           {matchUser ? (
             <div className='nav__usr__name'>
               <p className='nav__usr__name--p'>Hi {matchUser.firstNameValue}</p>
-              <button className='nav__usr__name--logout' onClick={handleLogout}>
-                Logout
-              </button>
             </div>
           ) : (
             <div className='nav__usr__icnBx'>
               <Link to={'/auth'} className='nav__usr--icn'>
-                <RxPerson />
+                <FiUser />
               </Link>
             </div>
           )}
           <div className='nav__usr__icnBx'>
             <Link to={'/bag'} className='nav__usr--icn'>
-              <HiOutlineShoppingBag />
+              <PiShoppingBagThin />
             </Link>
-            <span className='nav__usr--ntf'>{bag.length}</span>
+            {bag.length > 0 ? (
+              <span className='nav__usr--ntf'>{bag.length}</span>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </nav>

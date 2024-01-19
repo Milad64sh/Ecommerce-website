@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import ProductContext from '../../context';
 import { Link } from 'react-router-dom';
-import { RxPerson } from 'react-icons/rx';
-import { HiOutlineShoppingBag } from 'react-icons/hi';
+import { PiShoppingBagThin } from 'react-icons/pi';
+import { PiUserThin } from 'react-icons/pi';
 import { navItems } from '../../NavItems';
 import WomenDropdown from './WomenDropdown';
 import MenDropdown from './MenDropdown';
@@ -18,7 +18,7 @@ function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
 
   // FETCH AND COMPARE USERS
-  const { user, usersFromFirestore, logout } = useContext(UserAuthContext);
+  const { user, logout, matchUser } = useContext(UserAuthContext);
   const handleLogout = async () => {
     try {
       await logout();
@@ -81,6 +81,26 @@ function Navbar() {
                   </li>
                 );
               }
+              if (item.title.toLowerCase() === 'logout' && user) {
+                return (
+                  <div key={item.id} className='lst--itm'>
+                    <p className='nav__usr__name--p'>
+                      Hi {matchUser.firstNameValue}
+                    </p>
+                    <button
+                      className='nav__usr__name--logout'
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                );
+              } else {
+              }
+
+              // Check if the item is 'sign in' and matchUser is false
+              if (item.title.toLowerCase() === 'sign in' && !user) {
+              }
               return (
                 <li key={item.id} className='lst--itm'>
                   <Link to={item.path}>{item.title}</Link>
@@ -92,14 +112,18 @@ function Navbar() {
         <div className='nav__usr'>
           <div className='nav__usr__icnBx'>
             <Link to={'/auth'} className='nav__usr--icn'>
-              <RxPerson />
+              <PiUserThin />
             </Link>
           </div>
           <div className='nav__usr__icnBx'>
             <Link to={'/bag'} className='nav__usr--icn'>
-              <HiOutlineShoppingBag />
+              <PiShoppingBagThin />
             </Link>
-            <span className='nav__usr--ntf'>{bag.length}</span>
+            {bag.length > 0 ? (
+              <span className='nav__usr--ntf'>{bag.length}</span>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </nav>
