@@ -1,26 +1,19 @@
 import { useContext, useRef, useState } from 'react';
 import ProductContext from '../context';
-
-import { Link } from 'react-router-dom';
 import SearchPage from './SearchPage';
 import Navbar from '../components/navbar/Navbar';
 import Slide from '../components/cart/Slide';
 import BestSeller from '../components/BestSeller';
 import Sale from '../components/Sale';
 import Footer from '../components/Footer';
-import { CiSearch } from 'react-icons/ci';
+
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
+import Hero from '../components/Hero';
 
 function Home() {
-  const {
-    giftProducts,
-    saleProducts,
-    products,
-    currInx,
-    setSearchResults,
-    searchResults,
-  } = useContext(ProductContext);
+  const { giftProducts, saleProducts, currInx, searchResults } =
+    useContext(ProductContext);
 
   // SCROLL HORIZONTAL
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -47,48 +40,11 @@ function Home() {
 
   // HANDLE SUBMIT
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-  const handleSearchChange = (e) => {
-    if (!e.target.value) return setSearchResults(products);
-    const resultsArray = products.filter(
-      (product) =>
-        product.title.includes(e.target.value) ||
-        product.company.includes(e.target.value) ||
-        product.productType.includes(e.target.value)
-    );
-    console.log(resultsArray);
-    console.log(searchResults);
-    setSearchResults(resultsArray);
-  };
-
   return (
     <>
       <Navbar />
       <div className='home'>
-        <div className='hro'>
-          <h1 className='hro--hdng'>
-            ready for <span className='hro--hdng--span'>50%</span>off?
-          </h1>
-          <Link to={'/products'} className='hro--btn'>
-            all products
-          </Link>
-          <div className='search'>
-            <form className='search__frm' onSubmit={handleSubmit}>
-              <input
-                type='text'
-                className='search__frm--ipt'
-                placeholder='Search products'
-                id='search'
-                onChange={handleSearchChange}
-              />
-              <span className='search__frm--icn'>
-                <CiSearch />
-              </span>
-            </form>
-          </div>
-        </div>
+        <Hero />
       </div>
       <main>
         {searchResults.length > 0 ? (
@@ -97,11 +53,8 @@ function Home() {
           <>
             {/* GIFT SECTION */}
             <section className='sctn'>
-              <div className='hdng'>
-                <h2 className='allp-h2 hdng-2'>our gifting favorites</h2>
-                <h3 className='allp-h3 hdng-3'>
-                  Give the gift of smoothing, hydrating, and glow-giving faves
-                </h3>
+              <div className='gft hdng'>
+                <h2 className='hdng-2'>favorite gifts</h2>
               </div>
               <div className='gift'>
                 <div
@@ -147,8 +100,7 @@ function Home() {
             </section>
             <section className='sctn'>
               <div className='sle hdng'>
-                <h2 className=' hdng-2'>sale</h2>
-                <h3 className='hdng-3'>check our exclusive offers</h3>
+                <h2 className='hdng-2'>sale</h2>
               </div>
               <div className='sctn-sale'>
                 {saleProducts.map((product, index) => {

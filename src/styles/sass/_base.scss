@@ -2,17 +2,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Work+Sans:wght@700&display=swap');
 
 :root {
-  --clr-prm: #7bafaa;
-  --clr-prm-thm: #ed8dcd;
-  --clr-prm-thm-1: #f5ea77;
+  --clr-prm: rgb(123, 175, 170);
+  --clr-prm-thm: rgb(237, 141, 205);
+  --clr-prm-thm-1: rgb(245, 234, 119);
   --clr-prm-thm-2: #ffe7cd;
 
   --clr-prm-lgt-1: #ecf2e7;
-  --clr-prm-lgt-2: #e4efe1;
-  --clr-prm-dr-1: #65a3a2;
+  --clr-prm-lgt-2: rgb(228, 239, 225);
+  --clr-prm-dr-1: rgb(101, 163, 162);
+
+  // --color-bg1: rgb(108, 0, 162);
+  --color-bg1: rgb(228, 239, 225);
+  // --color-bg2: rgb(0, 17, 82);
+  --color-bg2: rgb(101, 163, 162);
+
+  --clr-g1: 202, 225, 215;
+  --clr-g2: 101, 163, 162;
+  --clr-g3: 245, 234, 119;
+  --clr-g4: 237, 141, 205;
+  --clr-g5: 123, 175, 170;
 
   --clr-footer-logo: #c4a173;
   --clr-logo: #000;
+  --color-interactive: 140, 100, 255;
+  --circle-size: 80%;
+  --blending: hard-light;
 }
 * {
   margin: 0;
@@ -147,7 +161,7 @@ body {
   0% {
     opacity: 0;
     transform: translateX(20rem);
-    letter-spacing: -2rem;
+    letter-spacing: -1rem;
   }
   100% {
     opacity: 1;
@@ -161,5 +175,42 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+// BACKGROUND MOTION ANIMATION
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
   }
 }
