@@ -68,10 +68,12 @@
   }
 }
 
-.sctn-bst-sllr {
-  width: 100%;
+.sctn-groups {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 1660px;
   height: 100%;
-  background-image: linear-gradient(rgba(#7bafaa, 0.9), rgba(#ed8dcd, 0.9));
 }
 .sctn-sale {
   display: flex;

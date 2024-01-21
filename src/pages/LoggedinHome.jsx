@@ -2,15 +2,14 @@ import { useContext, useRef, useState } from 'react';
 import ProductContext from '../context';
 import { Link } from 'react-router-dom';
 import SearchPage from './SearchPage';
-import Navbar from '../components/navbar/Navbar';
 import Slide from '../components/cart/Slide';
-import BestSeller from '../components/BestSeller';
 import Sale from '../components/Sale';
 import Footer from '../components/Footer';
 import { CiSearch } from 'react-icons/ci';
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import LoggedinNavbar from '../components/navbar/LoggedinNavbar';
+import Beauty from '../components/Beauty';
 function LoggedinHome() {
   const {
     giftProducts,
@@ -140,7 +139,7 @@ function LoggedinHome() {
             {/* BEST SELLER */}
             <section className='sctn'>
               <div className='sctn-bst-sllr'>
-                <BestSeller />
+                <Beauty />
               </div>
             </section>
             <section className='sctn'>

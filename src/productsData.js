@@ -31,6 +31,7 @@ export const productsData = [
     female: true,
     domestic: true,
     rating: 5,
+    group: 'beauty',
   },
   {
     id: 2,
@@ -54,6 +55,7 @@ export const productsData = [
     female: true,
     domestic: true,
     rating: 4,
+    group: 'beauty',
   },
   {
     id: 3,
@@ -77,6 +79,7 @@ export const productsData = [
     female: true,
     domestic: false,
     rating: 3,
+    group: 'beauty',
   },
   {
     id: 4,
@@ -99,6 +102,7 @@ export const productsData = [
     female: true,
     domestic: false,
     rating: 5,
+    group: 'beauty',
   },
   {
     id: 5,
@@ -122,6 +126,7 @@ export const productsData = [
     female: true,
     domestic: true,
     rating: 4,
+    group: 'beauty',
   },
   {
     id: 6,
@@ -145,6 +150,7 @@ export const productsData = [
     female: true,
     domestic: true,
     rating: 5,
+    group: 'beauty',
   },
 
   {
@@ -168,6 +174,7 @@ export const productsData = [
     female: true,
     domestic: false,
     rating: 5,
+    group: 'beauty',
   },
   {
     id: 8,
@@ -191,6 +198,7 @@ export const productsData = [
     female: true,
     domestic: true,
     rating: 4,
+    group: 'beauty',
   },
   {
     id: 9,
@@ -214,6 +222,7 @@ export const productsData = [
     female: true,
     domestic: false,
     rating: 3,
+    group: 'beauty',
   },
   {
     id: 10,
@@ -237,5 +246,6 @@ export const productsData = [
     female: true,
     domestic: true,
     rating: 5,
+    group: 'beauty',
   },
 ];
