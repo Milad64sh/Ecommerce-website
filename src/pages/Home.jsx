@@ -1,4 +1,4 @@
-import { useContext, useRef, useState, useReducer } from 'react';
+import { useContext, useRef, useReducer } from 'react';
 import ProductContext from '../context';
 import SearchPage from './SearchPage';
 import Navbar from '../components/navbar/Navbar';
@@ -12,6 +12,26 @@ import { IoIosArrowDroprightCircle } from 'react-icons/io';
 import Hero from '../components/Hero';
 import Fashion from '../components/Fashion';
 
+const scrollReducer = (state, action) => {
+  const totalItemsWidth = action.totalItemsWidth;
+  const maxScrollPosition = Math.max(0, totalItemsWidth);
+  switch (action.type) {
+    case 'SCROLL':
+      const newScrollPosition = Math.max(
+        0,
+        Math.min(state + action.payload, maxScrollPosition)
+      );
+      const reachedEnd = newScrollPosition === maxScrollPosition;
+
+      if (!reachedEnd) {
+        action.scrollRef.current.scrollLeft = newScrollPosition;
+      }
+      return newScrollPosition;
+    default:
+      return state;
+  }
+};
+
 function Home() {
   const { giftProducts, saleProducts, currInx, searchResults } =
     useContext(ProductContext);
@@ -22,31 +42,10 @@ function Home() {
   const ITEM_WIDTH = 260;
   const GROUP_WIDTH = 370;
   const SALE_WIDTH = 368;
-  const GROUP_GAP = 10;
   const slideRef = useRef();
   const groupsRef = useRef();
   const saleRef = useRef();
 
-  const scrollReducer = (state, action) => {
-    const totalItemsWidth = action.totalItemsWidth;
-    const maxScrollPosition = Math.max(0, totalItemsWidth);
-    switch (action.type) {
-      case 'SCROLL':
-        const newScrollPosition = Math.max(
-          0,
-          Math.min(state + action.payload, maxScrollPosition)
-        );
-        const reachedEnd = newScrollPosition === maxScrollPosition;
-
-        if (!reachedEnd) {
-          action.scrollRef.current.scrollLeft = newScrollPosition;
-          console.log(newScrollPosition);
-        }
-        return newScrollPosition;
-      default:
-        return state;
-    }
-  };
   const [scrollPosition, dispatchScroll] = useReducer(scrollReducer, 0);
   // Initial state for scrolling groups
   const [groupScrollPosition, dispatchGroupScroll] = useReducer(
@@ -63,21 +62,27 @@ function Home() {
     });
     console.log(scrollPosition);
   };
-
   const handleScrollGroups = (scrollAmount) => {
+    // const slideContainer = groupsRef.current;
+    // const totalItemsWidth = Array.from(slideContainer.children).reduce(
+    //   (totalWidth, child) => totalWidth + child.getBoundingClientRect().width,
+    //   0
+    // );
     dispatchGroupScroll({
       type: 'SCROLL',
       payload: scrollAmount,
-      totalItemsWidth: GROUP_WIDTH * 2 + GROUP_GAP,
+      totalItemsWidth: GROUP_WIDTH * 2,
       scrollRef: groupsRef,
     });
-    console.log('clicked', groupScrollPosition);
+    console.log('totalItemsWidth', GROUP_WIDTH * 2);
+    console.log(groupScrollPosition);
   };
+
   const handleScrollSale = (scrollAmount) => {
     dispatchSaleScroll({
       type: 'SCROLL',
       payload: scrollAmount,
-      totalItemsWidth: SALE_WIDTH * 2 + GROUP_GAP,
+      totalItemsWidth: saleProducts.length * SALE_WIDTH,
       scrollRef: saleRef,
     });
     console.log('clicked', saleScrollPosition);
@@ -217,33 +222,36 @@ function Home() {
                 <h2 className='hdng-2'>sale</h2>
               </div>
               <div className='sctn-sale'>
-                <div
-                  ref={groupsRef}
-                  style={{
-                    width: '1100px',
-                    overflowX: 'scroll',
-                    scrollBehavior: 'smooth',
-                  }}
-                >
-                  <div className='sctn-sale__slide'></div>
-                  {saleProducts.map((product, index) => {
-                    return <Sale key={index} product={product} />;
-                  })}
+                <div className='sale'>
+                  <div
+                    ref={saleRef}
+                    style={{
+                      width: '1100px',
+                      overflowX: 'scroll',
+                      scrollBehavior: 'smooth',
+                    }}
+                  >
+                    <div className='sale__slide'>
+                      {saleProducts.map((product, index) => {
+                        return <Sale key={index} product={product} />;
+                      })}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className='sctn-sale__arrows'>
-                <IoIosArrowDropleftCircle
-                  onClick={() => {
-                    handleScrollSale(-GROUP_WIDTH);
-                  }}
-                  className='sctn-sale__arrows--arrow'
-                />
-                <IoIosArrowDroprightCircle
-                  onClick={() => {
-                    handleScrollSale(GROUP_WIDTH);
-                  }}
-                  className='sctn-sale__arrows--arrow'
-                />
+                <div className='sale__arrows'>
+                  <IoIosArrowDropleftCircle
+                    onClick={() => {
+                      handleScrollSale(-SALE_WIDTH);
+                    }}
+                    className='sale__arrows--arrow'
+                  />
+                  <IoIosArrowDroprightCircle
+                    onClick={() => {
+                      handleScrollSale(SALE_WIDTH);
+                    }}
+                    className='sale__arrows--arrow'
+                  />
+                </div>
               </div>
             </section>
           </>
