@@ -586,7 +586,6 @@
     }
   }
 }
-// SALE SECTION
 
 .arrow {
   cursor: pointer;
@@ -731,11 +730,11 @@
   height: 250px;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  background-image: url('../../assets/jpg/prdt-img/skin.jpg');
+  background-image: url('../../assets/jpg/prdt-img/beauty.jpg');
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover !important;
   border-radius: 10px 10px 13px 13px;
 
   @include respond(sm) {
@@ -904,92 +903,189 @@
 }
 
 // SALE SECTION
-
 .sale {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 43%;
-  border-radius: 4px;
-  margin: 2rem 0;
-  &--hdngs {
+  @include respond(sm) {
+    margin-top: 10%;
+    width: 100vw;
+    white-space: nowrap;
+  }
+  &__slide {
+    transition: all 0.4s ease-in-out;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    h2 {
-      font-size: 2rem;
-      border-bottom: 1px solid var(--clr-prm-dr-1);
-      color: var(--clr-prm-dr-1);
-      margin-bottom: 1rem;
-      font-weight: 100;
-      margin-right: auto;
-    }
-    h3 {
-      text-align: start;
-      font-size: 1.5rem;
-      font-weight: 100;
-      margin-bottom: 1.5rem;
+    flex-direction: row;
+    @include respond(sm) {
+      flex-direction: row;
+      background-color: --clr-prm-dr-1;
+      justify-content: start;
+      align-items: start;
+      width: 1660px;
+      margin-left: 31%;
     }
   }
-  &--lnk {
-    text-decoration: none;
-    color: inherit;
-    width: auto;
-    transition: all 0.3s ease-in-out;
-    margin-right: auto;
-    cursor: pointer;
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-  &--img {
-    margin-bottom: 2rem;
-    width: 15rem;
-    height: 15rem;
+  &__arrows {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width: 105vw;
+    justify-content: space-between;
+    top: 50%;
 
-    img {
-      width: 100%;
-      height: 100%;
+    &--arrow {
+      font-size: 4.5rem;
+      color: lighten(#000, 50%);
+      cursor: pointer;
+      z-index: 10000;
     }
   }
-  &__cnt {
+  &--swpr {
+    display: block;
+    width: 100%;
+    &--sld {
+      display: flex;
+      flex-direction: row;
+      @include respond(sm) {
+        width: 70%;
+      }
+      @include respond(md) {
+        width: 70%;
+      }
+      @include respond(lg) {
+        width: 100%;
+      }
+    }
+  }
+}
+.saleItem {
+  background-color: red;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  background-color: transparent;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 1px solid lighten(#000, 70%);
+  border-radius: 10px;
+  margin: 5px 5px;
+  width: 20rem;
+  height: 32rem;
+  scroll-snap-align: center;
+  transition: all 0.3s ease;
+
+  &__btn {
+    margin-top: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
+    &--img {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      margin-top: 15px;
+      height: 70%;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease-in-out;
+      @include respond(sm) {
+        margin-top: 28%;
+        height: 55%;
+      }
+    }
+    &--d {
+      cursor: pointer;
+      position: absolute;
+      z-index: 1000;
+      top: 40%;
+      border: none;
+      padding: 1rem 2rem;
+      background-color: rgba(#ed8dcd, 0.8);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1.5rem;
+      color: #fff;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      transition: all 0.1s;
+      &:hover {
+        z-index: 1500;
+        background-color: var(--clr-prm-thm);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &--dtls {
+    position: absolute;
+    display: flex;
+    bottom: 5px;
+    width: 100%;
     flex-direction: column;
-    padding: 0 5px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fff;
+    background-color: transparent;
+    border-top: 1px solid lighten(#000, 70%);
+    top: 60%;
+    &--h4 {
+      font-size: 2rem;
+      color: #000;
+      text-transform: capitalize;
+      padding-bottom: 0.5rem;
+      font-weight: 100;
+      width: 90%;
+      text-align: start;
+    }
+    &--info {
+      width: 90%;
+      overflow: hidden;
+      white-space: normal;
+      text-align: start;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
     &--h3 {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      font-size: 2rem;
+      font-weight: 100;
       font-size: 1.5rem;
       text-transform: capitalize;
-      padding-bottom: 1.5rem;
-      margin-right: auto;
       &--sp {
         font-size: 2rem;
       }
-    }
-    &--prc {
-      text-decoration: none;
-      font-size: 1.5rem;
-      margin-left: 5px;
-    }
-    &--prc-crossed {
-      margin-right: auto;
-      text-decoration: line-through;
-      color: #777;
-      font-size: 1.5rem;
-    }
-    &--prc-show {
-      margin-left: 2rem;
-      font-size: 1.5rem;
-      visibility: visible;
-      font-weight: bold;
-    }
-    &--prc-notShow {
-      margin-left: 2rem;
-      font-size: 1.5rem;
-      visibility: hidden;
+
+      &--prc {
+        text-decoration: none;
+        font-size: 1.5rem;
+        margin-left: 5px;
+        font-weight: bold;
+      }
+      &--prc-crossed {
+        margin-right: auto;
+        text-decoration: line-through;
+        color: #777;
+        font-size: 1.5rem;
+      }
+      &--prc-show {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+        visibility: visible;
+        font-weight: bold;
+      }
+      &--prc-notShow {
+        margin-left: 2rem;
+        font-size: 1.5rem;
+        visibility: hidden;
+        display: none;
+      }
     }
   }
 }

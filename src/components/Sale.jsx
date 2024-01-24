@@ -4,38 +4,37 @@ function Sale(props) {
   const { img, title, quickInfo, id, sale, price, discountPrice } =
     props.product;
   return (
-    <div className='sale'>
-      <Link to={`/detail/${id}`} className='sale--lnk'>
-        <div className='sale--img'>
+    <div className='saleItem'>
+      <Link to={'/detail'} className='saleItem__btn'>
+        <div className='saleItem__btn--img'>
           <img src={img} alt='product' />
         </div>
       </Link>
-      <div className='sale__cnt'>
-        <div className='sale--hdngs'>
-          <h2 className='sale--hdngs h2'>{title}</h2>
-          <h3 className='sale--hdngs h3'>{quickInfo}</h3>
-          <h3 className='sale__cnt--h3'>
-            price:&nbsp; &nbsp;
-            <span
-              className={sale ? 'sale__cnt--prc-crossed' : 'sale__cnt--prc'}
-            >
-              ${price}
-            </span>
-            <span
-              className={
-                sale ? 'sale__cnt--prc-show' : 'sale__cnt--prc-notShow'
-              }
-            >
-              ${discountPrice}
-            </span>
-          </h3>
-        </div>
+      <div className='saleItem--dtls'>
+        <h3 className='saleItem--dtls--h4'>{title}</h3>
+        <p className='saleItem--dtls--info'>{quickInfo}</p>
+        <h3 className='saleItem--dtls--h3'>
+          price:&nbsp; &nbsp;
+          <span
+            className={
+              sale
+                ? 'saleItem--dtls--h3--prc-crossed'
+                : 'saleItem--dtls--h3--prc'
+            }
+          >
+            ${price}
+          </span>
+          <span
+            className={
+              sale
+                ? 'saleItem--dtls--h3--prc-show'
+                : 'saleItem--dtls--h3--prc-notShow'
+            }
+          >
+            ${discountPrice}
+          </span>
+        </h3>
       </div>
-
-      {/* <div className='sale--btns'>
-        <span className='bf'></span>
-        <button className='sale-btn btn'>add to bag</button>
-      </div> */}
     </div>
   );
 }

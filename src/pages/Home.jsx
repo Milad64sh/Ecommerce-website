@@ -9,6 +9,8 @@ import Footer from '../components/Footer';
 
 import { IoIosArrowDropleftCircle } from 'react-icons/io';
 import { IoIosArrowDroprightCircle } from 'react-icons/io';
+import { PiArrowSquareRightThin } from 'react-icons/pi';
+import { PiArrowSquareLeftThin } from 'react-icons/pi';
 import Hero from '../components/Hero';
 import Fashion from '../components/Fashion';
 
@@ -37,11 +39,10 @@ function Home() {
     useContext(ProductContext);
 
   // SCROLL HORIZONTAL
-  // const [scrollPosition, setScrollPosition] = useState(0);
-  // const [groupScrollPosition, setGroupScrollPosition] = useState(0);
+
   const ITEM_WIDTH = 260;
   const GROUP_WIDTH = 370;
-  const SALE_WIDTH = 368;
+  const SALE_WIDTH = 420;
   const slideRef = useRef();
   const groupsRef = useRef();
   const saleRef = useRef();
@@ -82,47 +83,6 @@ function Home() {
     });
     console.log('clicked', saleScrollPosition);
   };
-
-  // const handleScroll = (scrollAmount) => {
-  //   const totalItemsWidth = giftProducts.length * ITEM_WIDTH;
-  //   const maxScrollPosition = Math.max(0, totalItemsWidth);
-  //   setScrollPosition((prevScrollPosition) => {
-  //     const newScrollPosition = Math.max(
-  //       0,
-  //       Math.min(prevScrollPosition + scrollAmount, maxScrollPosition)
-  //     );
-  //     const reachedEnd = newScrollPosition === maxScrollPosition;
-  //     if (!reachedEnd) {
-  //       slideRef.current.scrollLeft = newScrollPosition;
-  //       console.log(newScrollPosition);
-  //       console.log(scrollPosition);
-  //     }
-
-  //     return newScrollPosition;
-  //   });
-  // };
-
-  // const handleScrollGroups = (scrollAmount) => {
-  //   const totalItemsWidth = GROUP_WIDTH * 2 + GROUP_GAP;
-  //   const maxScrollPosition = Math.max(0, totalItemsWidth);
-  //   setGroupScrollPosition((prevScrollPosition) => {
-  //     const newScrollPosition = Math.max(
-  //       0,
-  //       Math.min(prevScrollPosition + scrollAmount, maxScrollPosition)
-  //     );
-  //     const reachedEnd = newScrollPosition === maxScrollPosition;
-  //     if (!reachedEnd) {
-  //       groupsRef.current.scrollLeft = newScrollPosition;
-  //       console.log(newScrollPosition);
-  //       console.log(groupScrollPosition);
-  //       console.log('clicked');
-  //     }
-
-  //     return newScrollPosition;
-  //   });
-  // };
-
-  // HANDLE SUBMIT
 
   return (
     <>
@@ -216,37 +176,35 @@ function Home() {
               <div className='sle hdng'>
                 <h2 className='hdng-2'>sale</h2>
               </div>
-              <div className='sctn-sale'>
-                <div className='sale'>
-                  <div
-                    ref={saleRef}
-                    style={{
-                      width: '1100px',
-                      overflowX: 'scroll',
-                      scrollBehavior: 'smooth',
-                    }}
-                  >
-                    <div className='sale__slide'>
-                      {saleProducts.map((product, index) => {
-                        return <Sale key={index} product={product} />;
-                      })}
-                    </div>
+              <div className='sale'>
+                <div
+                  ref={saleRef}
+                  style={{
+                    width: '1100px',
+                    overflowX: 'scroll',
+                    scrollBehavior: 'smooth',
+                  }}
+                >
+                  <div className='sale__slide'>
+                    {saleProducts.map((product, index) => {
+                      return <Sale key={index} product={product} />;
+                    })}
                   </div>
                 </div>
-                <div className='sale__arrows'>
-                  <IoIosArrowDropleftCircle
-                    onClick={() => {
-                      handleScrollSale(-SALE_WIDTH);
-                    }}
-                    className='sale__arrows--arrow'
-                  />
-                  <IoIosArrowDroprightCircle
-                    onClick={() => {
-                      handleScrollSale(SALE_WIDTH);
-                    }}
-                    className='sale__arrows--arrow'
-                  />
-                </div>
+              </div>
+              <div className='sale__arrows'>
+                <PiArrowSquareLeftThin
+                  onClick={() => {
+                    handleScrollSale(-SALE_WIDTH);
+                  }}
+                  className='sale__arrows--arrow'
+                />
+                <PiArrowSquareRightThin
+                  onClick={() => {
+                    handleScrollSale(SALE_WIDTH);
+                  }}
+                  className='sale__arrows--arrow'
+                />
               </div>
             </section>
           </>

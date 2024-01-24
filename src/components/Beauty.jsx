@@ -6,7 +6,7 @@ function Beauty() {
     <div className='beauty'>
       <div className='beauty--cnt'>
         <div className='beauty--cnt--hdng-2'>beauty</div>
-        <Link to={'/'}>
+        <Link to={'/'} className='beauty--cnt--link'>
           <button className='beauty--cnt--btn'>beauty</button>
         </Link>
       </div>

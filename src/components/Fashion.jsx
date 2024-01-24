@@ -6,7 +6,7 @@ function Fashion() {
     <div className='fashion'>
       <div className='fashion--cnt'>
         <div className='fashion--cnt--hdng-2'>Style</div>
-        <Link to={'/'}>
+        <Link to={'/'} className='fashion--cnt--link'>
           <button className='fashion--cnt--btn'>style</button>
         </Link>
       </div>
