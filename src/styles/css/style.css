@@ -974,7 +974,6 @@ body {
   margin-bottom: 2rem;
   background-image: url("../../assets/jpg/prdt-img/beauty.jpg");
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
   border-radius: 10px 10px 13px 13px;
   -webkit-background-size: cover;
@@ -1010,6 +1009,9 @@ body {
   align-items: center;
   width: 100%;
 }
+.beauty--cnt--link {
+  color: #000;
+}
 .beauty--cnt--btn {
   position: absolute;
   width: 100%;
@@ -1026,6 +1028,7 @@ body {
   font-size: 1.5rem;
   font-weight: 100;
   z-index: 3;
+  text-decoration: none;
   cursor: pointer;
 }
 .beauty--cnt--hdng-2 {
@@ -1055,9 +1058,8 @@ body {
   margin-bottom: 2rem;
   background-image: url("../../assets/jpg/prdt-img/fashion.jpg");
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   border-radius: 10px 10px 13px 13px;
   -webkit-background-size: cover !important;
   -webkit-background-size: cover;
@@ -1092,6 +1094,9 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+.fashion--cnt--link {
+  color: #000;
 }
 .fashion--cnt--btn {
   position: absolute;
