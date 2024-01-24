@@ -63,11 +63,6 @@ function Home() {
     console.log(scrollPosition);
   };
   const handleScrollGroups = (scrollAmount) => {
-    // const slideContainer = groupsRef.current;
-    // const totalItemsWidth = Array.from(slideContainer.children).reduce(
-    //   (totalWidth, child) => totalWidth + child.getBoundingClientRect().width,
-    //   0
-    // );
     dispatchGroupScroll({
       type: 'SCROLL',
       payload: scrollAmount,

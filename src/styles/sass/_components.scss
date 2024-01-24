@@ -732,8 +732,7 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   background-image: url('../../assets/jpg/prdt-img/skin.jpg');
-  background-color: rgba(#65a3a2, 0.8);
-  background-position: top;
+  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -801,12 +800,12 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   background-image: url('../../assets/jpg/prdt-img/fashion.jpg');
-  background-color: rgba(#65a3a2, 0.8);
-  background-position: top;
+  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px 10px 13px 13px;
+  -webkit-background-size: cover !important;
 
   @include respond(sm) {
   }
