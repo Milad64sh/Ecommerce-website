@@ -734,8 +734,11 @@
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover !important;
   border-radius: 10px 10px 13px 13px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
   @include respond(sm) {
   }
@@ -805,6 +808,10 @@
   background-size: cover;
   border-radius: 10px 10px 13px 13px;
   -webkit-background-size: cover !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
   @include respond(sm) {
   }

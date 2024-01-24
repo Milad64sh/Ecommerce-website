@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 function Beauty() {
   return (
     <div className='beauty'>
+      <div className='beauty__bgi'></div>
       <div className='beauty--cnt'>
         <div className='beauty--cnt--hdng-2'>beauty</div>
         <Link to={'/'} className='beauty--cnt--link'>

@@ -976,8 +976,11 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover !important;
   border-radius: 10px 10px 13px 13px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .beauty * {
   transition: all 0.7s ease-in-out;
@@ -1057,6 +1060,10 @@ body {
   background-size: cover;
   border-radius: 10px 10px 13px 13px;
   -webkit-background-size: cover !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .fashion * {
   transition: all 0.7s ease-in-out;
