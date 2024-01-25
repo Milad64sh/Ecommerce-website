@@ -138,6 +138,9 @@ function Home() {
             </section>
             {/* GROUPS */}
             <section className='sctn'>
+              <div className='sle hdng'>
+                <h2 className='hdng-2'>fashion & beauty</h2>
+              </div>
               <div className='sctn-groups'>
                 <div className='groups'>
                   <div

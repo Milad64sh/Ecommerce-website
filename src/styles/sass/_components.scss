@@ -551,7 +551,7 @@
       justify-content: start;
       align-items: start;
       width: 1660px;
-      margin-left: 33%;
+      margin-left: 29.5%;
     }
   }
   &__arrows {
@@ -709,9 +709,10 @@
       }
     }
     &--btn {
-      background-color: #000;
+      background-color: lighten(#000, 10%);
       color: #fff;
       border: none;
+      border-radius: 0px 0px 10px 10px;
       margin-bottom: 0;
       width: 100%;
     }
@@ -758,25 +759,27 @@
     width: 100%;
     &--link {
       color: #000;
-    }
-    &--btn {
-      position: absolute;
-      width: 100%;
-      padding: 2rem;
-      left: 0;
-      margin-top: 18%;
-      background-color: #fff;
-      border: 1px solid lighten(#000, 90%);
-      border-top: none;
-      border-radius: 0 0 10px 10px;
-      text-align: start;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 1.5rem;
-      font-weight: 100;
-      z-index: 3;
       text-decoration: none;
-      cursor: pointer;
+      &--btn {
+        position: absolute;
+        width: 100%;
+        padding: 2rem;
+        left: 0;
+        margin-top: 18%;
+        background-color: #fff;
+        border: 1px solid lighten(#000, 90%);
+        border-top: none;
+        border-radius: 0 0 10px 10px;
+        text-align: start;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 1.5rem;
+        font-weight: 100;
+        z-index: 3;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+      }
     }
     &--hdng-2 {
       color: #fff;
@@ -834,6 +837,7 @@
     width: 100%;
     &--link {
       color: #000;
+      text-decoration: none;
     }
     &--btn {
       position: absolute;
@@ -852,6 +856,7 @@
       font-weight: 100;
       z-index: 3;
       cursor: pointer;
+      color: #000;
     }
     &--hdng-2 {
       color: #fff;
